@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NanoLifeShop.Models.SystemLogAbstract;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 namespace NanoLifeShop.Models.Entity
 {
     [Table("Products")]
-    public class Product
+    public class Product:AuthenTable
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
