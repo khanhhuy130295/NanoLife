@@ -54,6 +54,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infastructure\DBFactory.cs" />
+    <Compile Include="Infastructure\Disposable.cs" />
+    <Compile Include="Infastructure\IDBFactory.cs" />
+    <Compile Include="Infastructure\IRepository.cs" />
+    <Compile Include="Infastructure\IUnitOfWork.cs" />
+    <Compile Include="Infastructure\RepositoryBase.cs" />
+    <Compile Include="Infastructure\UnitOfWork.cs" />
     <Compile Include="Migrations\201902191638468_CreateDB_V1.cs" />
     <Compile Include="Migrations\201902191638468_CreateDB_V1.Designer.cs">
       <DependentUpon>201902191638468_CreateDB_V1.cs</DependentUpon>
@@ -63,7 +70,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Infastructure\" />
     <Folder Include="Repository\" />
   </ItemGroup>
   <ItemGroup>
