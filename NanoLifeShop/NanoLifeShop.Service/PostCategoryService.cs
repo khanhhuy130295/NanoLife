@@ -25,7 +25,7 @@ namespace NanoLifeShop.Service
 
         IEnumerable<PostCategory> GetMultiPaging(int pageIndex, int pageSize, out int total);
 
-        ProductCategory GetSingleByID(int ID);
+        PostCategory GetSingleByID(int ID);
 
 
         void Save();
@@ -77,6 +77,11 @@ namespace NanoLifeShop.Service
         public IEnumerable<PostCategory> GetParent()
         {
             return _postCategoryRepository.GetMulti(x => x.Status == true);
+        }
+
+        public PostCategory GetSingleByID(int ID)
+        {
+            return _postCategoryRepository.GetSingleById(ID);
         }
 
         public void Save()
