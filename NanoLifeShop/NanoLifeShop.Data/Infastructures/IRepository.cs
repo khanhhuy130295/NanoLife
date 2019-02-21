@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NanoLifeShop.Data.Infastructure
+namespace NanoLifeShop.Data.Infastructures
 {
    public interface IRepository<T> where T : class
     {

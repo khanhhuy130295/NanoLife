@@ -54,13 +54,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Infastructure\DBFactory.cs" />
-    <Compile Include="Infastructure\Disposable.cs" />
-    <Compile Include="Infastructure\IDBFactory.cs" />
-    <Compile Include="Infastructure\IRepository.cs" />
-    <Compile Include="Infastructure\IUnitOfWork.cs" />
-    <Compile Include="Infastructure\RepositoryBase.cs" />
-    <Compile Include="Infastructure\UnitOfWork.cs" />
+    <Compile Include="Infastructures\DBFactory.cs" />
+    <Compile Include="Infastructures\Disposable.cs" />
+    <Compile Include="Infastructures\IDBFactory.cs" />
+    <Compile Include="Infastructures\IRepository.cs" />
+    <Compile Include="Infastructures\IUnitOfWork.cs" />
+    <Compile Include="Infastructures\RepositoryBase.cs" />
+    <Compile Include="Infastructures\UnitOfWork.cs" />
     <Compile Include="Migrations\201902191638468_CreateDB_V1.cs" />
     <Compile Include="Migrations\201902191638468_CreateDB_V1.Designer.cs">
       <DependentUpon>201902191638468_CreateDB_V1.cs</DependentUpon>
@@ -68,10 +68,26 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NanoLifeShopDBContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ErrorRepository.cs" />
+    <Compile Include="Repositories\FooterRepository.cs" />
+    <Compile Include="Repositories\MenuRepository.cs" />
+    <Compile Include="Repositories\MenuGroupRepository.cs" />
+    <Compile Include="Repositories\OrderDetailRepository.cs" />
+    <Compile Include="Repositories\OrderRepository.cs" />
+    <Compile Include="Repositories\PageRepository.cs" />
+    <Compile Include="Repositories\PostCategoryRepository.cs" />
+    <Compile Include="Repositories\PostRepository.cs" />
+    <Compile Include="Repositories\PostTagRepository.cs" />
+    <Compile Include="Repositories\ProductCategoryRepository.cs" />
+    <Compile Include="Repositories\ProductRepository.cs" />
+    <Compile Include="Repositories\ProductTagRepository.cs" />
+    <Compile Include="Repositories\SlideRepository.cs" />
+    <Compile Include="Repositories\SupportOnlineRepository.cs" />
+    <Compile Include="Repositories\SystemConfigRepository.cs" />
+    <Compile Include="Repositories\TagRepository.cs" />
+    <Compile Include="Repositories\VisitorStatisticRepository.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repository\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

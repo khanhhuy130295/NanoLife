@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NanoLifeShop.Models", "Nano
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NanoLifeShop.Data", "NanoLifeShop.Data\NanoLifeShop.Data.csproj", "{0E72CE86-6CC5-4189-A992-5949FF53B1FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NanoLifeShop.Service", "NanoLifeShop.Service\NanoLifeShop.Service.csproj", "{3007AE1B-F098-484C-ABF9-31BB556B6061}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NanoLifeShop.Common", "NanoLifeShop.Common\NanoLifeShop.Common.csproj", "{A996775B-857F-4206-A391-D8E5BC0488F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{0E72CE86-6CC5-4189-A992-5949FF53B1FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E72CE86-6CC5-4189-A992-5949FF53B1FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E72CE86-6CC5-4189-A992-5949FF53B1FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3007AE1B-F098-484C-ABF9-31BB556B6061}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3007AE1B-F098-484C-ABF9-31BB556B6061}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3007AE1B-F098-484C-ABF9-31BB556B6061}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3007AE1B-F098-484C-ABF9-31BB556B6061}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A996775B-857F-4206-A391-D8E5BC0488F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A996775B-857F-4206-A391-D8E5BC0488F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A996775B-857F-4206-A391-D8E5BC0488F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A996775B-857F-4206-A391-D8E5BC0488F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

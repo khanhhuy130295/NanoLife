@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NanoLifeShop.Data.Infastructure
+namespace NanoLifeShop.Data.Infastructures
 {
    public class Disposable:IDisposable
     {

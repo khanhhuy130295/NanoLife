@@ -1,4 +1,4 @@
-﻿namespace NanoLifeShop.Data.Infastructure
+﻿namespace NanoLifeShop.Data.Infastructures
 {
     public class UnitOfWork : IUnitOfWork
     {
