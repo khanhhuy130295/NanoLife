@@ -14,9 +14,9 @@ namespace NanoLifeShop.Models.SystemLogAbstract
 
         string MetaTitle { get; set; }
 
-        string MetaDecriptions { get; set; }
+        string MetaDescriptions { get; set; }
 
-        string MetaKeyWork { get; set; }
+        string MetaKeyWord { get; set; }
 
         bool Status { get; set; }
     }

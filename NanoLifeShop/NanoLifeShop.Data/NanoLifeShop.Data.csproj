@@ -65,6 +65,10 @@
     <Compile Include="Migrations\201902191638468_CreateDB_V1.Designer.cs">
       <DependentUpon>201902191638468_CreateDB_V1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902221021555_DB.cs" />
+    <Compile Include="Migrations\201902221021555_DB.Designer.cs">
+      <DependentUpon>201902221021555_DB.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NanoLifeShopDBContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -101,6 +105,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201902191638468_CreateDB_V1.resx">
       <DependentUpon>201902191638468_CreateDB_V1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902221021555_DB.resx">
+      <DependentUpon>201902221021555_DB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -44,12 +44,12 @@ namespace NanoLifeShop.Web.Infastructure.Core
             }
             catch(DbUpdateException DbUpEx)
             {
-                response = request.CreateResponse(HttpStatusCode.BadRequest, DbUpEx.InnerException);
+                response = request.CreateResponse(HttpStatusCode.BadRequest, DbUpEx.InnerException.Message);
                 LogErrorDB(DbUpEx.InnerException);
             }
             catch(Exception ex)
             {
-                response = request.CreateResponse(HttpStatusCode.BadRequest, ex);
+                response = request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
                 LogErrorDB(ex);
             }
 
@@ -66,14 +66,15 @@ namespace NanoLifeShop.Web.Infastructure.Core
                 error.Message = ex.Message;
                 error.StackTrace = ex.StackTrace;
                 error.CreateDate = DateTime.Now;
+
                 _errorService.Create(error);
                 _errorService.Save();
-
             }
             catch
             {
 
             }
+               
         }
 
 

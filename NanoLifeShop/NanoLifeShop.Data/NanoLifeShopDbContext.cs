@@ -9,7 +9,7 @@ using NanoLifeShop.Models.Entity;
 
 namespace NanoLifeShop.Data
 {
-    public class NanoLifeShopDBContext : IdentityDbContext<ApplicationUser>
+    public class NanoLifeShopDBContext : /*IdentityDbContext<ApplicationUser>*/ DbContext
     {
         public NanoLifeShopDBContext() : base("NanoLifeShopConnectString")
         {
@@ -17,24 +17,24 @@ namespace NanoLifeShop.Data
             this.Configuration.LazyLoadingEnabled = false;
         }
 
-        DbSet<Error> Errors { get; set; }
-        DbSet<Footer> Footers { get; set; }
-        DbSet<Menu> Menus { get; set; }
-        DbSet<MenuGroup> MenuGroups { get; set; }
-        DbSet<Order> Orders { get; set; }
-        DbSet<OrderDetail> OrderDetails { get; set; }
-        DbSet<Page> Pages { get; set; }
-        DbSet<Post> Posts { get; set; }
-        DbSet<PostCategory> PostCategories { get; set; }
-        DbSet<PostTag> PostTags { get; set; }
-        DbSet<Product> Products { get; set; }
-        DbSet<ProductCategory> ProductCategories { get; set; }
-        DbSet<ProductTag> ProductTags { get; set; }
-        DbSet<Slide> Slides { get; set; }
-        DbSet<SupportOnline> SupportOnlines { get; set; }
-        DbSet<SystemConfig> SystemConfigs { get; set; }
-        DbSet<Tag> Tags { get; set; }
-        DbSet<VisitorStatistic> VisitorStatistics { get; set; }
+      public DbSet<Error> Errors { get; set; }
+      public DbSet<Footer> Footers { get; set; }
+      public DbSet<Menu> Menus { get; set; }
+      public DbSet<MenuGroup> MenuGroups { get; set; }
+      public DbSet<Order> Orders { get; set; }
+      public DbSet<OrderDetail> OrderDetails { get; set; }
+      public DbSet<Page> Pages { get; set; }
+      public DbSet<Post> Posts { get; set; }
+      public DbSet<PostCategory> PostCategories { get; set; }
+      public DbSet<PostTag> PostTags { get; set; }
+      public DbSet<Product> Products { get; set; }
+      public DbSet<ProductCategory> ProductCategories { get; set; }
+      public DbSet<ProductTag> ProductTags { get; set; }
+      public DbSet<Slide> Slides { get; set; }
+      public DbSet<SupportOnline> SupportOnlines { get; set; }
+      public DbSet<SystemConfig> SystemConfigs { get; set; }
+      public DbSet<Tag> Tags { get; set; }
+      public DbSet<VisitorStatistic> VisitorStatistics { get; set; }
 
         public static NanoLifeShopDBContext Create()
         {
@@ -44,8 +44,8 @@ namespace NanoLifeShop.Data
         protected override void OnModelCreating(DbModelBuilder builder)
         {
 
-            builder.Entity<IdentityUserRole>().HasKey(x => new { x.RoleId, x.UserId });
-            builder.Entity<IdentityUserLogin>().HasKey(x => x.UserId);
+            //builder.Entity<IdentityUserRole>().HasKey(x => new { x.RoleId, x.UserId });
+            //builder.Entity<IdentityUserLogin>().HasKey(x => x.UserId);
         }
     }
 }
