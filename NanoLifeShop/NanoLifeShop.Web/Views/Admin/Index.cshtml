@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 2 | Blank Page</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="~/Assets/admin/lib/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!--Loading Bar-->
+    <link href="~/Assets/admin/lib/angular-loading-bar/build/loading-bar.min.css" rel="stylesheet" />
+
+    <link href="~/Assets/admin/lib/iCheck/skins/all.css" rel="stylesheet" />
+    <!--Toar-->
+    <link href="~/Assets/admin/lib/toastr/toastr.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/Assets/admin/css/AdminLTE.min.css">
+    <!-- Theme style -->
+    <link href="~/Assets/admin/css/AdminLTE.css" rel="stylesheet" />
+    <link href="~/Assets/admin/css/CustomStyle.css" rel="stylesheet" />
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="/Assets/admin/css/skins/_all-skins.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="hold-transition skin-blue sidebar-mini" ng-app="NanoLife">
+    <!-- Site wrapper -->
+    <div ui-view></div>
+    <!-- jQuery 3.3.1 -->
+    <script src="~/Assets/admin/lib/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.6 -->
+    <script src="~/Assets/admin/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- SlimScroll -->
+    <script src="~/Assets/admin/lib/slimScroll/jquery.slimscroll.min.js"></script>
+    <!-- FastClick -->
+    <script src="~/Assets/admin/lib/fastclick/lib/fastclick.js"></script>
+    <script src="~/Assets/admin/lib/iCheck/icheck.js"></script>
+
+    <!-- AdminLTE App -->
+    <script src="~/Assets/admin/js/app.js"></script>
+
+
+
+
+    <!--Angular Embed-->
+    <script src="~/Assets/admin/lib/angular/angular.js"></script>
+    <script src="~/Assets/admin/lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <!--Toastr-->
+    <script src="~/Assets/admin/lib/toastr/toastr.min.js"></script>
+    <script src="~/Assets/admin/lib/bootbox/bootbox.js"></script>
+    <script src="~/Assets/admin/lib/ngBootbox/dist/ngBootbox.js"></script>
+    <script src="~/Assets/admin/lib/ckeditor/ckeditor.js"></script>
+    <script src="~/Assets/admin/lib/ng-ckeditor/ng-ckeditor.js"></script>
+    <script src="~/Assets/admin/lib/ckfinder/ckfinder.js"></script>
+    <script src="~/App/shared/modules/NanoLife.common.js"></script>
+    <script src="~/App/shared/directives/PagerDirective.js"></script>
+    <script src="~/App/shared/fillter/statusFillter.js"></script>
+    <script src="~/App/shared/services/notificationService.js"></script>
+    <script src="~/App/shared/services/commonService.js"></script>
+    <script src="~/App/shared/services/apiService.js"></script>
+    <script src="~/App/component/PostCategory/PostCategory.module.js"></script>
+    <script src="~/App/app.js"></script>
+
+    <script src="~/App/component/PostCategory/postCateAddController.js"></script>
+    <script src="~/App/component/PostCategory/postCateEditController.js"></script>
+    <script src="~/App/component/PostCategory/postCateListController.js"></script>
+    <script src="~/App/component/home/homeController.js"></script>
+
+    <script>
+        $(function () {
+            $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+                checkboxClass: 'icheckbox_minimal-red',
+                radioClass: 'iradio_minimal-red',
+            });
+        });
+
+    </script>
+
+</body>
+</html>
