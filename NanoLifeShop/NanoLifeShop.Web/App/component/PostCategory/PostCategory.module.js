@@ -19,7 +19,7 @@
 			parent: 'base'
 		}).state({
 			name: 'postCategoryEdit',
-			url: '/postCategoryEdit',
+			url: '/postCategoryEdit/:id',
 			templateUrl: '/App/component/PostCategory/postCateEdit.html',
 			controller: 'postCateEditController',
 			parent: 'base'

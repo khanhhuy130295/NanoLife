@@ -26,26 +26,83 @@ namespace NanoLifeShop.Web.Api
 
         [HttpGet]
         [Route("getall")]
-     
-        public HttpResponseMessage GetList(HttpRequestMessage request)
+
+        public HttpResponseMessage GetList(HttpRequestMessage request, string keyword, int page, int pageSize)
         {
             return CreateResponeBase(request, () =>
              {
                  HttpResponseMessage response = null;
+                 int TotalRow = 0;
 
-                 var listCatedb = _postCategoryService.GetAll();
+                 var listCatedb = _postCategoryService.GetAll(keyword);
 
-                 var responseData = Mapper.Map<IEnumerable<PostCategory>, IEnumerable<PostCategoryViewModel>>(listCatedb);
+                 TotalRow = listCatedb.Count();
+                 var query = listCatedb.OrderByDescending(x => x.CreateDate).Skip(page * pageSize).Take(pageSize);
 
-                 response = request.CreateResponse(HttpStatusCode.OK, responseData);
+                 var responseData = Mapper.Map<IEnumerable<PostCategory>, IEnumerable<PostCategoryViewModel>>(query);
+
+                 var paginationSet = new PaginationSet<PostCategoryViewModel>()
+                 {
+                     TotalCount = TotalRow,
+                     TotalPages = (int)Math.Ceiling((decimal)TotalRow / pageSize),
+                     Items = responseData,
+                     Page = page
+
+                 };
+
+
+
+                 response = request.CreateResponse(HttpStatusCode.OK, paginationSet);
+
 
                  return response;
              });
         }
 
+        [HttpGet]
+        [Route("getdetail/{id:int}")]
+        public HttpResponseMessage GetDetail(HttpRequestMessage request, int id)
+        {
+            return CreateResponeBase(request, () =>
+            {
+                HttpResponseMessage response = null;
+
+                var ItemDetail = _postCategoryService.GetSingleByID(id);
+                if (ItemDetail != null)
+                {
+                    var responseData = Mapper.Map<PostCategory, PostCategoryViewModel>(ItemDetail);
+                    response = request.CreateResponse(HttpStatusCode.OK, responseData);
+                }
+                else
+                {
+                    response = request.CreateResponse(HttpStatusCode.BadRequest, "Không có dữ liệu !");
+                }
+                return response;
+            });
+        }
+
+        [Route("getparent")]
+        [HttpGet]
+        public HttpResponseMessage GetParent(HttpRequestMessage request)
+        {
+            return CreateResponeBase(request, () =>
+            {
+                HttpResponseMessage response = null;
+
+                var listCatedb = _postCategoryService.GetParent();
+
+
+                var responseData = Mapper.Map<IEnumerable<PostCategory>, IEnumerable<PostCategoryViewModel>>(listCatedb);
+
+                response = request.CreateResponse(HttpStatusCode.OK, responseData);
+
+                return response;
+            });
+        }
+
         [Route("create")]
         [HttpPost]
-        public HttpResponseMessage Create(HttpRequestMessage request, PostCategoryViewModel postCate)
+        public HttpResponseMessage Create(HttpRequestMessage request, PostCategoryViewModel postCateVM)
         {
             return CreateResponeBase(request, () =>
              {
@@ -57,7 +114,7 @@ namespace NanoLifeShop.Web.Api
                  else
                  {
                      PostCategory postCateDb = new PostCategory();
-                     postCateDb.UpdatePostCategory(postCate);
+                     postCateDb.UpdatePostCategory(postCateVM);
                      postCateDb.CreateDate = DateTime.Now;
 
                      var NewItem = _postCategoryService.Add(postCateDb);
@@ -142,6 +199,7 @@ namespace NanoLifeShop.Web.Api
                      {
                          _postCategoryService.Delete(item);
                      }
+
                      _postCategoryService.Save();
                      response = request.CreateResponse(HttpStatusCode.OK, listParseJson.Count());
                  }

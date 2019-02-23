@@ -23,6 +23,7 @@ namespace NanoLifeShop.Service
 
         IEnumerable<PostCategory> GetParent();
 
+
         IEnumerable<PostCategory> GetMultiPaging(int pageIndex, int pageSize, out int total);
 
         PostCategory GetSingleByID(int ID);

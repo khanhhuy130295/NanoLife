@@ -1,4 +1,4 @@
 ﻿(function ()
 {
-	angular.module('NanoLife.common', ['ui.router']);
+    angular.module('NanoLife.common', ['ui.router','ngBootbox']);
 })()

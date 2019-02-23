@@ -14,15 +14,18 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!--Loading Bar-->
     <link href="~/Assets/admin/lib/angular-loading-bar/build/loading-bar.min.css" rel="stylesheet" />
+
+    <link href="~/Assets/admin/lib/iCheck/skins/all.css" rel="stylesheet" />
     <!--Toar-->
+    <link href="~/Assets/admin/lib/toastr/toastr.css" rel="stylesheet" />
+
     <link rel="stylesheet" href="/Assets/admin/css/AdminLTE.min.css">
     <!-- Theme style -->
     <link href="~/Assets/admin/css/AdminLTE.css" rel="stylesheet" />
+    <link href="~/Assets/admin/css/CustomStyle.css" rel="stylesheet" />
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="/Assets/admin/css/skins/_all-skins.min.css">
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&amp;subset=vietnamese" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -42,6 +45,8 @@
     <script src="~/Assets/admin/lib/slimScroll/jquery.slimscroll.min.js"></script>
     <!-- FastClick -->
     <script src="~/Assets/admin/lib/fastclick/lib/fastclick.js"></script>
+    <script src="~/Assets/admin/lib/iCheck/icheck.js"></script>
+
     <!-- AdminLTE App -->
     <script src="~/Assets/admin/js/app.js"></script>
 
@@ -57,8 +62,13 @@
     <script src="~/Assets/admin/lib/ngBootbox/dist/ngBootbox.js"></script>
     <script src="~/Assets/admin/lib/ckeditor/ckeditor.js"></script>
     <script src="~/Assets/admin/lib/ng-ckeditor/ng-ckeditor.js"></script>
-
+    <script src="~/Assets/admin/lib/ckfinder/ckfinder.js"></script>
     <script src="~/App/shared/modules/NanoLife.common.js"></script>
+    <script src="~/App/shared/directives/PagerDirective.js"></script>
+    <script src="~/App/shared/fillter/statusFillter.js"></script>
+    <script src="~/App/shared/services/notificationService.js"></script>
+    <script src="~/App/shared/services/commonService.js"></script>
+    <script src="~/App/shared/services/apiService.js"></script>
     <script src="~/App/component/PostCategory/PostCategory.module.js"></script>
     <script src="~/App/app.js"></script>
 
@@ -66,6 +76,16 @@
     <script src="~/App/component/PostCategory/postCateEditController.js"></script>
     <script src="~/App/component/PostCategory/postCateListController.js"></script>
     <script src="~/App/component/home/homeController.js"></script>
+
+    <script>
+        $(function () {
+            $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+                checkboxClass: 'icheckbox_minimal-red',
+                radioClass: 'iradio_minimal-red',
+            });
+        });
+
+    </script>
 
 </body>
 </html>
