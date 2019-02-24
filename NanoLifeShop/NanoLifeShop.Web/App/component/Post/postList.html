@@ -1,0 +1,86 @@
+﻿<section class="content-header">
+    <h1>
+        Tin tức
+        <small>!</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="javascripts:void(0);">Tin tức</a></li>
+        <li class="active">Danh sách tin tức</li>
+    </ol>
+</section>
+
+
+<section class="content">
+
+    <!-- Default box -->
+
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">Danh sách tin tức</h3>
+            <div class="box-tools pull-right">
+                <div class="input-group" style="width: 150px;">
+                    <input type="text" id="txtSearch" class="form-control input-sm pull-right" placeholder="Từ khóa" ng-model="keyword">
+                    <div class="input-group-btn">
+                        <button class="btn btn-sm btn-default" ng-click="searchClick()"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+
+            </div>
+        </div><!-- /.box-header -->
+        <div class="box-body table-responsive no-padding">
+            <table class="table table-hover text-center">
+                <thead>
+
+                    <tr>
+                        <td style="width: 10%"><label><input type="checkbox" class="icheckbox_minimal-red" ng-checked="isSelectedAll" ng-click="SelecteAll()" /></label></td>
+                        <th style="width: 10%">STT</th>
+                        <th style="width: 30%">Tên bản tin</th>
+                        <th style="width: 25%">Ngày tạo</th>
+                        <th style="width: 10%">Trạng thái</th>
+                        <th style="width: 15%">Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in DataPost">
+                        <td><label><input type="checkbox" class="icheckbox_minimal-red" ng-model="item.check"></label></td>
+                        <td>{{item.ID}}</td>
+                        <td>{{item.Name}}</td>
+                        <td>{{item.CreateDate | date:'dd/MM/yyyy'}}</td>
+                        <td>
+                            <span ng-class="{'badge bg-red' : item.Status == false,'badge bg-blue': item.Status == true}">
+                                <i ng-class="{'fa fa-lock': item.Status == false, 'fa fa-unlock-alt': item.Status == true}"></i>
+                                {{item.Status | statusFillter}}
+                            </span>
+                        </td>
+                        <td>
+                            <a ui-sref="postEdit({id:item.ID})" class="btn  btn-primary "><i class="fa fa-edit"></i></a>
+                            <button ng-click="DeleteItem(item.ID)" class="btn  btn-danger">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <td>
+                            <button class="btn btn-app" id="btnDelete" disabled ng-click="DeleMultiProCate()">
+                                <span class="badge bg-red">{{CountItemSelected}}</span>
+                                <i style=" font-size:x-large" class="fa fa-trash"></i>
+                            </button>
+                        </td>
+                        <td colspan="4">Trang {{page + 1}} - Tổng số bản ghi: {{totalCount}}</td>
+                        <td>
+                            <a ui-sref="postAdd" class="btn btn-large bg-purple"><i class="fa fa-plus"> </i><b> Tạo mới</b></a>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div><!-- /.box-body -->
+        <div class="box-footer clearfix">
+            <Pager-directive page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="GetlistData(page)"></Pager-directive>
+        </div>
+    </div>
+
+</section><!-- /.content -->
