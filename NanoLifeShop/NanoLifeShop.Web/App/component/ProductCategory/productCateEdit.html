@@ -1,0 +1,141 @@
+﻿<section class="content-header">
+    <h1>
+        Danh Mục
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="javascripts:void(0);"><i class="fa fa-product-hunt"></i>Sản phẩm</a></li>
+        <li><a ui-sref="productCategory">Danh sách sản phẩm</a></li>
+        <li class="active">Cập nhật</li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">Cập nhật danh mục : {{productCate.Name}} </h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form class="form-horizontal" novalidate name="frmEditProductCategory" role="form" ng-submit="EditItem()">
+            <div class="box-body">
+                <div class="form-group">
+                    <label for="nameInput" class="col-sm-2 control-label">Tên danh mục</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-maxlength="256" required name="nameInput" ng-model="productCate.Name" ng-change="GetSeoTitle()">
+                        <span ng-show="frmEditProductCategory.nameInput.$error.required" class="has-error">Vui lòng nhập Tên danh mục.</span>
+                        <span ng-show="frmEditProductCategory.nameInput.$error.maxlength" class="has-error">Tên danh mục không được lớn hơn 256 ký tự !</span>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="aliasInput" class="col-sm-2 control-label">Tiêu đề SEO</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required ng-maxlength="256" name="aliasInput" ng-model="productCate.Alias">
+                        <span ng-show="frmEditProductCategory.aliasInput.$error.required" class="has-error">Vui lòng nhập Tiêu Đề !</span>
+                        <span ng-show="frmEditProductCategory.aliasInput.$error.maxlength" class="has-error">Tiêu đề không được lớn hơn 256 ký tự !</span>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="descriptionInput" class="col-sm-2 control-label">Mô tả</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="descriptionInput" ng-maxlength="500" ng-model="productCate.Description">
+                        <span ng-show="frmEditProductCategory.descriptionInput.$error.maxlength" class="has-error">Mô tả không được lớn hơn 500 ký tự !</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="parentDDL" class="col-sm-2 control-label">Danh mục cha</label>
+                    <div class="col-sm-10">
+                        <select class="form-control select2 select2-hidden-accessible" ng-model="productCate.IdParent" ng-options="option.ID as option.Name for option in parentCategories">
+                            <option value="">Danh mục gốc</option>
+                        </select>
+                        <input type="text" class="hidden select2 select2-container select2-container--default select2-container--below select2-container--focus" ng-model="productCate.IdParent" />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="displayOderInput" class="col-sm-2 control-label">Thứ tự hiển thị</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" required name="displayOderInput" ng-model="productCate.DisplayOder">
+                        <span ng-show="frmEditProductCategory.displayOderInput.$error.required" class="has-error">Vui lòng nhập thứ tự hiển thị !</span>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="displayOderInput" class="col-sm-2 control-label">Hình ảnh</label>
+                    <div class="col-sm-10">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="ImgInput" ng-maxlength="256" ng-model="productCate.Image">
+                            <span ng-show="frmEditProductCategory.ImgInput.$error.maxlength" class="has-error">Hình ảnh không được lớn hơn 256 ký tự !</span>
+
+                            <span class="input-group-btn ">
+                                <button type="button" class="btn bg-navy" ng-click="ChooseImg()"><i class="fa fa-image"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="metaKeyWordInput" class="col-sm-2 control-label">Meta Keyword</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="metaKeyWordInput" ng-model="productCate.MetaKeyWord">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="metaDescipInput" class="col-sm-2 control-label">Meta Description</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="metaDescipInput" ng-model="productCate.MetaDescription">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="metaTitleInput" class="col-sm-2 control-label">Meta Title</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="metaTitleInput" ng-model="productCate.MetaTitle">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="status" ng-model="productCate.Status" ng-checked="productCate.Status"> Kích hoạt
+                            </label>
+                        </div>
+
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="homeFlag" ng-model="productCate.HomeFlag" ng-checked="productCate.HomeFlag"> Hiển thị trang chủ
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+                <div class="row">
+                    <div class="col-md-2 pull-left">
+                        <a ui-sref="productCategory" class="btn bg-navy"><i class="fa fa-arrow-left"></i> <b>Quay lại</b></a>
+                    </div>
+
+                    <div class="col-md-2 pull-right">
+                        <button type="submit" class="btn bg-olive-active btn-block" ng-disabled="frmEditProductCategory.$invalid"><span class="glyphicon glyphicon-floppy-saved"></span><span><b> Lưu</b></span></button>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <!-- /.box-footer -->
+        </form>
+    </div>
+</section>
