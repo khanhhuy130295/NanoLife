@@ -25,14 +25,13 @@ namespace NanoLifeShop.Web.App_Start
 
         }
 
-        public void ConfigAutoFac(IAppBuilder app)
+        private void ConfigAutoFac(IAppBuilder app)
         {
             var builder = new ContainerBuilder();
-            var dataAccess = Assembly.GetExecutingAssembly();
 
             //Register Controller and Api Controller
-            builder.RegisterControllers(dataAccess);
-            builder.RegisterApiControllers(dataAccess);
+                builder.RegisterControllers(Assembly.GetExecutingAssembly());
+            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
 
 
@@ -44,12 +43,12 @@ namespace NanoLifeShop.Web.App_Start
 
 
             //Regiter Repository
-            builder.RegisterAssemblyTypes(typeof(PostCategoryRepository).Assembly)
-                .Where(t => t.Name.EndsWith("Repository")).AsImplementedInterfaces();
+            builder.RegisterAssemblyTypes(typeof(PostRepository).Assembly).Where(t => t.Name.EndsWith("Repository")).AsImplementedInterfaces().InstancePerRequest();
+
 
             //Regiter Service
-            builder.RegisterAssemblyTypes(typeof(PostCategoryService).Assembly)
-                .Where(t => t.Name.EndsWith("Service")).AsImplementedInterfaces();
+            builder.RegisterAssemblyTypes(typeof(PostService).Assembly).Where(t => t.Name.EndsWith("Service")).AsImplementedInterfaces().InstancePerRequest();
+
 
             Autofac.IContainer container = builder.Build();
 

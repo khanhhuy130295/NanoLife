@@ -13,6 +13,12 @@
             GetlistData();
         }
 
+        $('#txtSearch').off('keypress').on('keypress', function (e) {
+            if (e.which == 13) {
+                search();
+            }
+        })
+
         //Get data
         $scope.GetlistData = GetlistData;
 
@@ -116,7 +122,7 @@
                     };
 
                     apiService.dele('/api/post/deleteMulti', config, function (response) {
-                        notificationService.DisplayInformation('Xóa thành công ' + response.data + 'Bản tin .');
+                        notificationService.DisplayInformation('Xóa thành công ' + response.data + ' ' + 'Bản tin .');
                         search();
                     }, function () {
                         notificationService.DisplayError('Xóa thất bại !');

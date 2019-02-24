@@ -178,6 +178,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\PostCategoryController.cs" />
+    <Compile Include="Api\PostController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -208,6 +209,13 @@
     <Content Include="App\component\PostCategory\postCateEditController.js" />
     <Content Include="App\component\PostCategory\postCateList.html" />
     <Content Include="App\component\PostCategory\postCateListController.js" />
+    <Content Include="App\component\Post\Post.module.js" />
+    <Content Include="App\component\Post\postAdd.html" />
+    <Content Include="App\component\Post\postEdit.html" />
+    <Content Include="App\component\Post\postList.html" />
+    <Content Include="App\component\Post\postAddController.js" />
+    <Content Include="App\component\Post\postEditController.js" />
+    <Content Include="App\component\Post\postListController.js" />
     <Content Include="App\shared\directives\pagerDirective.html" />
     <Content Include="App\shared\directives\pagerDirective.js" />
     <Content Include="App\shared\fillter\statusFillter.js" />

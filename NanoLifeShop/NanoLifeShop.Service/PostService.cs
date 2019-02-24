@@ -3,6 +3,9 @@ using NanoLifeShop.Data.Repositories;
 using NanoLifeShop.Models.Entity;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace NanoLifeShop.Service
 {
@@ -27,10 +30,10 @@ namespace NanoLifeShop.Service
 
     public class PostService : IPostService
     {
-        private IPostRepository _postRepository;
-        private IUnitOfWork _unitOfWork;
+         IPostRepository _postRepository;
+         IUnitOfWork _unitOfWork;
 
-        public PostService(IPostRepository postRepository, UnitOfWork unitOfWork)
+        public PostService(IPostRepository postRepository, IUnitOfWork unitOfWork)
         {
             this._postRepository = postRepository;
             this._unitOfWork = unitOfWork;
