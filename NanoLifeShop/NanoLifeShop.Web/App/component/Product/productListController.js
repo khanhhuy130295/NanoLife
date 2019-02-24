@@ -1,9 +1,9 @@
 ﻿(function (app) {
-    app.controller('postListController', postListController);
-    postListController.$inject = ['$scope', 'apiService', 'notificationService', '$ngBootbox', '$filter'];
+    app.controller('productListController', productListController);
+    productListController.$inject = ['$scope', 'apiService', 'notificationService', '$ngBootbox', '$filter'];
 
-    function postListController($scope, apiService, notificationService, $ngBootbox, $filter) {
-        $scope.DataPost = [];
+    function productListController($scope, apiService, notificationService, $ngBootbox, $filter) {
+        $scope.DataProduct = [];
 
         //search
         $scope.keyword = '';
@@ -33,11 +33,11 @@
                 }
             };
 
-            apiService.get("/api/post/getall", config, function (response) {
+            apiService.get("/api/product/getall", config, function (response) {
                 if (response.data.TotalCount == 0) {
                     notificationService.DisplayWarning("Không có dữ liệu !");
                 }
-                $scope.DataPost = response.data.Items;
+                $scope.DataProduct = response.data.Items;
                 $scope.page = response.data.Page;
                 $scope.pagesCount = response.data.TotalPages;
                 $scope.totalCount = response.data.TotalCount;
@@ -54,14 +54,14 @@
 
         function SelecteAll() {
             if ($scope.isSelectedAll === false) {
-                angular.forEach($scope.DataPost, function (item) {
+                angular.forEach($scope.DataProduct, function (item) {
                     item.check = true;
                 });
 
                 $scope.isSelectedAll = true;
             }
             else {
-                angular.forEach($scope.DataPost, function (item) {
+                angular.forEach($scope.DataProduct, function (item) {
                     item.check = false;
                 });
 
@@ -71,7 +71,7 @@
 
         $scope.CountItemSelected = 0;
 
-        $scope.$watch("DataPost", function (n, o) {
+        $scope.$watch("DataProduct", function (n, o) {
             var checked = $filter("filter")(n, { check: true });
             if (checked.length) {
                 $scope.selected = checked;
@@ -87,15 +87,15 @@
         $scope.DeleteItem = DeleteItem;
 
         function DeleteItem(id) {
-            $ngBootbox.confirm('Bạn muốn xóa bản tin này ?')
+            $ngBootbox.confirm('Bạn muốn xóa sản phẩm này ?')
                 .then(function () {
                     var config = {
                         params: {
                             ID: id
                         }
                     }
-                    apiService.dele('/api/post/delete', config, function (result) {
-                        notificationService.DisplayInformation('Xóa thành công bản tin ' + ' ' + result.data.Name);
+                    apiService.dele('/api/product/delete', config, function (result) {
+                        notificationService.DisplayInformation('Xóa thành công sản phẩm ' + ' ' + result.data.Name);
                         search();
                     }, function () {
                         notificationService.DisplayError('Xóa thất bại !');
@@ -108,7 +108,7 @@
         $scope.DeleMultiProCate = DeleMultiProCate;
 
         function DeleMultiProCate() {
-            $ngBootbox.confirm('Bạn muốn xóa những bản tin này ?')
+            $ngBootbox.confirm('Bạn muốn xóa những sản phẩm này ?')
                 .then(function () {
                     var ListItemDelete = [];
                     $.each($scope.selected, function (i, item) {
@@ -121,8 +121,8 @@
                         }
                     };
 
-                    apiService.dele('/api/post/deleteMulti', config, function (response) {
-                        notificationService.DisplayInformation('Xóa thành công ' + response.data + ' ' + 'Bản tin .');
+                    apiService.dele('/api/product/deleteMulti', config, function (response) {
+                        notificationService.DisplayInformation('Xóa thành công ' + response.data + ' ' + 'Sản phẩm .');
                         search();
                     }, function () {
                         notificationService.DisplayError('Xóa thất bại !');

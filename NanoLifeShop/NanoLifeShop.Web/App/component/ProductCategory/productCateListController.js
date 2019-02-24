@@ -1,12 +1,11 @@
 ﻿(function (app) {
-    app.controller('postCateListController', postCateListController);
+    app.controller('productCateListController', productCateListController);
 
-    postCateListController.$inject = ['$scope', 'apiService', 'notificationService', '$ngBootbox','$filter'];
+    productCateListController.$inject = ['$scope', 'apiService', 'notificationService', '$ngBootbox', '$filter'];
 
-    function postCateListController($scope, apiService, notificationService, $ngBootbox, $filter) {
-
+    function productCateListController($scope, apiService, notificationService, $ngBootbox, $filter) {
         $scope.DataCate = [];
-        $scope.GetlistData = GetlistData; 
+        $scope.GetlistData = GetlistData;
         $scope.keyword = '';
 
         $scope.searchClick = search;
@@ -34,8 +33,7 @@
                 }
             };
 
-            apiService.get("/api/postCategory/getall", config, function(response) {
-
+            apiService.get("/api/productCategory/getall", config, function (response) {
                 if (response.data.TotalCount == 0) {
                     notificationService.DisplayWarning("Không có dữ liệu !");
                 }
@@ -43,8 +41,6 @@
                 $scope.page = response.data.Page;
                 $scope.pagesCount = response.data.TotalPages;
                 $scope.totalCount = response.data.TotalCount;
-
-
             }, function (error) {
                 console.log(error);
             });
@@ -80,7 +76,6 @@
                 $scope.selected = checked;
                 $scope.CountItemSelected = $scope.selected.length;
                 $('#btnDelete').removeAttr('disabled');
-                
             }
             else {
                 $('#btnDelete').attr('disabled', 'disabled');
@@ -88,21 +83,19 @@
             }
         }, true);
 
-
         $scope.CountItemSelected = 0;
 
         $scope.DeleteItem = DeleteItem;
 
         function DeleteItem(id) {
-
-            $ngBootbox.confirm( 'Bạn muốn xóa danh mục này ?')
+            $ngBootbox.confirm('Bạn muốn xóa danh mục này ?')
                 .then(function () {
                     var config = {
                         params: {
                             ID: id
                         }
                     }
-                    apiService.dele('/api/postCategory/delete', config, function (result) {
+                    apiService.dele('/api/productCategory/delete', config, function (result) {
                         notificationService.DisplayInformation('Xóa thành công danh mục ' + ' ' + result.data.Name);
                         search();
                     }, function () {
@@ -111,17 +104,13 @@
                 }, function () {
                     notificationService.DisplayWarning('Bạn vừa hủy thao tác xóa bản ghi !');
                 });
-     
         }
 
         $scope.DeleMultiProCate = DeleMultiProCate;
 
         function DeleMultiProCate() {
-
             $ngBootbox.confirm('Bạn muốn xóa những danh mục này ?')
                 .then(function () {
-
-
                     var ListItemDelete = [];
                     $.each($scope.selected, function (i, item) {
                         ListItemDelete.push(item.ID);
@@ -133,7 +122,7 @@
                         }
                     };
 
-                    apiService.dele('/api/postCategory/deleteMulti', config, function (response) {
+                    apiService.dele('/api/productCategory/deleteMulti', config, function (response) {
                         notificationService.DisplayInformation('Xóa thành công ' + response.data + ' Danh mục.');
                         search();
                     }, function () {
@@ -143,7 +132,5 @@
                     notificationService.DisplayWarning('Bạn vừa hủy thao tác xóa bản ghi !');
                 });
         }
-
     }
-
-})(angular.module('NanoLife.PostCategory'))
+})(angular.module('NanoLife.ProductCategory'))

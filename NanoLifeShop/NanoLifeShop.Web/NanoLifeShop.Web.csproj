@@ -179,6 +179,8 @@
   <ItemGroup>
     <Compile Include="Api\PostCategoryController.cs" />
     <Compile Include="Api\PostController.cs" />
+    <Compile Include="Api\ProductCategoryController.cs" />
+    <Compile Include="Api\ProductController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -196,6 +198,9 @@
     <Compile Include="Models\PostCategoryViewModel.cs" />
     <Compile Include="Models\PostTagViewModel.cs" />
     <Compile Include="Models\PostViewModel.cs" />
+    <Compile Include="Models\ProductCategoryViewModel.cs" />
+    <Compile Include="Models\ProductTagViewModel.cs" />
+    <Compile Include="Models\ProductViewModel.cs" />
     <Compile Include="Models\TagViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -216,6 +221,20 @@
     <Content Include="App\component\Post\postAddController.js" />
     <Content Include="App\component\Post\postEditController.js" />
     <Content Include="App\component\Post\postListController.js" />
+    <Content Include="App\component\ProductCategory\productCateEdit.html" />
+    <Content Include="App\component\ProductCategory\productCateAdd.html" />
+    <Content Include="App\component\ProductCategory\productCateEditController.js" />
+    <Content Include="App\component\ProductCategory\productCateList.html" />
+    <Content Include="App\component\ProductCategory\productCateAddController.js" />
+    <Content Include="App\component\ProductCategory\productCateListController.js" />
+    <Content Include="App\component\ProductCategory\ProductCategory.module.js" />
+    <Content Include="App\component\Product\Product.module.js" />
+    <Content Include="App\component\Product\productAdd.html" />
+    <Content Include="App\component\Product\productAddController.js" />
+    <Content Include="App\component\Product\productEdit.html" />
+    <Content Include="App\component\Product\productEditController.js" />
+    <Content Include="App\component\Product\productList.html" />
+    <Content Include="App\component\Product\productListController.js" />
     <Content Include="App\shared\directives\pagerDirective.html" />
     <Content Include="App\shared\directives\pagerDirective.js" />
     <Content Include="App\shared\fillter\statusFillter.js" />

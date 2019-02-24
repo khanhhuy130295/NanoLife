@@ -5,8 +5,8 @@
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="javascripts:void(0);">Tin tức</a></li>
-        <li class="active">Danh mục tin tức</li>
+        <li><a href="javascripts:void(0);">Sản phẩm</a></li>
+        <li class="active">Danh mục sản phẩm</li>
     </ol>
 </section>
 
@@ -17,7 +17,7 @@
 
     <div class="box">
         <div class="box-header">
-            <h3 class="box-title">Danh mục tin tức</h3>
+            <h3 class="box-title">Danh mục sản phẩm</h3>
             <div class="box-tools pull-right">
                 <div class="input-group" style="width: 150px;">
                     <input type="text" id="txtSearch" class="form-control input-sm pull-right" placeholder="Từ khóa" ng-model="keyword">
@@ -54,7 +54,7 @@
                             </span>
                         </td>
                         <td>
-                            <a ui-sref="postCategoryEdit({id:item.ID})" class="btn  btn-primary "><i class="fa fa-edit"></i></a>
+                            <a ui-sref="productCategoryEdit({id:item.ID})" class="btn  btn-primary "><i class="fa fa-edit"></i></a>
                             <button ng-click="DeleteItem(item.ID)" class="btn  btn-danger">
                                 <i class="fa fa-trash"></i>
                             </button>
@@ -72,7 +72,7 @@
                         </td>
                         <td colspan="4">Trang {{page + 1}} - Tổng số bản ghi: {{totalCount}}</td>
                         <td>
-                            <a ui-sref="postCategoryAdd" class="btn btn-large bg-purple" ><i class="fa fa-plus"> </i><b> Tạo mới</b></a>
+                            <a ui-sref="productCategoryAdd" class="btn btn-large bg-purple" ><i class="fa fa-plus"> </i><b> Tạo mới</b></a>
                         </td>
                     </tr>
                 </tfoot>

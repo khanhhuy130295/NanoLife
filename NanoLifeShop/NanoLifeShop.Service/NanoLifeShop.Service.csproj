@@ -62,6 +62,8 @@
     <Compile Include="ErrorService.cs" />
     <Compile Include="PostCategoryService.cs" />
     <Compile Include="PostService.cs" />
+    <Compile Include="ProductCategoryService.cs" />
+    <Compile Include="ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -69,6 +71,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NanoLifeShop.Common\NanoLifeShop.Common.csproj">
+      <Project>{a996775b-857f-4206-a391-d8e5bc0488f4}</Project>
+      <Name>NanoLifeShop.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NanoLifeShop.Data\NanoLifeShop.Data.csproj">
       <Project>{0e72ce86-6cc5-4189-a992-5949ff53b1ff}</Project>
       <Name>NanoLifeShop.Data</Name>

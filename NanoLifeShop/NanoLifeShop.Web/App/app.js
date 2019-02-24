@@ -1,7 +1,7 @@
 ﻿/// <reference path="../assets/admin/lib/angular/angular.js" />
 
 (function () {
-    angular.module("NanoLife", ['NanoLife.PostCategory', 'NanoLife.Post','NanoLife.common']).config(configRouter);
+    angular.module("NanoLife", ['NanoLife.PostCategory', 'NanoLife.Post', 'NanoLife.ProductCategory', 'NanoLife.Product','NanoLife.common']).config(configRouter);
 
     configRouter.$inject = ['$stateProvider', '$urlRouterProvider']
 
