@@ -9,7 +9,7 @@ using NanoLifeShop.Models.Entity;
 
 namespace NanoLifeShop.Data
 {
-    public class NanoLifeShopDBContext : /*IdentityDbContext<ApplicationUser>*/ DbContext
+    public class NanoLifeShopDBContext : IdentityDbContext<ApplicationUser>
     {
         public NanoLifeShopDBContext() : base("NanoLifeShopConnectString")
         {
@@ -44,8 +44,8 @@ namespace NanoLifeShop.Data
         protected override void OnModelCreating(DbModelBuilder builder)
         {
 
-            //builder.Entity<IdentityUserRole>().HasKey(x => new { x.RoleId, x.UserId });
-            //builder.Entity<IdentityUserLogin>().HasKey(x => x.UserId);
+            builder.Entity<IdentityUserRole>().HasKey(x => new { x.RoleId, x.UserId });
+            builder.Entity<IdentityUserLogin>().HasKey(x => x.UserId);
         }
     }
 }

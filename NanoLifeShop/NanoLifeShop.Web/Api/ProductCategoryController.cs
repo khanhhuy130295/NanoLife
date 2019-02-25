@@ -15,6 +15,7 @@ using System.Web.Script.Serialization;
 namespace NanoLifeShop.Web.Api
 {
     [RoutePrefix("api/productCategory")]
+    [Authorize]
     public class ProductCategoryController : ApiControllerBase
     {
         private IProductCategoryService _productCategoryService;

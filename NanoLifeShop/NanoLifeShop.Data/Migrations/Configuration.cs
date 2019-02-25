@@ -1,5 +1,7 @@
 ﻿namespace NanoLifeShop.Data.Migrations
 {
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using NanoLifeShop.Models.Entity;
     using System;
     using System.Collections.Generic;
@@ -21,8 +23,37 @@
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
 
+            //Create Account
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new NanoLifeShopDBContext()));
+
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new NanoLifeShopDBContext()));
+
+            var user = new ApplicationUser()
+            {
+                UserName = "admin",
+                Email = "khanhhuy130295@gmail.com",
+                EmailConfirmed = true,
+                BirthDay = DateTime.Now,
+                FullName = "Dương Hồng Khánh Huy"
+            };
+
+            manager.Create(user, "123456");
+
+            if (!roleManager.Roles.Any())
+            {
+                roleManager.Create(new IdentityRole { Name = "Admin" });
+                roleManager.Create(new IdentityRole { Name = "User" });
+
+            }
+
+            var adminUser = manager.FindByEmail("khanhhuy130295@gmail.com");
+
+            manager.AddToRoles(adminUser.Id, new string[] { "Admin", "User" });
+
+
             if (context.PostCategories.Count() == 0)
             {
+
                 List<PostCategory> listCate = new List<PostCategory>()
                 {
                     new PostCategory(){Name = "Tin thế giới",Alias="Tin-the-gioi",Status = true, CreateDate = DateTime.Now},

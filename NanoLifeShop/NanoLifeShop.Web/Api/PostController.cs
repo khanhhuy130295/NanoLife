@@ -15,6 +15,7 @@ using System.Web.Script.Serialization;
 namespace NanoLifeShop.Web.Api
 {
     [RoutePrefix("api/post")]
+    [Authorize]
     public class PostController : ApiControllerBase
     {
         private IPostService _postService;

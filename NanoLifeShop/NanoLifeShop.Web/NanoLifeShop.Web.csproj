@@ -69,6 +69,13 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.2\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
     </Reference>
@@ -183,7 +190,9 @@
     <Compile Include="Api\ProductController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
@@ -208,6 +217,9 @@
     <Content Include="App\app.js" />
     <Content Include="App\component\home\homeController.js" />
     <Content Include="App\component\home\homeView.html" />
+    <Content Include="App\component\home\rootController.js" />
+    <Content Include="App\component\login\loginController.js" />
+    <Content Include="App\component\login\loginView.html" />
     <Content Include="App\component\PostCategory\postCateAddController.js" />
     <Content Include="App\component\PostCategory\postCateEdit.html" />
     <Content Include="App\component\PostCategory\postCateAdd.html" />
@@ -239,7 +251,10 @@
     <Content Include="App\shared\directives\pagerDirective.js" />
     <Content Include="App\shared\fillter\statusFillter.js" />
     <Content Include="App\shared\services\apiService.js" />
+    <Content Include="App\shared\services\authData.js" />
+    <Content Include="App\shared\services\authenticationService.js" />
     <Content Include="App\shared\services\commonService.js" />
+    <Content Include="App\shared\services\loginService.js" />
     <Content Include="App\shared\services\notificationService.js" />
     <Content Include="App\shared\views\base.html" />
     <Content Include="Assets\admin\css\AdminLTE.css" />
