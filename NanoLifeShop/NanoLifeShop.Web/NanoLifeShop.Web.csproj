@@ -2001,6 +2001,37 @@
     <Content Include="Assets\admin\lib\toastr\toastr.js" />
     <Content Include="Assets\admin\lib\toastr\toastr.min.css" />
     <Content Include="Assets\admin\lib\toastr\toastr.min.js" />
+    <Content Include="Assets\client\css\bootstrap.css" />
+    <Content Include="Assets\client\css\css-loader.css" />
+    <Content Include="Assets\client\css\magnific-popup.css" />
+    <Content Include="Assets\client\css\style.css" />
+    <Content Include="Assets\client\img\1.jpg" />
+    <Content Include="Assets\client\img\2.jpg" />
+    <Content Include="Assets\client\img\3.jpg" />
+    <Content Include="Assets\client\img\arrow.png" />
+    <Content Include="Assets\client\img\avatar.png" />
+    <Content Include="Assets\client\img\banner.jpg" />
+    <Content Include="Assets\client\img\benefit.jpg" />
+    <Content Include="Assets\client\img\call.jpg" />
+    <Content Include="Assets\client\img\camb.png" />
+    <Content Include="Assets\client\img\camb1.png" />
+    <Content Include="Assets\client\img\img-sprite.png" />
+    <Content Include="Assets\client\img\logo.png" />
+    <Content Include="Assets\client\img\p1.jpg" />
+    <Content Include="Assets\client\img\p2.jpg" />
+    <Content Include="Assets\client\img\p3.jpg" />
+    <Content Include="Assets\client\img\paypal.png" />
+    <Content Include="Assets\client\img\pic1.jpg" />
+    <Content Include="Assets\client\img\pic2.jpg" />
+    <Content Include="Assets\client\img\search.png" />
+    <Content Include="Assets\client\img\top_move.png" />
+    <Content Include="Assets\client\js\bootstrap-3.1.1.min.js" />
+    <Content Include="Assets\client\js\easing.js" />
+    <Content Include="Assets\client\js\jquery-2.1.4.min.js" />
+    <Content Include="Assets\client\js\jquery.magnific-popup.js" />
+    <Content Include="Assets\client\js\jquery.wmuSlider.js" />
+    <Content Include="Assets\client\js\move-top.js" />
+    <Content Include="Assets\client\js\nav.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -2275,6 +2306,7 @@
     <Content Include="Assets\admin\lib\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Assets\admin\lib\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Assets\admin\lib\ckfinder\userfiles\.htaccess" />
+    <Content Include="Assets\client\img\Thumbs.db" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -2316,13 +2348,12 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Assets\client\" />
     <Folder Include="UploadFile\" />
-    <Folder Include="Views\Home\" />
-    <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
