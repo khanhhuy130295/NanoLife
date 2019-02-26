@@ -1,0 +1,167 @@
+﻿<section class="content-header">
+    <h1>
+        Danh Sách
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="javascripts:void(0);"><i class="fa fa-product-hunt"></i>Tin tức</a></li>
+        <li><a ui-sref="post">Danh sách tin tức</a></li>
+        <li class="active">Tạo mới</li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">Thêm mới bản tin : {{post.Name}} </h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form class="form-horizontal" novalidate name="frmAddPost" role="form" ng-submit="AddItem()">
+            <div class="box-body">
+                <div class="form-group">
+                    <label for="nameInput" class="col-sm-2 control-label">Tên bản tin</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-maxlength="256" required name="nameInput" ng-model="post.Name" ng-change="GetSeoTitle()">
+                        <span ng-show="frmAddPost.nameInput.$error.required" class="has-error">Vui lòng nhập Tên danh mục.</span>
+                        <span ng-show="frmAddPost.nameInput.$error.maxlength" class="has-error">Tên danh mục không được lớn hơn 256 ký tự !</span>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="aliasInput" class="col-sm-2 control-label">Tiêu đề SEO</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required ng-maxlength="256" name="aliasInput" ng-model="post.Alias">
+                        <span ng-show="frmAddPost.aliasInput.$error.required" class="has-error">Vui lòng nhập Tiêu Đề !</span>
+                        <span ng-show="frmAddPost.aliasInput.$error.maxlength" class="has-error">Tiêu đề không được lớn hơn 256 ký tự !</span>
+
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label for="parentDDL" class="col-sm-2 control-label">Danh mục tin tức</label>
+                    <div class="col-sm-10">
+                        <select name="parentDDL" class="form-control select2 select2-hidden-accessible" ng-model="post.IDCategory" ng-options="option.ID as option.Name for option in parentCategories">
+                            <option value="">Loại tin tức</option>
+                        </select>
+                        <input type="text" required  name="CateChoice" class="hidden select2 select2-container select2-container--default select2-container--below select2-container--focus" ng-model="post.IDCategory" />
+                        <span ng-show="frmAddPost.CateChoice.$error.required" class="has-error">Vui lòng chọn loại tin tức !</span>
+
+                    </div>
+                </div>
+
+
+
+
+                <div class="form-group">
+                    <label for="ImgInput" class="col-sm-2 control-label">Hình ảnh</label>
+                    <div class="col-sm-10">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="ImgInput" ng-maxlength="256" ng-model="post.Image">
+                            <span ng-show="frmAddPost.ImgInput.$error.maxlength" class="has-error">Hình ảnh không được lớn hơn 256 ký tự !</span>
+
+                            <span class="input-group-btn ">
+                                <button type="button" class="btn bg-navy" ng-click="ChooseImg()"><i class="fa fa-image"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="metaKeyWordInput" class="col-sm-2 control-label">Meta Keyword</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="metaKeyWordInput" ng-model="post.MetaKeyWord">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="metaDescipInput" class="col-sm-2 control-label">Meta Description</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="metaDescipInput" ng-model="post.MetaDescriptions">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="metaTitleInput" class="col-sm-2 control-label">Meta Title</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="metaTitleInput" ng-model="post.MetaTitle">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="descriptionInput" class="col-sm-2 control-label">Mô tả Ngắn</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="descriptionInput" ng-maxlength="500" ng-model="post.Description">
+                        <span ng-show="frmAddPost.descriptionInput.$error.maxlength" class="has-error">Mô tả không được lớn hơn 500 ký tự !</span>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="descriptionInput" class="col-sm-2 control-label">Nội dung bản tin</label>
+                    <div class="col-sm-10">
+                        <textarea type="text" class="form-control" name="detailInput" ckeditor="ckeditorOptions" ng-maxlength="500" ng-model="post.Detail"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="viewCountInput" class="col-sm-2 control-label">Lượt Xem</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" name="viewCountInput" ng-maxlength="500" ng-model="post.ViewCount">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="tagInput" class="col-sm-2 control-label">Tag</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="tagInput" ng-model="post.Tags">
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="homeFlag" ng-model="post.HotFlag" ng-checked="post.HotFlag"> Bản tin nổi bật
+                            </label>
+                        </div>
+
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="homeFlag" ng-model="post.HomeFlag" ng-checked="post.HomeFlag"> Hiển thị trang chủ
+                            </label>
+                        </div>
+
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="status" ng-model="post.Status" ng-checked="post.Status"> Kích hoạt
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+                <div class="row">
+                    <div class="col-md-2 pull-left">
+                        <a ui-sref="post" class="btn bg-navy"><i class="fa fa-arrow-left"></i> <b>Quay lại</b></a>
+                    </div>
+                    <div class="col-md-2 pull-right">
+                        <button type="submit" class="btn bg-olive-active btn-block" ng-disabled="frmAddPost.$invalid"><span class="glyphicon glyphicon-floppy-saved"></span><span><b> Lưu</b></span></button>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <!-- /.box-footer -->
+        </form>
+    </div>
+</section>

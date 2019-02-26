@@ -69,6 +69,13 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.2\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
     </Reference>
@@ -178,9 +185,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\PostCategoryController.cs" />
+    <Compile Include="Api\PostController.cs" />
+    <Compile Include="Api\ProductCategoryController.cs" />
+    <Compile Include="Api\ProductController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
@@ -195,6 +207,9 @@
     <Compile Include="Models\PostCategoryViewModel.cs" />
     <Compile Include="Models\PostTagViewModel.cs" />
     <Compile Include="Models\PostViewModel.cs" />
+    <Compile Include="Models\ProductCategoryViewModel.cs" />
+    <Compile Include="Models\ProductTagViewModel.cs" />
+    <Compile Include="Models\ProductViewModel.cs" />
     <Compile Include="Models\TagViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -202,17 +217,44 @@
     <Content Include="App\app.js" />
     <Content Include="App\component\home\homeController.js" />
     <Content Include="App\component\home\homeView.html" />
+    <Content Include="App\component\home\rootController.js" />
+    <Content Include="App\component\login\loginController.js" />
+    <Content Include="App\component\login\loginView.html" />
     <Content Include="App\component\PostCategory\postCateAddController.js" />
     <Content Include="App\component\PostCategory\postCateEdit.html" />
     <Content Include="App\component\PostCategory\postCateAdd.html" />
     <Content Include="App\component\PostCategory\postCateEditController.js" />
     <Content Include="App\component\PostCategory\postCateList.html" />
     <Content Include="App\component\PostCategory\postCateListController.js" />
+    <Content Include="App\component\Post\Post.module.js" />
+    <Content Include="App\component\Post\postAdd.html" />
+    <Content Include="App\component\Post\postEdit.html" />
+    <Content Include="App\component\Post\postList.html" />
+    <Content Include="App\component\Post\postAddController.js" />
+    <Content Include="App\component\Post\postEditController.js" />
+    <Content Include="App\component\Post\postListController.js" />
+    <Content Include="App\component\ProductCategory\productCateEdit.html" />
+    <Content Include="App\component\ProductCategory\productCateAdd.html" />
+    <Content Include="App\component\ProductCategory\productCateEditController.js" />
+    <Content Include="App\component\ProductCategory\productCateList.html" />
+    <Content Include="App\component\ProductCategory\productCateAddController.js" />
+    <Content Include="App\component\ProductCategory\productCateListController.js" />
+    <Content Include="App\component\ProductCategory\ProductCategory.module.js" />
+    <Content Include="App\component\Product\Product.module.js" />
+    <Content Include="App\component\Product\productAdd.html" />
+    <Content Include="App\component\Product\productAddController.js" />
+    <Content Include="App\component\Product\productEdit.html" />
+    <Content Include="App\component\Product\productEditController.js" />
+    <Content Include="App\component\Product\productList.html" />
+    <Content Include="App\component\Product\productListController.js" />
     <Content Include="App\shared\directives\pagerDirective.html" />
     <Content Include="App\shared\directives\pagerDirective.js" />
     <Content Include="App\shared\fillter\statusFillter.js" />
     <Content Include="App\shared\services\apiService.js" />
+    <Content Include="App\shared\services\authData.js" />
+    <Content Include="App\shared\services\authenticationService.js" />
     <Content Include="App\shared\services\commonService.js" />
+    <Content Include="App\shared\services\loginService.js" />
     <Content Include="App\shared\services\notificationService.js" />
     <Content Include="App\shared\views\base.html" />
     <Content Include="Assets\admin\css\AdminLTE.css" />
@@ -1959,6 +2001,37 @@
     <Content Include="Assets\admin\lib\toastr\toastr.js" />
     <Content Include="Assets\admin\lib\toastr\toastr.min.css" />
     <Content Include="Assets\admin\lib\toastr\toastr.min.js" />
+    <Content Include="Assets\client\css\bootstrap.css" />
+    <Content Include="Assets\client\css\css-loader.css" />
+    <Content Include="Assets\client\css\magnific-popup.css" />
+    <Content Include="Assets\client\css\style.css" />
+    <Content Include="Assets\client\img\1.jpg" />
+    <Content Include="Assets\client\img\2.jpg" />
+    <Content Include="Assets\client\img\3.jpg" />
+    <Content Include="Assets\client\img\arrow.png" />
+    <Content Include="Assets\client\img\avatar.png" />
+    <Content Include="Assets\client\img\banner.jpg" />
+    <Content Include="Assets\client\img\benefit.jpg" />
+    <Content Include="Assets\client\img\call.jpg" />
+    <Content Include="Assets\client\img\camb.png" />
+    <Content Include="Assets\client\img\camb1.png" />
+    <Content Include="Assets\client\img\img-sprite.png" />
+    <Content Include="Assets\client\img\logo.png" />
+    <Content Include="Assets\client\img\p1.jpg" />
+    <Content Include="Assets\client\img\p2.jpg" />
+    <Content Include="Assets\client\img\p3.jpg" />
+    <Content Include="Assets\client\img\paypal.png" />
+    <Content Include="Assets\client\img\pic1.jpg" />
+    <Content Include="Assets\client\img\pic2.jpg" />
+    <Content Include="Assets\client\img\search.png" />
+    <Content Include="Assets\client\img\top_move.png" />
+    <Content Include="Assets\client\js\bootstrap-3.1.1.min.js" />
+    <Content Include="Assets\client\js\easing.js" />
+    <Content Include="Assets\client\js\jquery-2.1.4.min.js" />
+    <Content Include="Assets\client\js\jquery.magnific-popup.js" />
+    <Content Include="Assets\client\js\jquery.wmuSlider.js" />
+    <Content Include="Assets\client\js\move-top.js" />
+    <Content Include="Assets\client\js\nav.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -2233,6 +2306,7 @@
     <Content Include="Assets\admin\lib\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Assets\admin\lib\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Assets\admin\lib\ckfinder\userfiles\.htaccess" />
+    <Content Include="Assets\client\img\Thumbs.db" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -2274,13 +2348,12 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Assets\client\" />
     <Folder Include="UploadFile\" />
-    <Folder Include="Views\Home\" />
-    <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

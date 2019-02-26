@@ -45,6 +45,7 @@ namespace NanoLifeShop.Web.Infastructure.Extension
             postDB.HotFlag = postVM.HotFlag;
             postDB.IDCategory = postVM.IDCategory;
             postDB.ViewCount = postVM.ViewCount;
+            postDB.Tags = postVM.Tags;
 
             //System Log
             postDB.CreateBy = postVM.CreateBy;
@@ -57,6 +58,59 @@ namespace NanoLifeShop.Web.Infastructure.Extension
             postDB.Status = postVM.Status;
         }
 
+        public static void UpdateProductCategory(this ProductCategory productCategory , ProductCategoryViewModel productCateVM)
+        {
+            productCategory.ID = productCateVM.ID;
+            productCategory.Name = productCateVM.Name;
+            productCategory.Description = productCateVM.Description;
+            productCategory.Alias = productCateVM.Alias;
+            productCategory.DisplayOder = productCateVM.DisplayOder;
+            productCategory.HomeFlag = productCateVM.HomeFlag;
+            productCategory.IdParent = productCateVM.IdParent;
+            productCategory.Image = productCateVM.Image;
 
+
+            //System Log
+            productCategory.CreateBy = productCateVM.CreateBy;
+            productCategory.CreateDate = productCateVM.CreateDate;
+            productCategory.MetaDescriptions = productCateVM.MetaDescriptions;
+            productCategory.MetaKeyWord = productCateVM.MetaKeyWord;
+            productCategory.MetaTitle = productCateVM.MetaTitle;
+            productCategory.UpdateBy = productCateVM.UpdateBy;
+            productCategory.UpdateDate = productCateVM.UpdateDate;
+            productCategory.Status = productCateVM.Status;
+        }
+
+        public static void UpdateProduct (this Product product , ProductViewModel productVM)
+        {
+            product.ID = productVM.ID;
+            product.Name = productVM.Name;
+            product.Alias = productVM.Alias;
+            product.IDCategory = productVM.IDCategory;
+            product.Image = productVM.Image;
+            product.MoreImage = productVM.MoreImage;
+            product.IncludeTaxes = productVM.IncludeTaxes;
+            product.Price = productVM.Price;
+            product.PromotionPrice = productVM.PromotionPrice;
+            product.Description = productVM.Description;
+            product.Warrnary = productVM.Warrnary;
+            product.Detail = productVM.Detail;
+            product.HomeFlag = productVM.HomeFlag;
+            product.HotFlag = productVM.HotFlag;
+            product.Tags = productVM.Tags;
+            product.ViewCount = productVM.ViewCount;
+
+
+
+            //System Log
+           product.CreateBy = productVM.CreateBy;
+           product.CreateDate = productVM.CreateDate;
+           product.MetaDescriptions = productVM.MetaDescriptions;
+           product.MetaKeyWord = productVM.MetaKeyWord;
+           product.MetaTitle = productVM.MetaTitle;
+           product.UpdateBy = productVM.UpdateBy;
+           product.UpdateDate = productVM.UpdateDate;
+            product.Status = productVM.Status;
+        }
     }
 }

@@ -28,7 +28,6 @@ namespace NanoLifeShop.Service
 
         PostCategory GetSingleByID(int ID);
 
-
         void Save();
 
     }

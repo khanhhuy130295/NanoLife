@@ -3,6 +3,10 @@ using NanoLifeShop.Data.Repositories;
 using NanoLifeShop.Models.Entity;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using NanoLifeShop.Common;
 
 namespace NanoLifeShop.Service
 {
@@ -27,18 +31,54 @@ namespace NanoLifeShop.Service
 
     public class PostService : IPostService
     {
-        private IPostRepository _postRepository;
-        private IUnitOfWork _unitOfWork;
+        IPostRepository _postRepository;
+        IUnitOfWork _unitOfWork;
+        ITagRepository _tagRepository;
+        IPostTagRepository _postTagRepository;
 
-        public PostService(IPostRepository postRepository, UnitOfWork unitOfWork)
+        public PostService(IPostRepository postRepository, IUnitOfWork unitOfWork, ITagRepository tagRepository, IPostTagRepository postTagRepository)
         {
             this._postRepository = postRepository;
             this._unitOfWork = unitOfWork;
+            this._tagRepository = tagRepository;
+            this._postTagRepository = postTagRepository;
         }
 
         public Post Add(Post post)
         {
-            return _postRepository.Add(post);
+            var PostNew = _postRepository.Add(post);
+            _unitOfWork.Commit();
+            if (!String.IsNullOrEmpty(PostNew.Tags))
+            {
+                string[] tag = PostNew.Tags.Split(',');
+
+                for (var i = 0; i < tag.Length; i++)
+                {
+                    var tagID = StringHelper.ToUnsignString(tag[i]);
+
+                    //Add New Tag for post
+                    if (_tagRepository.Count(x => x.ID == tagID) == 0)
+                    {
+                        Tag newtag = new Tag()
+                        {
+                            ID = tagID,
+                            Name = tag[i],
+                            Type = ConstTag.PostTag
+
+                        };
+                        _tagRepository.Add(newtag);
+
+                    }
+                    PostTag postTag = new PostTag()
+                    {
+                        IDPost = PostNew.ID,
+                        IDTag = tagID,
+                    };
+                    _postTagRepository.Add(postTag);
+                }
+            }
+
+            return PostNew;
         }
 
         public Post Delete(int ID)
@@ -80,7 +120,35 @@ namespace NanoLifeShop.Service
 
         public void Update(Post post)
         {
-            _postRepository.Update(post);
+            if (!String.IsNullOrEmpty(post.Tags))
+            {
+                string[] tag = post.Tags.Split(',');
+                for (var i = 0; i < tag.Length; i++)
+                {
+                    var tagID = StringHelper.ToUnsignString(tag[i]);
+                    if (_tagRepository.Count(x => x.ID == tagID) == 0)
+                    {
+                        Tag tagNew = new Tag()
+                        {
+                            ID = tagID,
+                            Name = tag[i],
+                            Type = ConstTag.PostTag
+                        };
+                        _tagRepository.Add(tagNew);
+                    }
+                    _postTagRepository.DeleteMulti(x => x.IDPost == post.ID);
+
+                    PostTag postTag = new PostTag()
+                    {
+                        IDPost = post.ID,
+                        IDTag = tagID
+                    };
+
+                    _postTagRepository.Add(postTag);
+                }
+            }
+
+           _postRepository.Update(post);
         }
     }
 }
