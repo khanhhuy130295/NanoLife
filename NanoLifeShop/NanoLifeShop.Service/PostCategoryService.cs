@@ -3,9 +3,6 @@ using NanoLifeShop.Data.Repositories;
 using NanoLifeShop.Models.Entity;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NanoLifeShop.Service
 {
@@ -23,19 +20,18 @@ namespace NanoLifeShop.Service
 
         IEnumerable<PostCategory> GetParent();
 
-
         IEnumerable<PostCategory> GetMultiPaging(int pageIndex, int pageSize, out int total);
 
         PostCategory GetSingleByID(int ID);
 
         void Save();
-
     }
 
     public class PostCategoryService : IPostCategoryService
     {
-        IPostCategoryRepository _postCategoryRepository;
-        IUnitOfWork _unitOfWork;
+        private IPostCategoryRepository _postCategoryRepository;
+        private IUnitOfWork _unitOfWork;
+
         public PostCategoryService(IPostCategoryRepository postCategoryRepository, IUnitOfWork unitOfWork)
         {
             this._postCategoryRepository = postCategoryRepository;

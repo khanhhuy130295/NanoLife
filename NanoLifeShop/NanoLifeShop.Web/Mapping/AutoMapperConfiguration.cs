@@ -18,6 +18,8 @@ namespace NanoLifeShop.Web.Mapping
                 cfg.CreateMap<PostCategory, PostCategoryViewModel>();
                 cfg.CreateMap<PostTag, PostTagViewModel>();
                 cfg.CreateMap<Tag, TagViewModel>();
+                cfg.CreateMap<MenuGroup, MenuGroupViewModel>();
+                cfg.CreateMap<Menu, MenuViewModel>();
             });
         }
     }

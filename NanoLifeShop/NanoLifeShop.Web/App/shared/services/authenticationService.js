@@ -33,6 +33,7 @@
 
 
             this.setHeader = function () {
+              
                 delete $http.defaults.headers.common['X-Requested-With'];
                 if ((tokenInfo != undefined) && (tokenInfo.accessToken != undefined) && (tokenInfo.accessToken != null) && (tokenInfo.accessToken != "")) {
                     $http.defaults.headers.common['Authorization'] = 'Bearer ' + tokenInfo.accessToken;

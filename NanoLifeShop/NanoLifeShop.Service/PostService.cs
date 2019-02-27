@@ -1,12 +1,9 @@
-﻿using NanoLifeShop.Data.Infastructures;
+﻿using NanoLifeShop.Common;
+using NanoLifeShop.Data.Infastructures;
 using NanoLifeShop.Data.Repositories;
 using NanoLifeShop.Models.Entity;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NanoLifeShop.Common;
 
 namespace NanoLifeShop.Service
 {
@@ -31,10 +28,10 @@ namespace NanoLifeShop.Service
 
     public class PostService : IPostService
     {
-        IPostRepository _postRepository;
-        IUnitOfWork _unitOfWork;
-        ITagRepository _tagRepository;
-        IPostTagRepository _postTagRepository;
+        private IPostRepository _postRepository;
+        private IUnitOfWork _unitOfWork;
+        private ITagRepository _tagRepository;
+        private IPostTagRepository _postTagRepository;
 
         public PostService(IPostRepository postRepository, IUnitOfWork unitOfWork, ITagRepository tagRepository, IPostTagRepository postTagRepository)
         {
@@ -64,10 +61,8 @@ namespace NanoLifeShop.Service
                             ID = tagID,
                             Name = tag[i],
                             Type = ConstTag.PostTag
-
                         };
                         _tagRepository.Add(newtag);
-
                     }
                     PostTag postTag = new PostTag()
                     {
@@ -148,7 +143,7 @@ namespace NanoLifeShop.Service
                 }
             }
 
-           _postRepository.Update(post);
+            _postRepository.Update(post);
         }
     }
 }

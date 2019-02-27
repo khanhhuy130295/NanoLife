@@ -1,14 +1,12 @@
 ﻿using NanoLifeShop.Models.Entity;
 using NanoLifeShop.Web.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace NanoLifeShop.Web.Infastructure.Extension
 {
     public static class EntityExtensions
     {
+        #region PostCate and Post
+
         public static void UpdatePostCategory(this PostCategory postCateDB, PostCategoryViewModel viewModel)
         {
             postCateDB.ID = viewModel.ID;
@@ -19,7 +17,6 @@ namespace NanoLifeShop.Web.Infastructure.Extension
             postCateDB.HomeFlag = viewModel.HomeFlag;
             postCateDB.IdParent = viewModel.IdParent;
             postCateDB.Image = viewModel.Image;
-
 
             //System Log
             postCateDB.CreateBy = viewModel.CreateBy;
@@ -32,9 +29,8 @@ namespace NanoLifeShop.Web.Infastructure.Extension
             postCateDB.Status = viewModel.Status;
         }
 
-        public static void UpdatePost (this Post postDB, PostViewModel postVM)
+        public static void UpdatePost(this Post postDB, PostViewModel postVM)
         {
-
             postDB.ID = postVM.ID;
             postDB.Name = postVM.Name;
             postDB.Alias = postVM.Alias;
@@ -58,7 +54,11 @@ namespace NanoLifeShop.Web.Infastructure.Extension
             postDB.Status = postVM.Status;
         }
 
-        public static void UpdateProductCategory(this ProductCategory productCategory , ProductCategoryViewModel productCateVM)
+        #endregion PostCate and Post
+
+        #region ProductCate and Product
+
+        public static void UpdateProductCategory(this ProductCategory productCategory, ProductCategoryViewModel productCateVM)
         {
             productCategory.ID = productCateVM.ID;
             productCategory.Name = productCateVM.Name;
@@ -68,7 +68,6 @@ namespace NanoLifeShop.Web.Infastructure.Extension
             productCategory.HomeFlag = productCateVM.HomeFlag;
             productCategory.IdParent = productCateVM.IdParent;
             productCategory.Image = productCateVM.Image;
-
 
             //System Log
             productCategory.CreateBy = productCateVM.CreateBy;
@@ -81,7 +80,7 @@ namespace NanoLifeShop.Web.Infastructure.Extension
             productCategory.Status = productCateVM.Status;
         }
 
-        public static void UpdateProduct (this Product product , ProductViewModel productVM)
+        public static void UpdateProduct(this Product product, ProductViewModel productVM)
         {
             product.ID = productVM.ID;
             product.Name = productVM.Name;
@@ -100,17 +99,39 @@ namespace NanoLifeShop.Web.Infastructure.Extension
             product.Tags = productVM.Tags;
             product.ViewCount = productVM.ViewCount;
 
-
-
             //System Log
-           product.CreateBy = productVM.CreateBy;
-           product.CreateDate = productVM.CreateDate;
-           product.MetaDescriptions = productVM.MetaDescriptions;
-           product.MetaKeyWord = productVM.MetaKeyWord;
-           product.MetaTitle = productVM.MetaTitle;
-           product.UpdateBy = productVM.UpdateBy;
-           product.UpdateDate = productVM.UpdateDate;
+            product.CreateBy = productVM.CreateBy;
+            product.CreateDate = productVM.CreateDate;
+            product.MetaDescriptions = productVM.MetaDescriptions;
+            product.MetaKeyWord = productVM.MetaKeyWord;
+            product.MetaTitle = productVM.MetaTitle;
+            product.UpdateBy = productVM.UpdateBy;
+            product.UpdateDate = productVM.UpdateDate;
             product.Status = productVM.Status;
         }
+
+        #endregion ProductCate and Product
+
+        #region Menu and MenuGroup
+
+        public static void UpdateMenuGroup(this MenuGroup menuGroup, MenuGroupViewModel menuGroupVM)
+        {
+            menuGroup.ID = menuGroupVM.ID;
+            menuGroup.Name = menuGroupVM.Name;
+            menuGroup.Status = menuGroupVM.Status;
+        }
+
+        public static void UpdateMenu(this Menu menu, MenuViewModel menuVM)
+        {
+            menu.ID = menuVM.ID;
+            menu.Name = menuVM.Name;
+            menu.Url = menuVM.Url;
+            menu.Tagert = menuVM.Tagert;
+            menu.DisplayOder = menuVM.DisplayOder;
+            menu.IDGroup = menuVM.IDGroup;
+            menu.Status = menuVM.Status;
+        }
+
+        #endregion Menu and MenuGroup
     }
 }

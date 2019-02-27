@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace NanoLifeShop.Web.Controllers
 {
@@ -13,18 +9,46 @@ namespace NanoLifeShop.Web.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public PartialViewResult Menu()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            return PartialView("Menu");
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
 
-            return View();
+        public PartialViewResult OrderBox()
+        {
+            return PartialView("OrderBox");
+        }
+
+
+        public PartialViewResult About()
+        {
+            return PartialView("About");
+        }
+
+
+        public PartialViewResult Benefit()
+        {
+            return PartialView("Benefit");
+        }
+
+
+
+        public PartialViewResult Guide()
+        {
+            return PartialView("Guide");
+        }
+
+
+        public PartialViewResult FeedBack()
+        {
+            return PartialView("FeedBack");
+        }
+
+
+        public PartialViewResult Contact()
+        {
+            return PartialView("Contact");
         }
     }
 }

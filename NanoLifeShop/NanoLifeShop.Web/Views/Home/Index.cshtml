@@ -1,17 +1,69 @@
-﻿
-@{
-    Layout = null;
+﻿@{
+    /**/
+    Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-<!DOCTYPE html>
+@section Header
+{
+    <div class="loader loader-default" data-text=""></div>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <div> 
+    <div class="header">
+        <div class="logo">
+            <a href="/">
+                <img src="/UploadFile/images/logo.png" alt="logo" style="padding-bottom: 1%;">
+            </a>
+            @{
+                Html.RenderAction("Menu", "Home");
+                Html.RenderAction("OrderBox", "Home");
+            }
+        </div>
     </div>
-</body>
-</html>
+}
+
+@{ Html.RenderAction("About", "Home");
+    Html.RenderAction("Benefit", "Home");
+    Html.RenderAction("Guide", "Home");
+}
+
+<div class="img_body">
+    <div class="container">
+        <ul class="column_center">
+            <li class="column_center-left">
+                <h3>Khách hàng nói gì về Nano curcumin !</h3>
+            </li>
+            <li class="column_center-right">
+                <a href="#home" class="fa-btn btn-1 btn-1e btn1  scroll"><span class="btn_desc">ĐẶT HÀNG NGAY</span></a>
+            </li>
+        </ul>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+
+@{ Html.RenderAction("FeedBack", "Home");
+
+    <div class="call_grid" id="buy">
+        <div class="container">
+            <div class="col-sm-6 call_grid-left">
+                <div class="text-center justify-content-center">
+                    <h3>SỨC MẠNH  CHO CUỘC SỐNG VỚI <br /><span class="m_1">NANO CURCUMIN</span></h3>
+                </div>
+                <p>
+                    Nano CURCUMIN cải thiện hệ tiêu hóa. Giúp bạn tự tin hơn giúp bạn hưởng thụ cuộc sống tốt đẹp hơn !
+                </p>
+                <h4>
+                    Nâng cao thể chất.<br />
+                    Hạn chế sự phát triển của vi khuẩn HP.<br />
+                    Làm đẹp làn da với tinh chất nghệ.<br />
+                    Phòng ngừa các loại Ung Thư Dạ Dày.
+                </h4>
+                <a href="#home" class="fa-btn btn-1 btn-1e btn2 scroll">ĐẶT HÀNG NGAY</a>
+            </div>
+            <div class="col-md-6 call_grid-right">
+                <span> </span>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+
+    Html.RenderAction("Contact", "Home");
+}

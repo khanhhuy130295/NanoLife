@@ -184,6 +184,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\MenuController.cs" />
+    <Compile Include="Api\MenuGroupController.cs" />
     <Compile Include="Api\PostCategoryController.cs" />
     <Compile Include="Api\PostController.cs" />
     <Compile Include="Api\ProductCategoryController.cs" />
@@ -204,6 +206,8 @@
     <Compile Include="Infastructure\Core\PaginationSet.cs" />
     <Compile Include="Infastructure\Extension\EntityExtensions.cs" />
     <Compile Include="Mapping\AutoMapperConfiguration.cs" />
+    <Compile Include="Models\MenuGroupViewModel.cs" />
+    <Compile Include="Models\MenuViewModel.cs" />
     <Compile Include="Models\PostCategoryViewModel.cs" />
     <Compile Include="Models\PostTagViewModel.cs" />
     <Compile Include="Models\PostViewModel.cs" />
@@ -220,6 +224,20 @@
     <Content Include="App\component\home\rootController.js" />
     <Content Include="App\component\login\loginController.js" />
     <Content Include="App\component\login\loginView.html" />
+    <Content Include="App\component\MenuGroup\MenuGroup.module.js" />
+    <Content Include="App\component\MenuGroup\MenuGroupAdd.html" />
+    <Content Include="App\component\MenuGroup\MenuGroupAddController.js" />
+    <Content Include="App\component\MenuGroup\MenuGroupEdit.html" />
+    <Content Include="App\component\MenuGroup\MenuGroupEditController.js" />
+    <Content Include="App\component\MenuGroup\MenuGroupList.html" />
+    <Content Include="App\component\MenuGroup\MenuGroupListController.js" />
+    <Content Include="App\component\Menu\Menu.module.js" />
+    <Content Include="App\component\Menu\MenuAddController.js" />
+    <Content Include="App\component\Menu\MenuEditController.js" />
+    <Content Include="App\component\Menu\MenuAdd.html" />
+    <Content Include="App\component\Menu\MenuEdit.html" />
+    <Content Include="App\component\Menu\MenuList.html" />
+    <Content Include="App\component\Menu\MenuListController.js" />
     <Content Include="App\component\PostCategory\postCateAddController.js" />
     <Content Include="App\component\PostCategory\postCateEdit.html" />
     <Content Include="App\component\PostCategory\postCateAdd.html" />
@@ -2005,26 +2023,26 @@
     <Content Include="Assets\client\css\css-loader.css" />
     <Content Include="Assets\client\css\magnific-popup.css" />
     <Content Include="Assets\client\css\style.css" />
-    <Content Include="Assets\client\img\1.jpg" />
-    <Content Include="Assets\client\img\2.jpg" />
-    <Content Include="Assets\client\img\3.jpg" />
-    <Content Include="Assets\client\img\arrow.png" />
-    <Content Include="Assets\client\img\avatar.png" />
-    <Content Include="Assets\client\img\banner.jpg" />
-    <Content Include="Assets\client\img\benefit.jpg" />
-    <Content Include="Assets\client\img\call.jpg" />
-    <Content Include="Assets\client\img\camb.png" />
-    <Content Include="Assets\client\img\camb1.png" />
-    <Content Include="Assets\client\img\img-sprite.png" />
-    <Content Include="Assets\client\img\logo.png" />
-    <Content Include="Assets\client\img\p1.jpg" />
-    <Content Include="Assets\client\img\p2.jpg" />
-    <Content Include="Assets\client\img\p3.jpg" />
-    <Content Include="Assets\client\img\paypal.png" />
-    <Content Include="Assets\client\img\pic1.jpg" />
-    <Content Include="Assets\client\img\pic2.jpg" />
-    <Content Include="Assets\client\img\search.png" />
-    <Content Include="Assets\client\img\top_move.png" />
+    <Content Include="Assets\client\images\1.jpg" />
+    <Content Include="Assets\client\images\2.jpg" />
+    <Content Include="Assets\client\images\3.jpg" />
+    <Content Include="Assets\client\images\arrow.png" />
+    <Content Include="Assets\client\images\avatar.png" />
+    <Content Include="Assets\client\images\banner.jpg" />
+    <Content Include="Assets\client\images\benefit.jpg" />
+    <Content Include="Assets\client\images\call.jpg" />
+    <Content Include="Assets\client\images\camb.png" />
+    <Content Include="Assets\client\images\camb1.png" />
+    <Content Include="Assets\client\images\img-sprite.png" />
+    <Content Include="Assets\client\images\logo.png" />
+    <Content Include="Assets\client\images\p1.jpg" />
+    <Content Include="Assets\client\images\p2.jpg" />
+    <Content Include="Assets\client\images\p3.jpg" />
+    <Content Include="Assets\client\images\paypal.png" />
+    <Content Include="Assets\client\images\pic1.jpg" />
+    <Content Include="Assets\client\images\pic2.jpg" />
+    <Content Include="Assets\client\images\search.png" />
+    <Content Include="Assets\client\images\top_move.png" />
     <Content Include="Assets\client\js\bootstrap-3.1.1.min.js" />
     <Content Include="Assets\client\js\easing.js" />
     <Content Include="Assets\client\js\jquery-2.1.4.min.js" />
@@ -2306,7 +2324,7 @@
     <Content Include="Assets\admin\lib\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Assets\admin\lib\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Assets\admin\lib\ckfinder\userfiles\.htaccess" />
-    <Content Include="Assets\client\img\Thumbs.db" />
+    <Content Include="Assets\client\images\Thumbs.db" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -2315,6 +2333,8 @@
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -2328,6 +2348,10 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="UploadFile\images\7.jpg" />
+    <Content Include="UploadFile\images\kuminBaner.png" />
+    <Content Include="UploadFile\images\logo.png" />
+    <Content Include="UploadFile\images\SP1.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -2351,10 +2375,16 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Layout.cshtml" />
     <Content Include="Views\Shared\Footer.cshtml" />
+    <Content Include="Views\Shared\Menu.cshtml" />
+    <Content Include="Views\Shared\OrderBox.cshtml" />
+    <Content Include="Views\Shared\About.cshtml" />
+    <Content Include="Views\Shared\Benefit.cshtml" />
+    <Content Include="Views\Shared\Guide.cshtml" />
+    <Content Include="Views\Shared\FeedBack.cshtml" />
+    <Content Include="Views\Shared\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="UploadFile\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -243,8 +243,7 @@ body a{
     width: 546px;
     height: 443px;
     display: block;
-    background: url(../../../ImageShop/images/Logo/kuminBaner.png) no-repeat 0px 0px;
-   
+    background: url(../../../UploadFile/images/kuminBaner.png) no-repeat 0px 0px;
 }
 .header_right{
 	text-align:left; 
@@ -801,7 +800,7 @@ ul.grid-1 li.grid-1_right h4 a, ul.grid-1 li.grid-1_left h4 a{
     width: 494px;
     height: 566px;
     display: block;
-    background: url('../../../ImageShop/images/Logo/kuminBaner.png') no-repeat 0px 0px;
+    background: url('../../../UploadFile/images/kuminBaner.png') no-repeat 0px 0px;
 }
 .call_grid-left p{
 	color:#fff;

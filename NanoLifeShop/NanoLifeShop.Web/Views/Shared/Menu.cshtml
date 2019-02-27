@@ -1,0 +1,71 @@
+﻿
+<div class="header-home">
+    <div class="fixed-header">
+        <div class="h_menu4">
+            <!-- start h_menu4 -->
+            <a class="toggleMenu" href="#">Menu</a>
+            <ul class="nav">
+                <li><a href="#" class="scroll">Trang chủ</a></li>
+                <li><a href="#" class="scroll">Trang chủ 1</a></li>
+                <li><a href="#" class="scroll">Trang chủ 2</a></li>
+                <li><a href="#" class="scroll">Trang chủ 3</a></li>
+
+
+
+                @*@foreach (var item in Model)
+                {
+                    if (item.Link != "tin-tuc")
+                    {
+                        item.Link = "#" + item.Link;
+                        <li><a href="@item.Link" target="@item.Target" class="scroll">@item.Text</a></li>
+                    }
+                    else
+                    {
+                        item.Link = "/" + item.Link;
+                        <li><a href="@item.Link" target="@item.Target">@item.Text</a></li>
+
+                    }
+
+                }*@
+            </ul>
+
+            <script type="text/javascript" src="~/Assets/client/js/nav.js"></script>
+            <script type="text/javascript">
+                jQuery(document).ready(function ($) {
+                    $(".scroll").click(function (event) {
+                        event.preventDefault();
+                        $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+                    });
+                });
+            </script>
+            <!--script-->
+            <script>
+                $(document).ready(function () {
+                    $(".nav li a").click(function () {
+                        $(this).parent().addClass("active");
+                        $(this).parent().siblings().removeClass("active");
+                    });
+                });
+            </script>
+            <!-- script-for sticky-nav -->
+            <script>
+                $(document).ready(function () {
+                    var navoffeset = $(".header-home").offset().top;
+                    $(window).scroll(function () {
+                        var scrollpos = $(window).scrollTop();
+                        if (scrollpos >= navoffeset) {
+                            $(".header-home").addClass("fixed");
+                        } else {
+                            $(".header-home").removeClass("fixed");
+                        }
+                    });
+
+                });
+            </script>
+            <!-- /script-for sticky-nav -->
+        </div><!-- end h_menu4 -->
+    </div>
+</div>
+
+
+
