@@ -1,6 +1,6 @@
 ﻿(function (app) {
     app.filter('statusFillter', function () {
-        return function input() {
+        return function (input) {
             if (input == true) {
                 return 'Kích hoạt';
             }

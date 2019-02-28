@@ -5,12 +5,13 @@ namespace NanoLifeShop.Data.Repositories
 {
     public interface IErrorRepository : IRepository<Error>
     {
-    }
 
+    }
     public class ErrorRepository : RepositoryBase<Error>, IErrorRepository
     {
         public ErrorRepository(IDBFactory dBFactory) : base(dBFactory)
         {
+
         }
     }
 }

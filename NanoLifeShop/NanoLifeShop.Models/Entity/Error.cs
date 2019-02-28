@@ -4,11 +4,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NanoLifeShop.Models.Entity
 {
-    [Table("Erros")]
+    [Table("Errors")]
     public class Error
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+       
         public int ID { get; set; }
 
         public string Message { get; set; }

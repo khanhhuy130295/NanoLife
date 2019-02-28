@@ -14,7 +14,7 @@ namespace NanoLifeShop.Web.Infastructure.Core
 {
     public class ApiControllerBase : ApiController
     {
-        private IErrorService _errorService;
+        public IErrorService _errorService;
         public ApiControllerBase(IErrorService errorService)
         {
             this._errorService = errorService;
@@ -39,18 +39,21 @@ namespace NanoLifeShop.Web.Infastructure.Core
                     }
                 }
 
+                LogErrorDB(DbEx);
                 response = request.CreateResponse(HttpStatusCode.BadRequest, DbEx.InnerException.Message);
-                LogErrorDB(DbEx.InnerException);
+             
             }
             catch(DbUpdateException DbUpEx)
             {
-                response = request.CreateResponse(HttpStatusCode.BadRequest, DbUpEx.InnerException.Message);
-                LogErrorDB(DbUpEx.InnerException);
+                LogErrorDB(DbUpEx);
+                response = request.CreateResponse(HttpStatusCode.BadRequest, DbUpEx.InnerException);
+           
             }
             catch(Exception ex)
             {
-                response = request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
                 LogErrorDB(ex);
+                response = request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+               
             }
 
             return response;
@@ -66,13 +69,12 @@ namespace NanoLifeShop.Web.Infastructure.Core
                 error.Message = ex.Message;
                 error.StackTrace = ex.StackTrace;
                 error.CreateDate = DateTime.Now;
-
                 _errorService.Create(error);
                 _errorService.Save();
             }
-            catch
+            catch(Exception exx)
             {
-
+                Console.Write(exx);
             }
                
         }

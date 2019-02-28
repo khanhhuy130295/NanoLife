@@ -22,7 +22,7 @@ namespace NanoLifeShop.Models.Entity
         public string Url { get; set; }
 
         [MaxLength(10)]
-        public string Tagert { get; set; }
+        public string Target { get; set; }
 
         public int? DisplayOder { get; set; }
 

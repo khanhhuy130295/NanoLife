@@ -126,7 +126,7 @@ namespace NanoLifeShop.Web.Infastructure.Extension
             menu.ID = menuVM.ID;
             menu.Name = menuVM.Name;
             menu.Url = menuVM.Url;
-            menu.Tagert = menuVM.Tagert;
+            menu.Target = menuVM.Target;
             menu.DisplayOder = menuVM.DisplayOder;
             menu.IDGroup = menuVM.IDGroup;
             menu.Status = menuVM.Status;

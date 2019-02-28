@@ -94,7 +94,8 @@
             apiService.get('/api/product/getdetail/' + $stateParams.id, null, function (response) {
                 $scope.product = response.data;
                 $scope.moreImg = JSON.parse(response.data.MoreImage);
-            }, function () {
+            }, function (error) {
+                console.log(error);
                 notificationService.DisplayError("Không lấy được chi tiết bản tin vui lòng thử lại sau !");
             });
         }

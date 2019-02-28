@@ -79,9 +79,8 @@ namespace NanoLifeShop.Web.Api
             });
         }
 
-
-        [Route("create")]
         [HttpPost]
+        [Route("create")]
         public HttpResponseMessage Create(HttpRequestMessage request, MenuViewModel menuVM)
         {
             return CreateResponeBase(request, () =>
@@ -108,8 +107,8 @@ namespace NanoLifeShop.Web.Api
             });
         }
 
-        [Route("update")]
         [HttpPut]
+        [Route("update")]
         public HttpResponseMessage Update(HttpRequestMessage request, MenuViewModel menuVM)
         {
             return CreateResponeBase(request, () =>
@@ -117,7 +116,7 @@ namespace NanoLifeShop.Web.Api
                 HttpResponseMessage response = null;
                 if (!ModelState.IsValid)
                 {
-                    response = request.CreateResponse(HttpStatusCode.OK, ModelState);
+                    response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
                 }
                 else
                 {
@@ -135,8 +134,8 @@ namespace NanoLifeShop.Web.Api
             });
         }
 
-        [Route("delete")]
         [HttpDelete]
+        [Route("delete")]    
         public HttpResponseMessage Delete(HttpRequestMessage request, int ID)
         {
             return CreateResponeBase(request, () =>

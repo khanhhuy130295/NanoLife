@@ -1,4 +1,6 @@
-﻿namespace NanoLifeShop.Web.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace NanoLifeShop.Web.Models
 {
     public class MenuViewModel
     {
@@ -8,7 +10,7 @@
 
         public string Url { get; set; }
 
-        public string Tagert { get; set; }
+        public string Target { get; set; }
 
         public int? DisplayOder { get; set; }
 

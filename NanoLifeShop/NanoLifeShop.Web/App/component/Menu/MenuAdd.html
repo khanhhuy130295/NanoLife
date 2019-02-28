@@ -1,10 +1,106 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+﻿<section class="content-header">
+    <h1>
+        Danh Sách
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="javascripts:void(0);"><i class="fa fa-product-hunt"></i>Tin tức</a></li>
+        <li><a ui-sref="Menu">Danh sách Menu</a></li>
+        <li class="active">Tạo mới</li>
+    </ol>
+</section>
 
-</body>
-</html>
+<section class="content">
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">Thêm mới Menu : {{menu.Name}} </h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form class="form-horizontal" novalidate name="frmAddmenu" role="form" ng-submit="AddItem()">
+            <div class="box-body">
+                <div class="form-group">
+                    <label for="nameInput" class="col-sm-2 control-label">Tên Menu</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-maxlength="50" required name="nameInput" ng-model="menu.Name">
+                        <span ng-show="frmAddmenu.nameInput.$error.required" class="has-error">Vui lòng nhập Tên Menu.</span>
+                        <span ng-show="frmAddmenu.nameInput.$error.maxlength" class="has-error">Tên Menu không được lớn hơn 50 ký tự !</span>
+
+                    </div>
+                </div>
+
+                <div class="box-body">
+                    <div class="form-group">
+                        <label for="urlInput" class="col-sm-2 control-label">Url</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" ng-maxlength="50" name="urlInput" ng-model="menu.Url">
+                            <span ng-show="frmAddmenu.urlInput.$error.required" class="has-error">Vui lòng nhập Tên Menu.</span>
+                            <span ng-show="frmAddmenu.urlInput.$error.maxlength" class="has-error">Tên Menu không được lớn hơn 50 ký tự !</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="parentDDL" class="col-sm-2 control-label">Target</label>
+                    <div class="col-sm-10">
+                        <select name="parentDDL" class="form-control select2 select2-hidden-accessible" ng-model="menu.Target">
+                            <option value="_blank">Cửa sổ mới</option>
+                            <option value="_self">Cửa sổ trên cùng</option>
+                            <option value="_parent">Tại trang</option>
+                            <option value="_top">Cửa sổ cha</option>
+                        </select>
+                        <input type="text" required name="TargetChoice" class="hidden select2 select2-container select2-container--default select2-container--below select2-container--focus" ng-model="menu.Target" />
+                        <span ng-show="frmAddmenu.TargetChoice.$error.required" class="has-error">Vui lòng chọn trạng thái load!</span>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="parentDDL" class="col-sm-2 control-label">Danh mục Menu</label>
+                    <div class="col-sm-10">
+                        <select name="parentDDL" class="form-control select2 select2-hidden-accessible" ng-model="menu.IDGroup" ng-options="option.ID as option.Name for option in parentMenu">
+                            <option value="">Loại tin tức</option>
+                        </select>
+                        <input type="text" required name="CateChoice" class="hidden select2 select2-container select2-container--default select2-container--below select2-container--focus" ng-model="menu.IDGroup" />
+                        <span ng-show="frmAddmenu.CateChoice.$error.required" class="has-error">Vui lòng chọn loại Menu!</span>
+
+                    </div>
+                </div>
+
+           
+
+                <div class="form-group">
+                    <label for="displayOderInput" class="col-sm-2 control-label">Thứ tự hiển thị</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" name="displayOderInput" ng-model="menu.DisplayOder">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="status" ng-model="menu.Status" ng-checked="menu.Status"> Kích hoạt
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+                <div class="row">
+                    <div class="col-md-2 pull-left">
+                        <a ui-sref="Menu" class="btn bg-navy"><i class="fa fa-arrow-left"></i> <b>Quay lại</b></a>
+                    </div>
+                    <div class="col-md-2 pull-right">
+                        <button type="submit" class="btn bg-olive-active btn-block" ng-disabled="frmAddmenu.$invalid"><span class="glyphicon glyphicon-floppy-saved"></span><span><b> Lưu</b></span></button>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <!-- /.box-footer -->
+        </form>
+    </div>
+</section>

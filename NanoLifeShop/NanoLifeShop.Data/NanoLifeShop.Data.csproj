@@ -73,6 +73,14 @@
     <Compile Include="Migrations\201902251224456_upAspIdentity.Designer.cs">
       <DependentUpon>201902251224456_upAspIdentity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902280512233_fixMenutb.cs" />
+    <Compile Include="Migrations\201902280512233_fixMenutb.Designer.cs">
+      <DependentUpon>201902280512233_fixMenutb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902280555359_fixErrorTB.cs" />
+    <Compile Include="Migrations\201902280555359_fixErrorTB.Designer.cs">
+      <DependentUpon>201902280555359_fixErrorTB.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NanoLifeShopDBContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -115,6 +123,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902251224456_upAspIdentity.resx">
       <DependentUpon>201902251224456_upAspIdentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902280512233_fixMenutb.resx">
+      <DependentUpon>201902280512233_fixMenutb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902280555359_fixErrorTB.resx">
+      <DependentUpon>201902280555359_fixErrorTB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

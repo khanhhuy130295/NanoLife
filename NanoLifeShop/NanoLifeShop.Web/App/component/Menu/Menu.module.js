@@ -1,6 +1,4 @@
 ﻿/// <reference path="../../../assets/admin/lib/angular/angular.js" />
-
-
 (
     function () {
         angular.module("NanoLife.Menu", ['NanoLife.common']).config(configMenu);
