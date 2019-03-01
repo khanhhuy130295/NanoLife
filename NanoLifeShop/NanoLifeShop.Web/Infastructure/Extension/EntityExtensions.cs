@@ -133,5 +133,26 @@ namespace NanoLifeShop.Web.Infastructure.Extension
         }
 
         #endregion Menu and MenuGroup
+
+
+        #region SupportOnline
+
+        public static void UpdateSupportOnline(this SupportOnline supportOnline, SupportOnlineViewModel supportOnlineVM)
+        {
+
+            supportOnline.ID = supportOnlineVM.ID;
+            supportOnline.Name = supportOnlineVM.Name;
+            supportOnline.Department = supportOnlineVM.Department;
+            supportOnline.Address = supportOnlineVM.Address;
+            supportOnline.Email = supportOnlineVM.Email;
+            supportOnline.Skype = supportOnlineVM.Skype;
+            supportOnline.Facebook = supportOnlineVM.Facebook;
+            supportOnline.Mobile = supportOnlineVM.Mobile;
+            supportOnline.DisplayOder = supportOnlineVM.DisplayOder;
+            supportOnline.Status = supportOnlineVM.Status;
+
+        }
+
+        #endregion
     }
 }

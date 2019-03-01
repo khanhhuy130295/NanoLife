@@ -20,6 +20,7 @@ namespace NanoLifeShop.Web.Mapping
                 cfg.CreateMap<Tag, TagViewModel>();
                 cfg.CreateMap<MenuGroup, MenuGroupViewModel>();
                 cfg.CreateMap<Menu, MenuViewModel>();
+                cfg.CreateMap<SupportOnline, SupportOnlineViewModel>();
             });
         }
     }

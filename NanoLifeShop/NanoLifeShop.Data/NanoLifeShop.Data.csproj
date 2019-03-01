@@ -81,6 +81,10 @@
     <Compile Include="Migrations\201902280555359_fixErrorTB.Designer.cs">
       <DependentUpon>201902280555359_fixErrorTB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903010605597_fixSupportOnline.cs" />
+    <Compile Include="Migrations\201903010605597_fixSupportOnline.Designer.cs">
+      <DependentUpon>201903010605597_fixSupportOnline.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NanoLifeShopDBContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -129,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902280555359_fixErrorTB.resx">
       <DependentUpon>201902280555359_fixErrorTB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903010605597_fixSupportOnline.resx">
+      <DependentUpon>201903010605597_fixSupportOnline.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

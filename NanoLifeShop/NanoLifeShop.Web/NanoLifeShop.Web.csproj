@@ -190,6 +190,7 @@
     <Compile Include="Api\PostController.cs" />
     <Compile Include="Api\ProductCategoryController.cs" />
     <Compile Include="Api\ProductController.cs" />
+    <Compile Include="Api\SupportOnlineController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -214,6 +215,7 @@
     <Compile Include="Models\ProductCategoryViewModel.cs" />
     <Compile Include="Models\ProductTagViewModel.cs" />
     <Compile Include="Models\ProductViewModel.cs" />
+    <Compile Include="Models\SupportOnlineViewModel.cs" />
     <Compile Include="Models\TagViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -265,6 +267,13 @@
     <Content Include="App\component\Product\productEditController.js" />
     <Content Include="App\component\Product\productList.html" />
     <Content Include="App\component\Product\productListController.js" />
+    <Content Include="App\component\SupportOnline\SupportEditController.js" />
+    <Content Include="App\component\SupportOnline\SupportAddController.js" />
+    <Content Include="App\component\SupportOnline\SupportAdd.html" />
+    <Content Include="App\component\SupportOnline\SupportEdit.html" />
+    <Content Include="App\component\SupportOnline\SupportList.html" />
+    <Content Include="App\component\SupportOnline\SupportListController.js" />
+    <Content Include="App\component\SupportOnline\SupportOnline.module.js" />
     <Content Include="App\shared\directives\pagerDirective.html" />
     <Content Include="App\shared\directives\pagerDirective.js" />
     <Content Include="App\shared\fillter\statusFillter.js" />

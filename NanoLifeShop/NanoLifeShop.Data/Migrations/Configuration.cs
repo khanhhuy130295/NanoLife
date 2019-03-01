@@ -24,31 +24,31 @@
             //  to avoid creating duplicate seed data.
 
             //Create Account
-            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new NanoLifeShopDBContext()));
+            //var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new NanoLifeShopDBContext()));
 
-            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new NanoLifeShopDBContext()));
+            //var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new NanoLifeShopDBContext()));
 
-            var user = new ApplicationUser()
-            {
-                UserName = "admin",
-                Email = "khanhhuy130295@gmail.com",
-                EmailConfirmed = true,
-                BirthDay = DateTime.Now,
-                FullName = "Dương Hồng Khánh Huy"
-            };
+            //var user = new ApplicationUser()
+            //{
+            //    UserName = "admin",
+            //    Email = "khanhhuy130295@gmail.com",
+            //    EmailConfirmed = true,
+            //    BirthDay = DateTime.Now,
+            //    FullName = "Dương Hồng Khánh Huy"
+            //};
 
-            manager.Create(user, "123456");
+            //manager.Create(user, "123456");
 
-            if (!roleManager.Roles.Any())
-            {
-                roleManager.Create(new IdentityRole { Name = "Admin" });
-                roleManager.Create(new IdentityRole { Name = "User" });
+            //if (!roleManager.Roles.Any())
+            //{
+            //    roleManager.Create(new IdentityRole { Name = "Admin" });
+            //    roleManager.Create(new IdentityRole { Name = "User" });
 
-            }
+            //}
 
-            var adminUser = manager.FindByEmail("khanhhuy130295@gmail.com");
+            //var adminUser = manager.FindByEmail("khanhhuy130295@gmail.com");
 
-            manager.AddToRoles(adminUser.Id, new string[] { "Admin", "User" });
+            //manager.AddToRoles(adminUser.Id, new string[] { "Admin", "User" });
 
 
             if (context.PostCategories.Count() == 0)
@@ -66,7 +66,21 @@
 
             }
 
+            if(context.SupportOnlines.Count() == 0)
+            {
+                SupportOnline support = new SupportOnline()
+                {
+                    Address = "118/127C/3 Phan Huy Ích, P.15, Tân Bình, HCM.",
+                    Mobile = "(028) 6684 0202",
+                    Email = "support@gmail.com",
+                    Facebook= "https://www.facebook.com/khanhhuy1302",
+                    Department = "Kinh doanh",
+                    Name = "CÔNG TY TNHH NGHIÊN CỨU SX & TM NANO LIFE"
+                };
 
+                context.SupportOnlines.Add(support);
+                context.SaveChanges();
+            }
         }
     }
 }

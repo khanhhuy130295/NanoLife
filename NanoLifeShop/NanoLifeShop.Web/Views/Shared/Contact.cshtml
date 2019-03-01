@@ -1,11 +1,19 @@
-﻿
+﻿@model  NanoLifeShop.Web.Models.SupportOnlineViewModel
+
+
 <div class="contact" id="contact">
     <div class="col-md-7 contact_left">
         <div class="grid_3">
             <ul class="msg">
                 <i class="msg_icon"> </i>
                 <li class="msg_desc">
-                    Lorem ipsum dolor sit amet, consectetur adipádfasdfasdfus.
+                    <p>
+                        <span style="color:#B22222"><span style="font-size:14px"><em><strong>@Model.Name</strong></em></span></span><br />
+                        <strong>Địa Chỉ:</strong>&nbsp;&nbsp;@Model.Address.<br />
+                        <strong>Hot Line:</strong>&nbsp;@Model.Mobile.<br />
+                        <strong>Email:</strong>&nbsp;@Model.Email
+                    </p>
+                    <p>&nbsp;</p>
                 </li>
             </ul>
         </div>

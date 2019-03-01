@@ -20,6 +20,9 @@ namespace NanoLifeShop.Service
 
         IEnumerable<Menu> GetMultiPaging(int pageIndex, int pageSize, out int total);
 
+        IEnumerable<Menu> ShowHomeData();
+
+
         Menu GetSingleByID(int ID);
 
         void Save();
@@ -77,6 +80,11 @@ namespace NanoLifeShop.Service
         public void Save()
         {
             _unitOfWork.Commit();
+        }
+
+        public IEnumerable<Menu> ShowHomeData()
+        {
+            return _menuRepository.GetMulti(x => x.Status == true);
         }
 
         public void Update(Menu Menu)

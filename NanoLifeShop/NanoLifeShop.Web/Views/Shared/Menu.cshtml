@@ -1,32 +1,31 @@
-﻿
+﻿@model  List<NanoLifeShop.Web.Models.MenuViewModel>
 <div class="header-home">
     <div class="fixed-header">
         <div class="h_menu4">
             <!-- start h_menu4 -->
             <a class="toggleMenu" href="#">Menu</a>
             <ul class="nav">
-                <li><a href="#" class="scroll">Trang chủ</a></li>
-                <li><a href="#" class="scroll">Trang chủ 1</a></li>
-                <li><a href="#" class="scroll">Trang chủ 2</a></li>
-                <li><a href="#" class="scroll">Trang chủ 3</a></li>
 
-
-
-                @*@foreach (var item in Model)
+                @foreach (var item in Model)
                 {
-                    if (item.Link != "tin-tuc")
-                    {
-                        item.Link = "#" + item.Link;
-                        <li><a href="@item.Link" target="@item.Target" class="scroll">@item.Text</a></li>
-                    }
-                    else
-                    {
-                        item.Link = "/" + item.Link;
-                        <li><a href="@item.Link" target="@item.Target">@item.Text</a></li>
+                    item.Url = "#" + item.Url;
 
-                    }
 
-                }*@
+                    <li><a href="@item.Url" target="@item.Target" class="scroll">@item.Name</a></li>
+
+                }
+
+                @*if (item.URL != "tin-tuc")
+        {
+        
+        <li><a href="@item.Link" target="@item.Target" class="scroll">@item.Text</a></li>
+        }
+        else
+        {
+        item.Link = "/" + item.Link;
+        <li><a href="@item.Link" target="@item.Target">@item.Text</a></li>
+
+        }*@
             </ul>
 
             <script type="text/javascript" src="~/Assets/client/js/nav.js"></script>
