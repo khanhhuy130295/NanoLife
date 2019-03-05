@@ -1,4 +1,7 @@
 ﻿using AutoMapper;
+using AutoMapper.EntityFramework;
+using AutoMapper.EquivalencyExpression;
+using NanoLifeShop.Data;
 using NanoLifeShop.Models.Entity;
 using NanoLifeShop.Web.Models;
 using System;
@@ -14,6 +17,8 @@ namespace NanoLifeShop.Web.Mapping
         {
             Mapper.Initialize(cfg =>
             {
+                cfg.AddCollectionMappers();
+                cfg.SetGeneratePropertyMaps<GenerateEntityFrameworkPrimaryKeyPropertyMaps<NanoLifeShopDBContext>>();
                 cfg.CreateMap<Post, PostViewModel>();
                 cfg.CreateMap<PostCategory, PostCategoryViewModel>();
                 cfg.CreateMap<PostTag, PostTagViewModel>();
@@ -21,6 +26,7 @@ namespace NanoLifeShop.Web.Mapping
                 cfg.CreateMap<MenuGroup, MenuGroupViewModel>();
                 cfg.CreateMap<Menu, MenuViewModel>();
                 cfg.CreateMap<SupportOnline, SupportOnlineViewModel>();
+                cfg.CreateMap<Order, OrderViewModel>().ForMember(d => d.OrderDetailsVM, opt => opt.UseDestinationValue());
             });
         }
     }

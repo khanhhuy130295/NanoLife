@@ -131,8 +131,8 @@
                 <div class="form-group">
                     <label for="descriptionInput" class="col-sm-2 control-label">Mô tả Ngắn</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="descriptionInput" ng-maxlength="500" ng-model="product.Description">
-                        <span ng-show="frmEditProduct.descriptionInput.$error.maxlength" class="has-error">Mô tả không được lớn hơn 500 ký tự !</span>
+                        <input type="text" class="form-control" name="descriptionInput" ng-maxlength="1000" ng-model="product.Description">
+                        <span ng-show="frmEditProduct.descriptionInput.$error.maxlength" class="has-error">Mô tả không được lớn hơn 1000 ký tự !</span>
                     </div>
                 </div>
 
@@ -140,7 +140,7 @@
                 <div class="form-group">
                     <label for="descriptionInput" class="col-sm-2 control-label">Chi tiết sản phẩm</label>
                     <div class="col-sm-10">
-                        <textarea type="text" class="form-control" name="detailInput" ckeditor="ckeditorOptions" ng-maxlength="500" ng-model="product.Detail"></textarea>
+                        <textarea type="text" class="form-control" name="detailInput" ckeditor="ckeditorOptions" ng-model="product.Detail"></textarea>
                     </div>
                 </div>
 

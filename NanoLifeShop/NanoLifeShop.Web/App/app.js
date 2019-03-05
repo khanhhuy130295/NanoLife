@@ -1,8 +1,17 @@
 ﻿/// <reference path="../assets/admin/lib/angular/angular.js" />
 
 (function () {
-    angular.module("NanoLife", ['NanoLife.PostCategory', 'NanoLife.Post', 'NanoLife.ProductCategory', 'NanoLife.SupportOnline',
-        'NanoLife.Product', 'NanoLife.MenuGroup', 'NanoLife.Menu', 'NanoLife.common']).config(configRouter).config(configAuthentication);
+    angular.module("NanoLife",
+        ['NanoLife.PostCategory',
+            'NanoLife.Post',
+            'NanoLife.ProductCategory',
+            'NanoLife.SupportOnline',
+            'NanoLife.Product',
+            'NanoLife.MenuGroup',
+            'NanoLife.Menu',
+            'NanoLife.Order',
+            'NanoLife.common']
+    ).config(configRouter).config(configAuthentication);
 
     configRouter.$inject = ['$stateProvider', '$urlRouterProvider']
 

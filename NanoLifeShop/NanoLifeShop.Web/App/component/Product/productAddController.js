@@ -11,7 +11,8 @@
         }
 
         $scope.ckeditorOptions = {
-            height: '200px'
+            height: '200px',
+            
         };
 
         $scope.GetSeoTitle = GetSeoTitle;
@@ -20,6 +21,7 @@
             $scope.product.Alias = commonService.getSeoTitle($scope.product.Name);
         }
 
+    
 
         $scope.ChooseImg = ChooseImg;
 

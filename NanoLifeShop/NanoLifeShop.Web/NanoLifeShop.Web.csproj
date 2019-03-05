@@ -59,6 +59,15 @@
     <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="AutoMapper.Collection, Version=4.0.0.0, Culture=neutral, PublicKeyToken=e57c3f0a3d6646db, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.Collection.4.0.0\lib\net45\AutoMapper.Collection.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Collection.EntityFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=e57c3f0a3d6646db, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.Collection.EntityFramework.4.0.0\lib\net45\AutoMapper.Collection.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Extensions.ExpressionMapping, Version=1.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.Extensions.ExpressionMapping.1.0.0\lib\net45\AutoMapper.Extensions.ExpressionMapping.dll</HintPath>
+    </Reference>
     <Reference Include="CKFinder, Version=2.6.0.2792, Culture=neutral, PublicKeyToken=579e7adc719a1423, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Users\Huy Dai De\Desktop\Project BestStore\Source\BestStore.Web\Libs\CKFinder.dll</HintPath>
@@ -116,6 +125,9 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -186,6 +198,7 @@
   <ItemGroup>
     <Compile Include="Api\MenuController.cs" />
     <Compile Include="Api\MenuGroupController.cs" />
+    <Compile Include="Api\OrderController.cs" />
     <Compile Include="Api\PostCategoryController.cs" />
     <Compile Include="Api\PostController.cs" />
     <Compile Include="Api\ProductCategoryController.cs" />
@@ -200,6 +213,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -209,6 +223,8 @@
     <Compile Include="Mapping\AutoMapperConfiguration.cs" />
     <Compile Include="Models\MenuGroupViewModel.cs" />
     <Compile Include="Models\MenuViewModel.cs" />
+    <Compile Include="Models\OrderDetailViewModel.cs" />
+    <Compile Include="Models\OrderViewModel.cs" />
     <Compile Include="Models\PostCategoryViewModel.cs" />
     <Compile Include="Models\PostTagViewModel.cs" />
     <Compile Include="Models\PostViewModel.cs" />
@@ -240,6 +256,13 @@
     <Content Include="App\component\Menu\MenuEdit.html" />
     <Content Include="App\component\Menu\MenuList.html" />
     <Content Include="App\component\Menu\MenuListController.js" />
+    <Content Include="App\component\Order\Order.module.js" />
+    <Content Include="App\component\Order\OrderAdd.html" />
+    <Content Include="App\component\Order\OrderEdit.html" />
+    <Content Include="App\component\Order\OrderList.html" />
+    <Content Include="App\component\Order\OrderAddController.js" />
+    <Content Include="App\component\Order\OrderEditController.js" />
+    <Content Include="App\component\Order\OrderListController.js" />
     <Content Include="App\component\PostCategory\postCateAddController.js" />
     <Content Include="App\component\PostCategory\postCateEdit.html" />
     <Content Include="App\component\PostCategory\postCateAdd.html" />
@@ -587,6 +610,81 @@
     <Content Include="Assets\admin\lib\ckeditor\plugins\magicline\images\icon.png" />
     <Content Include="Assets\admin\lib\ckeditor\plugins\pagebreak\images\pagebreak.gif" />
     <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\filter\default.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\icons\hidpi\pastefromword-rtl.png" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\icons\hidpi\pastefromword.png" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\icons\pastefromword-rtl.png" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\icons\pastefromword.png" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\af.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\ar.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\az.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\bg.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\bn.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\bs.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\ca.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\cs.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\cy.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\da.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\de-ch.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\de.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\el.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\en-au.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\en-ca.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\en-gb.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\en.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\eo.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\es-mx.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\es.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\et.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\eu.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\fa.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\fi.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\fo.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\fr-ca.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\fr.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\gl.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\gu.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\he.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\hi.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\hr.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\hu.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\id.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\is.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\it.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\ja.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\ka.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\km.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\ko.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\ku.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\lt.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\lv.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\mk.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\mn.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\ms.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\nb.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\nl.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\no.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\oc.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\pl.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\pt-br.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\pt.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\ro.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\ru.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\si.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\sk.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\sl.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\sq.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\sr-latn.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\sr.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\sv.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\th.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\tr.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\tt.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\ug.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\uk.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\vi.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\zh-cn.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\lang\zh.js" />
+    <Content Include="Assets\admin\lib\ckeditor\plugins\pastefromword\plugin.js" />
     <Content Include="Assets\admin\lib\ckeditor\plugins\preview\preview.html" />
     <Content Include="Assets\admin\lib\ckeditor\plugins\scayt\dialogs\dialog.css" />
     <Content Include="Assets\admin\lib\ckeditor\plugins\scayt\dialogs\options.js" />
@@ -2053,12 +2151,14 @@
     <Content Include="Assets\client\images\search.png" />
     <Content Include="Assets\client\images\top_move.png" />
     <Content Include="Assets\client\js\bootstrap-3.1.1.min.js" />
+    <Content Include="Assets\client\js\controller\HomeController.js" />
     <Content Include="Assets\client\js\easing.js" />
     <Content Include="Assets\client\js\jquery-2.1.4.min.js" />
     <Content Include="Assets\client\js\jquery.magnific-popup.js" />
     <Content Include="Assets\client\js\jquery.wmuSlider.js" />
     <Content Include="Assets\client\js\move-top.js" />
     <Content Include="Assets\client\js\nav.js" />
+    <Content Include="Assets\client\js\plugin\bootbox.min.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -2334,6 +2434,8 @@
     <Content Include="Assets\admin\lib\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Assets\admin\lib\ckfinder\userfiles\.htaccess" />
     <Content Include="Assets\client\images\Thumbs.db" />
+    <Content Include="ConnectionString.config" />
+    <Content Include="AppSetting.config" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -2391,6 +2493,7 @@
     <Content Include="Views\Shared\Guide.cshtml" />
     <Content Include="Views\Shared\FeedBack.cshtml" />
     <Content Include="Views\Shared\Contact.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

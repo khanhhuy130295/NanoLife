@@ -119,6 +119,7 @@ namespace NanoLifeShop.Web.Infastructure.Extension
             menuGroup.ID = menuGroupVM.ID;
             menuGroup.Name = menuGroupVM.Name;
             menuGroup.Status = menuGroupVM.Status;
+       
         }
 
         public static void UpdateMenu(this Menu menu, MenuViewModel menuVM)
@@ -130,6 +131,7 @@ namespace NanoLifeShop.Web.Infastructure.Extension
             menu.DisplayOder = menuVM.DisplayOder;
             menu.IDGroup = menuVM.IDGroup;
             menu.Status = menuVM.Status;
+            
         }
 
         #endregion Menu and MenuGroup
@@ -153,6 +155,25 @@ namespace NanoLifeShop.Web.Infastructure.Extension
 
         }
 
+        #endregion
+
+        #region Order
+
+        public static void UpdateOrder(this Order order, OrderViewModel orderVM)
+        {
+            order.ID = orderVM.ID;
+            order.CreateBy = orderVM.CreateBy;
+            order.CreateDate = orderVM.CreateDate;
+            order.CustomerAddress = orderVM.CustomerAddress;
+            order.CustomerEmail = orderVM.CustomerEmail;
+            order.CustomerMessages = orderVM.CustomerMessages;
+            order.CustomerName = orderVM.CustomerName;
+            order.CustomerPhone = orderVM.CustomerPhone;
+            order.PaymentMethod = orderVM.PaymentMethod;
+            order.PaymentStatus = orderVM.PaymentStatus;
+            order.Status = orderVM.Status;
+           
+        }
         #endregion
     }
 }

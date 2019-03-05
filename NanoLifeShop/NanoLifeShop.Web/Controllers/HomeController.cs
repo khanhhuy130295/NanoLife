@@ -11,10 +11,12 @@ namespace NanoLifeShop.Web.Controllers
     {
         private IMenuService _menuService;
         private ISupportOnlineService _supportService;
-        public HomeController(IMenuService menuService,ISupportOnlineService supportService)
+        private IProductService _productService;
+        public HomeController(IMenuService menuService,ISupportOnlineService supportService,IProductService productService)
         {
             this._menuService = menuService;
             this._supportService = supportService;
+            this._productService = productService;
                 
         }
 
@@ -35,13 +37,19 @@ namespace NanoLifeShop.Web.Controllers
 
         public PartialViewResult OrderBox()
         {
-            return PartialView("OrderBox");
+            var productDB = _productService.GetSingleByCondition(x => x.Status == true && x.Tags == "Nano");
+
+            var modelProduct = Mapper.Map<Product, ProductViewModel>(productDB);
+
+            return PartialView("OrderBox", modelProduct);
         }
 
 
         public PartialViewResult About()
         {
-            return PartialView("About");
+            var productDB = _productService.GetSingleByCondition(x => x.Status == true && x.Tags == "Nano");
+            var modelProduct = Mapper.Map<Product, ProductViewModel>(productDB);
+            return PartialView("About", modelProduct);
         }
 
 

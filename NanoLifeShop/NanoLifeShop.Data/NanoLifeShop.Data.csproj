@@ -85,6 +85,18 @@
     <Compile Include="Migrations\201903010605597_fixSupportOnline.Designer.cs">
       <DependentUpon>201903010605597_fixSupportOnline.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903030643305_fixDescriptionProduct.cs" />
+    <Compile Include="Migrations\201903030643305_fixDescriptionProduct.Designer.cs">
+      <DependentUpon>201903030643305_fixDescriptionProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903041300503_fixOrder.cs" />
+    <Compile Include="Migrations\201903041300503_fixOrder.Designer.cs">
+      <DependentUpon>201903041300503_fixOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903041303029_updateOrder.cs" />
+    <Compile Include="Migrations\201903041303029_updateOrder.Designer.cs">
+      <DependentUpon>201903041303029_updateOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NanoLifeShopDBContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -136,6 +148,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903010605597_fixSupportOnline.resx">
       <DependentUpon>201903010605597_fixSupportOnline.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903030643305_fixDescriptionProduct.resx">
+      <DependentUpon>201903030643305_fixDescriptionProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903041300503_fixOrder.resx">
+      <DependentUpon>201903041300503_fixOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903041303029_updateOrder.resx">
+      <DependentUpon>201903041303029_updateOrder.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

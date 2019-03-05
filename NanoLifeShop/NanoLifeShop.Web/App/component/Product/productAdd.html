@@ -22,7 +22,7 @@
                     <label for="nameInput" class="col-sm-2 control-label">Tên bản tin</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" ng-maxlength="256" required name="nameInput" ng-model="product.Name" ng-change="GetSeoTitle()">
-                        <span ng-show="frmAddProduct.nameInput.$error.required" class="has-error">Vui lòng nhập Tên danh mục.</span>
+                        <span ng-show="frmAddProduct.nameInput.$error.required" class="has-error">Vui lòng nhập Tên sản phẩm.</span>
                         <span ng-show="frmAddProduct.nameInput.$error.maxlength" class="has-error">Tên danh mục không được lớn hơn 256 ký tự !</span>
 
                     </div>
@@ -47,7 +47,7 @@
                             <option value="">Loại tin tức</option>
                         </select>
                         <input type="text" required name="CateChoice" class="hidden select2 select2-container select2-container--default select2-container--below select2-container--focus" ng-model="product.IDCategory" />
-                        <span ng-show="frmAddProduct.CateChoice.$error.required" class="has-error">Vui lòng chọn loại tin tức !</span>
+                        <span ng-show="frmAddProduct.CateChoice.$error.required" class="has-error">Vui lòng chọn loại sản phẩm !</span>
 
                     </div>
                 </div>
@@ -131,8 +131,8 @@
                 <div class="form-group">
                     <label for="descriptionInput" class="col-sm-2 control-label">Mô tả Ngắn</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="descriptionInput" ng-maxlength="500" ng-model="product.Description">
-                        <span ng-show="frmAddProduct.descriptionInput.$error.maxlength" class="has-error">Mô tả không được lớn hơn 500 ký tự !</span>
+                        <input type="text" class="form-control" name="descriptionInput" ng-maxlength="1000" ng-model="product.Description">
+                        <span ng-show="frmAddProduct.descriptionInput.$error.maxlength" class="has-error">Mô tả không được lớn hơn 1000 ký tự !</span>
                     </div>
                 </div>
 
@@ -140,7 +140,7 @@
                 <div class="form-group">
                     <label for="descriptionInput" class="col-sm-2 control-label">Chi tiết sản phẩm</label>
                     <div class="col-sm-10">
-                        <textarea type="text" class="form-control" name="detailInput" ckeditor="ckeditorOptions" ng-maxlength="500" ng-model="product.Detail"></textarea>
+                        <textarea  class="form-control" name="detailInput" ckeditor="ckeditorOptions"  ng-model="product.Detail" ></textarea>
                     </div>
                 </div>
 

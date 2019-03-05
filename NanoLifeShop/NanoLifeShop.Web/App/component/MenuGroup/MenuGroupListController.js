@@ -40,6 +40,7 @@
                         notificationService.DisplayWarning("Không có dữ liệu !");
                     }
                     $scope.DataGroup = response.data.Items;
+                    console.log(response.data.Items);
                     $scope.page = response.data.Page;
                     $scope.pagesCount = response.data.TotalPages;
                     $scope.totalCount = response.data.TotalCount;

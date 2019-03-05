@@ -25,7 +25,7 @@ namespace NanoLifeShop.Models.Entity
         [Column(TypeName = "varchar")]
         public string Alias { get; set; }
 
-        [MaxLength(500)]
+        [MaxLength(1000)]
         public string Description { get; set; }
 
         public string Detail { get; set; }

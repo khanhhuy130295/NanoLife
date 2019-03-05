@@ -1,0 +1,113 @@
+﻿<section class="content-header">
+    <h1>
+        Danh Sách
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="javascripts:void(0);"><i class="fa fa-product-hunt"></i>Thống kê</a></li>
+        <li><a ui-sref="Order">Danh sách đặt hàng</a></li>
+        <li class="active">Tạo mới</li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">Thêm mới đơn hàng : {{order.CustomerName}} </h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form class="form-horizontal" novalidate name="frmAddOrder" role="form" ng-submit="AddItem()">
+            <div class="box-body">
+                <div class="form-group">
+                    <label for="customerNameInput" class="col-sm-2 control-label">Tên khách hàng</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-maxlength="256" required name="customerNameInput" ng-model="order.CustomerName">
+                        <span ng-show="frmAddOrder.customerNameInput.$error.required" class="has-error">Vui lòng nhập Tên khách hàng.</span>
+                        <span ng-show="frmAddOrder.customerNameInput.$error.maxlength" class="has-error">Tên khách hàng không được lớn hơn 256 ký tự !</span>
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="customerAddressInput" class="col-sm-2 control-label">Địa chỉ</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-maxlength="200" required name="customerAddressInput" ng-model="order.CustomerAddress">
+                        <span ng-show="frmAddOrder.customerAddressInput.$error.required" class="has-error">Vui lòng nhập Địa chỉ.</span>
+                        <span ng-show="frmAddOrder.customerAddressInput.$error.maxlength" class="has-error">Địa chỉ không được lớn hơn 200 ký tự !</span>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="customerPhoneInput" class="col-sm-2 control-label">Số điện thoại</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-maxlength="10" required name="customerPhoneInput" ng-model="order.CustomerPhone">
+                        <span ng-show="frmAddOrder.customerPhoneInput.$error.required" class="has-error">Vui lòng nhập Số điện thoại.</span>
+                        <span ng-show="frmAddOrder.customerPhoneInput.$error.maxlength" class="has-error">Số điện thoại không lớn hơn 10 ký tự!</span>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label for="customerEmailInput" class="col-sm-2 control-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" ng-maxlength="150" required name="customerEmailInput" ng-model="order.CustomerEmail">
+                        <span ng-show="frmAddOrder.customerEmailInput.$error.required" class="has-error">Vui lòng nhập Email.</span>
+                        <span ng-show="frmAddOrder.customerEmailInput.$error.maxlength" class="has-error">Email không lớn hơn 150 ký tự!</span>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="customerMessagesInput" class="col-sm-2 control-label">Ghi chú</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" ng-maxlength="500"  name="customerMessagesInput" ng-model="order.CustomerMessages"></textarea>
+                        <span ng-show="frmAddOrder.customerMessagesInput.$error.maxlength" class="has-error">Ghi chú không lớn hơn 500 ký tự!</span>
+
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label for="paymentMethodInput" class="col-sm-2 control-label">Phương thức thanh toán</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" ng-maxlength="256" name="paymentMethodInput" ng-model="order.PaymentMethod" />
+                        <span ng-show="frmAddOrder.paymentMethodInput.$error.maxlength" class="has-error">Phương thức không lớn hơn 256 ký tự!</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="paymentStatusInput" class="col-sm-2 control-label">Trạng thái thanh toán</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" name="paymentStatusInput" ng-model="order.PaymentStatus" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="status" ng-model="order.Status" ng-checked="order.Status"> Kích hoạt
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+                <div class="row">
+                    <div class="col-md-2 pull-left">
+                        <a ui-sref="Order" class="btn bg-navy"><i class="fa fa-arrow-left"></i> <b>Quay lại</b></a>
+                    </div>
+                    <div class="col-md-2 pull-right">
+                        <button type="submit" class="btn bg-olive-active btn-block" ng-disabled="frmAddOrder.$invalid"><span class="glyphicon glyphicon-floppy-saved"></span><span><b> Lưu</b></span></button>
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-footer -->
+        </form>
+    </div>
+</section>

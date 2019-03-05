@@ -20,7 +20,6 @@ namespace NanoLifeShop.Models.Entity
         public string CustomerName { get; set; }
 
         [MaxLength(200)]
-        [Required]
         public string CustomerAddress { get; set; }
 
         [MaxLength(10)]
@@ -32,7 +31,6 @@ namespace NanoLifeShop.Models.Entity
         public string CustomerEmail { get; set; }
 
         [MaxLength(500)]
-        [Required]
         public string CustomerMessages { get; set; }
 
         [MaxLength(256)]

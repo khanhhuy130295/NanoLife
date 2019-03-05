@@ -5,6 +5,7 @@ using NanoLifeShop.Models.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,6 +27,9 @@ namespace NanoLifeShop.Service
 
         Product GetSingleByID(int ID);
 
+        Product GetSingleByCondition(Expression<Func<Product , bool>> expression);
+
+
         void Save();
     }
 
@@ -46,6 +50,7 @@ namespace NanoLifeShop.Service
         }
         public Product Add(Product Product)
         {
+            
             var ProductNew = _productRepository.Add(Product);
             _unitOfWork.Commit();
             if (!String.IsNullOrEmpty(ProductNew.Tags))
@@ -111,6 +116,12 @@ namespace NanoLifeShop.Service
         public Product GetSingleByID(int ID)
         {
             return _productRepository.GetSingleById(ID);
+        }
+
+
+        public Product GetSingleByCondition(Expression<Func<Product, bool>> expression)
+        {
+            return _productRepository.GetSingleByCondition(expression);
         }
 
         public void Save()

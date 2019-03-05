@@ -52,19 +52,39 @@ app.directive('ckeditor', ['$timeout', '$q', function ($timeout, $q) {
                 var options = {
                     toolbar: 'full',
                     toolbar_full: [
-                        { name: 'basicstyles',
-                            items: [ 'Bold', 'Italic', 'Strike', 'Underline' ] },
-                        { name: 'paragraph', items: [ 'BulletedList', 'NumberedList', 'Blockquote' ] },
-                        { name: 'editing', items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
-                        { name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
-                        { name: 'tools', items: [ 'SpellChecker', 'Maximize' ] },
+                        { name: 'document', items: ['Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates'] },
+                        { name: 'clipboard', items: ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo'] },
+                        { name: 'editing', items: ['Find', 'Replace', '-', 'SelectAll', '-'] },
+                        { name: 'forms', items: ['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField'] },
                         '/',
-                        { name: 'styles', items: [ 'Format', 'FontSize', 'TextColor', 'PasteText', 'PasteFromWord', 'RemoveFormat' ] },
-                        { name: 'insert', items: [ 'Image', 'Table', 'SpecialChar' ] },
-                        { name: 'forms', items: [ 'Outdent', 'Indent' ] },
-                        { name: 'clipboard', items: [ 'Undo', 'Redo' ] },
-                        { name: 'document', items: [ 'PageBreak', 'Source' ] }
+                        { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'CopyFormatting', 'RemoveFormat'] },
+                        { name: 'paragraph', items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language'] },
+                        { name: 'links', items: ['Link', 'Unlink', 'Anchor'] },
+                        { name: 'insert', items: ['Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe'] },
+                        '/',
+                        { name: 'styles', items: ['Styles', 'Format', 'Font', 'FontSize'] },
+                        { name: 'colors', items: ['TextColor', 'BGColor'] },
+                        { name: 'tools', items: ['Maximize', 'ShowBlocks'] },
+                        { name: 'about', items: ['About'] }
                     ],
+
+
+    //                  {
+    //                        name: 'basicstyles',
+    //                            items: ['Bold', 'Italic', 'Strike', 'Underline']
+    //                    },
+    //                    { name: 'paragraph', items: [ 'BulletedList', 'NumberedList', 'Blockquote' ] },
+    //{ name: 'editing', items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'] },
+    //{ name: 'links', items: ['Link', 'Unlink', 'Anchor'] },
+    //{ name: 'tools', items: ['SpellChecker', 'Maximize'] },
+    //'/',
+    //{ name: 'styles', items: ['Format', 'Styles', 'FontSize', 'TextColor', 'PasteText', 'PasteFromWord', 'RemoveFormat'] },
+    //{ name: 'insert', items: ['Image', 'Table', 'SpecialChar'] },
+    //{ name: 'forms', items: ['Outdent', 'Indent'] },
+    //{ name: 'clipboard', items: ['Undo', 'Redo'] },
+    //{ name: 'document', items: ['PageBreak', 'Source', 'Save', 'NewPage', 'Preview', 'Print'] }
+
+
                     disableNativeSpellChecker: false,
                     uiColor: '#FAFAFA',
                     height: '400px',

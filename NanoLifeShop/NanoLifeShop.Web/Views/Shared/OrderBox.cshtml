@@ -1,4 +1,5 @@
-﻿
+﻿@model  NanoLifeShop.Web.Models.ProductViewModel
+@Html.AntiForgeryToken();
 <div class="header_bottom" id="home">
     <div class="container">
         <div class="col-sm-7 header_left">
@@ -16,7 +17,7 @@
                     <hr />
                     <div class="right">
                         <div>
-                            Giá sản phẩm:  <strong>180,000 VNĐ/hộp</strong>
+                            Giá sản phẩm: <strong>@(Model.Price != 0 ? Model.Price.ToString("N0")+" "+"VNĐ/hộp" : "Liên hệ" )</strong>
                         </div>
                         <div>
                             <span>Mua 2 hộp được freeship</span>
