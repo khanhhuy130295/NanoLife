@@ -12,12 +12,12 @@ namespace NanoLifeShop.Web.Controllers
         private IMenuService _menuService;
         private ISupportOnlineService _supportService;
         private IProductService _productService;
-        public HomeController(IMenuService menuService,ISupportOnlineService supportService,IProductService productService)
+        public HomeController(IMenuService menuService, ISupportOnlineService supportService, IProductService productService)
         {
             this._menuService = menuService;
             this._supportService = supportService;
             this._productService = productService;
-                
+
         }
 
         public ActionResult Index()
@@ -25,17 +25,33 @@ namespace NanoLifeShop.Web.Controllers
             return View();
         }
 
-        public PartialViewResult Menu()
+
+        [OutputCache(Duration = 3600)]
+        [ChildActionOnly]
+        public ActionResult Menu()
         {
-          var listMenuDB =  _menuService.ShowHomeData();
+            var listMenuDB = _menuService.ShowHomeData();
 
             var listData = Mapper.Map<IEnumerable<Menu>, IEnumerable<MenuViewModel>>(listMenuDB);
 
-            return PartialView("Menu",listData);
+            return PartialView("Menu", listData);
+        }
+
+        [OutputCache(Duration = 3600)]
+        [ChildActionOnly]
+        public ActionResult MenuPost()
+        {
+            var listMenuDB = _menuService.ShowHomeData();
+
+            var listData = Mapper.Map<IEnumerable<Menu>, IEnumerable<MenuViewModel>>(listMenuDB);
+
+            return PartialView("MenuForPost", listData);
         }
 
 
-        public PartialViewResult OrderBox()
+        [OutputCache(Duration = 3600)]
+        [ChildActionOnly]
+        public ActionResult OrderBox()
         {
             var productDB = _productService.GetSingleByCondition(x => x.Status == true && x.Tags == "Nano");
 
@@ -44,41 +60,50 @@ namespace NanoLifeShop.Web.Controllers
             return PartialView("OrderBox", modelProduct);
         }
 
-
-        public PartialViewResult About()
+        [OutputCache(Duration = 3600)]
+        [ChildActionOnly]
+        public ActionResult About()
         {
             var productDB = _productService.GetSingleByCondition(x => x.Status == true && x.Tags == "Nano");
             var modelProduct = Mapper.Map<Product, ProductViewModel>(productDB);
             return PartialView("About", modelProduct);
         }
 
-
-        public PartialViewResult Benefit()
+        [ChildActionOnly]
+        public ActionResult Benefit()
         {
             return PartialView("Benefit");
         }
 
-
-
-        public PartialViewResult Guide()
+        [ChildActionOnly]
+        public ActionResult Guide()
         {
             return PartialView("Guide");
         }
 
-
-        public PartialViewResult FeedBack()
+        [ChildActionOnly]
+        public ActionResult FeedBack()
         {
             return PartialView("FeedBack");
         }
 
-
-        public PartialViewResult Contact()
+        [OutputCache(Duration = 3600)]
+        [ChildActionOnly]
+        public ActionResult Contact()
         {
             var supportDB = _supportService.GetSingleById(1);
-
             var model = Mapper.Map<SupportOnline, SupportOnlineViewModel>(supportDB);
-           
-            return PartialView("Contact",model);
+            return PartialView("Contact", model);
         }
+
+        [OutputCache(Duration = 3600)]
+        [ChildActionOnly]
+        public ActionResult Footer()
+        {
+            var supportDB = _supportService.GetSingleById(1);
+            var model = Mapper.Map<SupportOnline, SupportOnlineViewModel>(supportDB);
+            return PartialView("Footer", model);
+        }
+
     }
 }

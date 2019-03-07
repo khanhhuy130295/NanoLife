@@ -3,7 +3,7 @@
     function () {
         angular.module("NanoLife.Menu", ['NanoLife.common']).config(configMenu);
 
-        configMenu.$inject = ['$stateProvider', '$urlRouterProvider']
+        configMenu.$inject = ['$stateProvider', '$urlRouterProvider'];
 
         function configMenu($stateProvider, $urlRouterProvider) {
 

@@ -94,7 +94,8 @@
                 <div class="form-group">
                     <label for="descriptionInput" class="col-sm-2 control-label">Mô tả Ngắn</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="descriptionInput" ng-maxlength="500" ng-model="post.Description">
+                        <input type="text" class="form-control" name="descriptionInput" required ng-maxlength="500" ng-model="post.Description">                        <span ng-show="frmAddPost.descriptionInput.$error.maxlength" class="has-error">Mô tả không được lớn hơn 500 ký tự !</span>
+                        <span ng-show="frmAddPost.descriptionInput.$error.required" class="has-error">Vui lòng nhập mô tả bản tin !</span>
                         <span ng-show="frmAddPost.descriptionInput.$error.maxlength" class="has-error">Mô tả không được lớn hơn 500 ký tự !</span>
                     </div>
                 </div>

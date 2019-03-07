@@ -12,7 +12,7 @@
 
     <script src="~/Assets/client/js/jquery-2.1.4.min.js"></script>
     <script src="~/Assets/client/js/bootstrap-3.1.1.min.js"></script>
-    <script src="/Scripts/jquery.validate.js"></script> 
+    <script src="/Scripts/jquery.validate.js"></script>
     <!-- Custom Theme files -->
     <link href="/Assets/client/css/style.css" rel='stylesheet' type='text/css' />
     <!-- Custom Theme files -->
@@ -50,7 +50,9 @@
     @RenderBody()
 
     <div class="footer">
-        @Html.Partial("/Views/Shared/Footer.cshtml");
+        @{
+            Html.RenderAction("Footer", "Home");
+        }
     </div>
 
     @RenderSection("jsFooter", required: false)

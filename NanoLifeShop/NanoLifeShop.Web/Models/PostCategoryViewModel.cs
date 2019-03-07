@@ -39,6 +39,6 @@ namespace NanoLifeShop.Web.Models
 
         public bool Status { get; set; }
 
-        public virtual IEnumerable<PostViewModel> Posts { get; set; }
+        public virtual ICollection<PostViewModel> Posts { get; set; }
     }
 }

@@ -33,6 +33,6 @@ namespace NanoLifeShop.Models.Entity
 
         public bool? HomeFlag { get; set; }
 
-        public virtual IEnumerable<Post> Posts { get; set; }
+        public virtual ICollection<Post> Posts { get; set; }
     }
 }

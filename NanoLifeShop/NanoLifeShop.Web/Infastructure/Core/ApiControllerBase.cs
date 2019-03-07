@@ -15,6 +15,9 @@ namespace NanoLifeShop.Web.Infastructure.Core
     public class ApiControllerBase : ApiController
     {
         public IErrorService _errorService;
+
+     
+
         public ApiControllerBase(IErrorService errorService)
         {
             this._errorService = errorService;

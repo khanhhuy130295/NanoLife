@@ -114,6 +114,12 @@
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity.Design" />
@@ -196,6 +202,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\FeedBackController.cs" />
     <Compile Include="Api\MenuController.cs" />
     <Compile Include="Api\MenuGroupController.cs" />
     <Compile Include="Api\OrderController.cs" />
@@ -212,8 +219,10 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\FeedBackController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -221,6 +230,7 @@
     <Compile Include="Infastructure\Core\PaginationSet.cs" />
     <Compile Include="Infastructure\Extension\EntityExtensions.cs" />
     <Compile Include="Mapping\AutoMapperConfiguration.cs" />
+    <Compile Include="Models\FeedBackViewModel.cs" />
     <Compile Include="Models\MenuGroupViewModel.cs" />
     <Compile Include="Models\MenuViewModel.cs" />
     <Compile Include="Models\OrderDetailViewModel.cs" />
@@ -237,6 +247,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\app.js" />
+    <Content Include="App\component\FeedBack\FeedBackAddController.js" />
+    <Content Include="App\component\FeedBack\FeedBackEditController.js" />
+    <Content Include="App\component\FeedBack\FeedBackAdd.html" />
+    <Content Include="App\component\FeedBack\FeedBackEdit.html" />
+    <Content Include="App\component\FeedBack\FeedBackList.html" />
+    <Content Include="App\component\FeedBack\FeedBackListController.js" />
     <Content Include="App\component\home\homeController.js" />
     <Content Include="App\component\home\homeView.html" />
     <Content Include="App\component\home\rootController.js" />
@@ -2159,10 +2175,13 @@
     <Content Include="Assets\client\js\move-top.js" />
     <Content Include="Assets\client\js\nav.js" />
     <Content Include="Assets\client\js\plugin\bootbox.min.js" />
+    <Content Include="Assets\client\templateEmail\EmailContact.html" />
+    <Content Include="Assets\client\templateEmail\EmailOrder.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -2435,7 +2454,10 @@
     <Content Include="Assets\admin\lib\ckfinder\userfiles\.htaccess" />
     <Content Include="Assets\client\images\Thumbs.db" />
     <Content Include="ConnectionString.config" />
-    <Content Include="AppSetting.config" />
+    <Content Include="AppSetting.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App\component\FeedBack\FeedBack.module.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -2463,6 +2485,7 @@
     <Content Include="UploadFile\images\kuminBaner.png" />
     <Content Include="UploadFile\images\logo.png" />
     <Content Include="UploadFile\images\SP1.png" />
+    <Content Include="Views\Post\Index.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -2494,9 +2517,13 @@
     <Content Include="Views\Shared\FeedBack.cshtml" />
     <Content Include="Views\Shared\Contact.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Shared\MenuForPost.cshtml" />
+    <Content Include="Views\Shared\PostCategory.cshtml" />
+    <Content Include="Views\Shared\RencentPost.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\FeedBack\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

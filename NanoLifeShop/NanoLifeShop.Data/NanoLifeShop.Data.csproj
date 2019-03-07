@@ -97,10 +97,19 @@
     <Compile Include="Migrations\201903041303029_updateOrder.Designer.cs">
       <DependentUpon>201903041303029_updateOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903060527579_addFeedBack.cs" />
+    <Compile Include="Migrations\201903060527579_addFeedBack.Designer.cs">
+      <DependentUpon>201903060527579_addFeedBack.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903070725386_fixPost.cs" />
+    <Compile Include="Migrations\201903070725386_fixPost.Designer.cs">
+      <DependentUpon>201903070725386_fixPost.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NanoLifeShopDBContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ErrorRepository.cs" />
+    <Compile Include="Repositories\FeedBackRepository.cs" />
     <Compile Include="Repositories\FooterRepository.cs" />
     <Compile Include="Repositories\MenuRepository.cs" />
     <Compile Include="Repositories\MenuGroupRepository.cs" />
@@ -157,6 +166,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903041303029_updateOrder.resx">
       <DependentUpon>201903041303029_updateOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903060527579_addFeedBack.resx">
+      <DependentUpon>201903060527579_addFeedBack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903070725386_fixPost.resx">
+      <DependentUpon>201903070725386_fixPost.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

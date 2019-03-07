@@ -13,6 +13,20 @@ namespace NanoLifeShop.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+
+            routes.MapRoute(
+                name: "Post",
+                url: "post",
+                defaults: new { controller = "Post", action = "Index", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "PostDetail",
+                url: "tin-tuc/{alias}-{id}",
+                defaults: new { controller = "Post", action = "Detail", id = UrlParameter.Optional }
+             );
+
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

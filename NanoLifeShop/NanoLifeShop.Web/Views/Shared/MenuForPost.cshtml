@@ -11,16 +11,11 @@
 
                     if (item.Url != "post")
                     {
-
-                        item.Url = "#" + item.Url;
-
-
-                        <li><a href="@item.Url" target="@item.Target" class="scroll">@item.Name</a></li> }
+                        <li><a href="/" target="@item.Target" class="scroll">@item.Name</a></li> }
                     else
                     {
-                        item.Url = "/" + item.Url;
-                        <li><a href="@item.Url" target="@item.Target">@item.Name</a></li>
-
+                      
+                        <li><a href="post" target="@item.Target">@item.Name</a></li>
                     }
                 }
 
@@ -28,14 +23,14 @@
             </ul>
 
             <script type="text/javascript" src="~/Assets/client/js/nav.js"></script>
-            <script type="text/javascript">
+            @*<script type="text/javascript">
                 jQuery(document).ready(function ($) {
                     $(".scroll").click(function (event) {
                         event.preventDefault();
                         $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
                     });
                 });
-            </script>
+            </script>*@
             <!--script-->
             <script>
                 $(document).ready(function () {

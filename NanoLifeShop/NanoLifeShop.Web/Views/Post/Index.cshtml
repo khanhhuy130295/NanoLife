@@ -1,0 +1,85 @@
+﻿@model  PagedList.IPagedList<NanoLifeShop.Web.Models.PostViewModel>
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+
+@section Header{
+
+    <div class="loader loader-default" data-text=""></div>
+
+    <div class="header blog_header">
+        <div class="logo">
+            <a href="/">
+                <img src="/UploadFile/images/logo.png" alt="logo" style="padding-bottom: 1%;">
+            </a>
+        </div>
+        @{
+            Html.RenderAction("MenuPost", "Home");
+         
+        }
+
+    </div>
+}
+
+<div class="blog">
+    <div class="container">
+
+        <div class="col-md-8" id="content-area">
+            @foreach (var item in Model)
+            {
+            <div class="post1">
+                <h3><a href="/tin-tuc/@item.Alias-@item.ID">@item.Name</a></h3>
+                <div class="post1_header">
+                    <span class="post1_header_date">
+                        <time datetime="2014-01-01" title="date">@(item.CreateDate.HasValue ? item.CreateDate.Value.ToShortDateString() : null)</time>
+                    </span>
+                    <span class="post1_header_by" title="admin">By <a href="#">@item.CreateBy</a></span>
+                    <span class="post1_header_in" title="bookmark"><a href="#">loại @item.PostCategory.Name</a></span>
+                    <span class="post1_header_comments" title="comment"><a href="#">6 Comments</a></span>
+                </div>
+                <a href="/tin-tuc/@item.MetaTitle-@item.ID" class="mask"><img src="@item.Image" alt="image" class="img-responsive zoom-img"></a>
+
+                @if(item.Description.Length > 200)
+                {
+                    <p>@item.Description.Substring(0, 200)...</p>
+
+                }
+                else
+                {
+                    <p>@item.Description</p>
+
+                }
+
+
+                @*<p>@item.Description</p>*@
+
+
+
+                <nav class="cl-effect-7" id="cl-effect-7">
+                    <a href="/tin-tuc/@item.Alias-@item.ID">Đọc Thêm</a>
+                </nav>
+            </div>
+
+            }
+
+            Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+            <ul class="dc_pagination dc_paginationA dc_paginationA06">
+
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+
+            </ul>
+
+        </div>
+
+        
+        @{ Html.RenderAction("PostCategory", "Post");}
+    </div>
+</div>
+
+
+

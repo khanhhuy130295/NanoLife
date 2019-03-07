@@ -191,7 +191,75 @@
 
         });
 
+    },
+
+    SenDataContact: function () {
+        $('#formContact').submit(function (e) {
+            name = $('#txtNameC').val();
+            email = $('#txtEmailC').val();
+            message = $('#txtMessageC').val();
+
+            var model = {
+                Name: name,
+                Email: email,
+                Messages: message,
+                CreateDate: new Date(),
+                Status: false
+
+            }
+
+            $.ajax({
+                url: '/FeedBack/SendFeedBack',
+                data:
+                {
+                    strModel: JSON.stringify(model)
+                },
+                type: 'POST',
+                dataType: 'JSON',
+                success: function (response) {
+                    if (response.status) {
+                        $('.loader').removeClass("is-active");
+                        bootbox.dialog(
+                            {
+                                title: "Thông Báo",
+                                message: response.Message,
+                                buttons: {
+                                    ok:
+                                    {
+                                        label: "OK",
+                                        className: 'btn-success',
+                                        callback: function () { HomeControl.resetForm(); }
+                                    }
+                                },
+                            });
+                    }
+                    else {
+                        bootbox.dialog(
+                            {
+                                title: "Thông Báo",
+                                message: response.Message,
+                                buttons: {
+                                    ok: {
+                                        label: "OK",
+                                        className: 'btn-danger',
+                                        callback: function () {
+                                        }
+                                    }
+                                },
+
+                            });
+                    }
+                },
+                error: function (errorStatus) {
+                    console.log(errorStatus);
+                }
+            });
+
+            e.preventDefault();
+        });
+
     }
+
 
 }
 

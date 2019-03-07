@@ -56,6 +56,7 @@ namespace NanoLifeShop.Web.Infastructure.Extension
 
         #endregion PostCate and Post
 
+
         #region ProductCate and Product
 
         public static void UpdateProductCategory(this ProductCategory productCategory, ProductCategoryViewModel productCateVM)
@@ -111,6 +112,7 @@ namespace NanoLifeShop.Web.Infastructure.Extension
         }
 
         #endregion ProductCate and Product
+
 
         #region Menu and MenuGroup
 
@@ -174,6 +176,20 @@ namespace NanoLifeShop.Web.Infastructure.Extension
             order.Status = orderVM.Status;
            
         }
+        #endregion
+
+        #region FeedBack
+        public static void UpdateFeedBack(this FeedBack feedBack, FeedBackViewModel feedBackVM)
+        {
+            feedBack.ID = feedBackVM.ID;
+            feedBack.Messages = feedBackVM.Messages;
+            feedBack.CreateDate = feedBackVM.CreateDate;
+            feedBack.Email = feedBackVM.Email;
+            feedBack.Name = feedBackVM.Name;
+            feedBack.Phone = feedBackVM.Phone;
+            feedBack.Status = feedBackVM.Status;
+        }
+
         #endregion
     }
 }

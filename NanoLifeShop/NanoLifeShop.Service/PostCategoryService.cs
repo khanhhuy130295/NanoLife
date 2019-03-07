@@ -14,9 +14,9 @@ namespace NanoLifeShop.Service
 
         PostCategory Delete(int ID);
 
-        IEnumerable<PostCategory> GetAll();
+        IEnumerable<PostCategory> GetAll(string[] includes = null);
 
-        IEnumerable<PostCategory> GetAll(string keyword);
+        IEnumerable<PostCategory> GetAll(string keyword, string[] includes = null);
 
         IEnumerable<PostCategory> GetParent();
 
@@ -48,12 +48,12 @@ namespace NanoLifeShop.Service
             return _postCategoryRepository.Delete(ID);
         }
 
-        public IEnumerable<PostCategory> GetAll()
+        public IEnumerable<PostCategory> GetAll(string[] includes = null)
         {
-            return _postCategoryRepository.GetAll();
+            return _postCategoryRepository.GetAll(includes);
         }
 
-        public IEnumerable<PostCategory> GetAll(string keyword)
+        public IEnumerable<PostCategory> GetAll(string keyword, string[] includes = null)
         {
             if (!String.IsNullOrEmpty(keyword))
             {
@@ -61,7 +61,7 @@ namespace NanoLifeShop.Service
             }
             else
             {
-                return _postCategoryRepository.GetAll();
+                return _postCategoryRepository.GetAll(includes);
             }
         }
 

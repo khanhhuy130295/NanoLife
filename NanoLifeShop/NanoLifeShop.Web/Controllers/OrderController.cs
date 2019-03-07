@@ -1,8 +1,10 @@
-﻿using NanoLifeShop.Models.Entity;
+﻿using NanoLifeShop.Common;
+using NanoLifeShop.Models.Entity;
 using NanoLifeShop.Service;
 using NanoLifeShop.Web.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -14,7 +16,7 @@ namespace NanoLifeShop.Web.Controllers
         private IOrderService _orderService;
         private IOrderDetailService _orderDetailService;
         private IProductService _productService;
-        public OrderController(IOrderService orderService, IOrderDetailService orderDetailService,IProductService productService)
+        public OrderController(IOrderService orderService, IOrderDetailService orderDetailService, IProductService productService)
         {
             this._orderDetailService = orderDetailService;
             this._orderService = orderService;
@@ -47,7 +49,7 @@ namespace NanoLifeShop.Web.Controllers
                 PaymentStatus = "Chưa xác nhận"
             };
 
-           var ItemDB =  _orderService.Add(OrderDB);
+            var ItemDB = _orderService.Add(OrderDB);
             _orderService.Save();
             var ProductDB = _productService.GetSingleByCondition(x => x.Status == true && x.Tags == "Nano");
 
@@ -61,9 +63,13 @@ namespace NanoLifeShop.Web.Controllers
                     Quantity = quantityConvertInt,
                     TotalPrice = quantityConvertInt * ProductDB.Price,
                 };
-                _orderDetailService.Add(orderDetail);
+
+
+                var ItemNew = _orderDetailService.Add(orderDetail);
                 _orderDetailService.Save();
                 result = true;
+
+                SendMailSMTP(Name, Email, Phone, Quantity, ItemNew.TotalPrice);
             }
             else
             {
@@ -71,11 +77,26 @@ namespace NanoLifeShop.Web.Controllers
                 _orderService.Save();
                 result = false;
             }
-           
+
             return Json(new
             {
                 status = result
             });
         }
+
+
+        public void SendMailSMTP(string Name, string Email, string Phone, string quantity, decimal total)
+        { 
+            string content = System.IO.File.ReadAllText(Server.MapPath("~/Assets/client/templateEmail/EmailOrder.html"));
+            content = content.Replace("{{Name}}", Name);
+            content = content.Replace("{{Phone}}", Phone);
+            content = content.Replace("{{Quantity}}", quantity);
+            content = content.Replace("{{DateTime}}", DateTime.Now.ToString("d"));
+            content = content.Replace("{{Total}}", total.ToString("N0"));
+
+            var toEmail = ConfigurationManager.AppSettings["ToEmailAdress"].ToString();
+            new MailHelper().SendMail(toEmail, "Đơn đặt hàng", content);
+        }
+
     }
 }

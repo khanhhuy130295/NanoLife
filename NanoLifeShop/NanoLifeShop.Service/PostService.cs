@@ -15,9 +15,9 @@ namespace NanoLifeShop.Service
 
         Post Delete(int ID);
 
-        IEnumerable<Post> GetAll();
+        IEnumerable<Post> GetAll(string[] includes = null);
 
-        IEnumerable<Post> GetAll(string keyword);
+        IEnumerable<Post> GetAll(string keyword,string[] includes = null);
 
         IEnumerable<Post> GetMultiPaging(int pageIndex, int pageSize, out int total);
 
@@ -81,12 +81,12 @@ namespace NanoLifeShop.Service
             return _postRepository.Delete(ID);
         }
 
-        public IEnumerable<Post> GetAll()
+        public IEnumerable<Post> GetAll(string[] includes = null)
         {
-            return _postRepository.GetAll();
+            return _postRepository.GetAll(includes);
         }
 
-        public IEnumerable<Post> GetAll(string keyword)
+        public IEnumerable<Post> GetAll(string keyword, string[] includes = null)
         {
             if (!String.IsNullOrEmpty(keyword))
             {

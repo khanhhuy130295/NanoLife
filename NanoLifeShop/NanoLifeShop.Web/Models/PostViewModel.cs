@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -13,6 +14,7 @@ namespace NanoLifeShop.Web.Models
 
         public string Alias { get; set; }
 
+        [StringLength(500)]
         public string Description { get; set; }
 
         public string Detail { get; set; }
@@ -47,6 +49,6 @@ namespace NanoLifeShop.Web.Models
 
         public virtual PostCategoryViewModel PostCategory { get; set; }
 
-        public virtual IEnumerable<PostTagViewModel> PostTags { get; set; }
+        public virtual ICollection<PostTagViewModel> PostTags { get; set; }
     }
 }
