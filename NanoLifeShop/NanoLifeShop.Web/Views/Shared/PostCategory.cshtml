@@ -1,0 +1,23 @@
+﻿@model  List<NanoLifeShop.Web.Models.PostCategoryViewModel>
+
+<div class="col-md-4 blog_right">
+
+    <div class="category_widget">
+        <h3>Danh mục tin tức</h3>
+        <ul class="list-unstyled arrow">
+
+            @foreach (var item in Model)
+            {
+                <li><a href="@Url.Action("Index",new {page = 1 ,@id = item.ID })">@item.Name<span class="badge pull-right">@item.Posts.Count()</span></a></li>
+
+            }
+
+        </ul>
+    </div>
+
+    
+
+
+</div>
+
+
