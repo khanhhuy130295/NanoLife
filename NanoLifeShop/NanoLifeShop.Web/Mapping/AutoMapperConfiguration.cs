@@ -26,7 +26,8 @@ namespace NanoLifeShop.Web.Mapping
                 cfg.CreateMap<MenuGroup, MenuGroupViewModel>();
                 cfg.CreateMap<Menu, MenuViewModel>();
                 cfg.CreateMap<SupportOnline, SupportOnlineViewModel>();
-                cfg.CreateMap<Order, OrderViewModel>().ForMember(d => d.OrderDetailsVM, opt => opt.UseDestinationValue());
+                cfg.CreateMap<Order, OrderViewModel>();
+                cfg.CreateMap<Slide, SlideViewModel>();
             });
         }
     }

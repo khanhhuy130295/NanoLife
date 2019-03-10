@@ -116,6 +116,7 @@ namespace NanoLifeShop.Web.Api
                     ProductCategory productCateDb = new ProductCategory();
                     productCateDb.UpdateProductCategory(productCateVM);
                     productCateDb.CreateDate = DateTime.Now;
+                    productCateDb.CreateBy = User.Identity.Name;
 
                     var NewItem = _productCategoryService.Add(productCateDb);
                     _productCategoryService.Save();
@@ -145,6 +146,8 @@ namespace NanoLifeShop.Web.Api
                     var CateDB = _productCategoryService.GetSingleByID(productCateVM.ID);
                     CateDB.UpdateProductCategory(productCateVM);
                     CateDB.UpdateDate = DateTime.Now;
+                    CateDB.UpdateBy = User.Identity.Name;
+
                     _productCategoryService.Update(CateDB);
                     _productCategoryService.Save();
 

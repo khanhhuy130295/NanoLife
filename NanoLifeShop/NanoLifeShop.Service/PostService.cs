@@ -4,6 +4,7 @@ using NanoLifeShop.Data.Repositories;
 using NanoLifeShop.Models.Entity;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace NanoLifeShop.Service
 {
@@ -17,11 +18,19 @@ namespace NanoLifeShop.Service
 
         IEnumerable<Post> GetAll(string[] includes = null);
 
-        IEnumerable<Post> GetAll(string keyword,string[] includes = null);
+        IEnumerable<Post> GetAll(string keyword, string[] includes = null);
+
+        IEnumerable<Post> GetPostByIDCate(int IdCate,int page,int pageSize,out int totalRow, string[] includes = null);
 
         IEnumerable<Post> GetMultiPaging(int pageIndex, int pageSize, out int total);
 
+        IEnumerable<Post> GetPostShowHome(int page, int pageSize,out int totalRow, string[] includes = null);
+
+        IEnumerable<Post> GetMulti(System.Linq.Expressions.Expression<Func<Post, bool>> predicate, string[] includes = null);
+
         Post GetSingleByID(int ID);
+
+        Post GetSingleByID(int ID, string[] includes = null);
 
         void Save();
     }
@@ -84,6 +93,7 @@ namespace NanoLifeShop.Service
         public IEnumerable<Post> GetAll(string[] includes = null)
         {
             return _postRepository.GetAll(includes);
+
         }
 
         public IEnumerable<Post> GetAll(string keyword, string[] includes = null)
@@ -98,6 +108,28 @@ namespace NanoLifeShop.Service
             }
         }
 
+        public IEnumerable<Post> GetPostShowHome(int page, int pageSize, out int totalRow, string[] includes = null)
+        {
+            var query = _postRepository.GetMulti(x => x.Status == true, includes);
+            totalRow = query.Count();
+
+            return query.Skip((page - 1) * pageSize).Take(pageSize);
+        }
+
+        public IEnumerable<Post> GetPostByIDCate(int IdCate, int page, int pageSize, out int totalRow, string[] includes = null)
+        {
+            var query = _postRepository.GetMulti(x => x.IDCategory == IdCate && x.Status == true, includes);
+            totalRow = query.Count();
+
+            return query.Skip((page - 1) * pageSize).Take(pageSize);
+        }
+
+        public IEnumerable<Post> GetMulti(System.Linq.Expressions.Expression<Func<Post, bool>> predicate, string[] includes = null)
+        {
+            return _postRepository.GetMulti(predicate, includes);
+        }
+
+
         public IEnumerable<Post> GetMultiPaging(int pageIndex, int pageSize, out int total)
         {
             return _postRepository.GetMultiPaging(x => x.Status, out total, pageIndex, pageSize);
@@ -107,6 +139,13 @@ namespace NanoLifeShop.Service
         {
             return _postRepository.GetSingleById(ID);
         }
+
+
+        public Post GetSingleByID(int ID, string[] includes = null)
+        {
+            return _postRepository.GetSingleByCondition(x => x.ID == ID, includes);
+        }
+
 
         public void Save()
         {

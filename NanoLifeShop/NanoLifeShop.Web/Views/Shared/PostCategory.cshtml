@@ -1,6 +1,6 @@
 ﻿@model  List<NanoLifeShop.Web.Models.PostCategoryViewModel>
 
-<div class="col-md-4 blog_right">
+
 
     <div class="category_widget">
         <h3>Danh mục tin tức</h3>
@@ -8,7 +8,7 @@
 
             @foreach (var item in Model)
             {
-                <li><a href="@Url.Action("Index",new {page = 1 ,@id = item.ID })">@item.Name<span class="badge pull-right">@item.Posts.Count()</span></a></li>
+                <li><a href="@Url.Action("PostGroupByCate",new {page = 1 ,@IdCate = item.ID })">@item.Name<span class="badge pull-right">@item.Posts.Count()</span></a></li>
 
             }
 
@@ -18,6 +18,5 @@
     
 
 
-</div>
 
 

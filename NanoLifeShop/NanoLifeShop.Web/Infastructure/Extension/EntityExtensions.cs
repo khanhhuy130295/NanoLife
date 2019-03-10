@@ -191,5 +191,20 @@ namespace NanoLifeShop.Web.Infastructure.Extension
         }
 
         #endregion
+
+
+        #region Slide
+        public static void UpdateSlide(this Slide slide, SlideViewModel slideVM)
+        {
+            slide.ID = slideVM.ID;
+            slide.Name = slideVM.Name;
+            slide.Status = slideVM.Status;
+            slide.Url = slideVM.Url;
+            slide.Content = slideVM.Content;
+            slide.Description = slideVM.Description;
+            slide.DisplayOder = slideVM.DisplayOder;
+
+        }
+        #endregion
     }
 }

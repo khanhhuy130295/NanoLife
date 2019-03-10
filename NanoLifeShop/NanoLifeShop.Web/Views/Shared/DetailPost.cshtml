@@ -1,0 +1,61 @@
+﻿@model  NanoLifeShop.Web.Models.PostViewModel
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@section Header
+{
+    <div class="loader loader-default" data-text=""></div>
+
+    <div class="header blog_header">
+        <div class="logo">
+            <a href="/">
+                <img src="/UploadFile/images/logo.png" alt="logo" style="padding-bottom: 1%;">
+            </a>
+        </div>
+        @{
+            Html.RenderAction("MenuPost", "Home");
+
+        }
+
+    </div>
+
+}
+
+
+<div class="blog">
+    <div class="container">
+        <div class="col-md-8">
+            <div class="post1">
+                <h3><a href="#">@Model.Name</a></h3>
+                <div class="post1_header">
+                    <span class="post1_header_date">
+                        <time datetime="2014-01-01" title="date">@(Model.CreateDate.HasValue ? Model.CreateDate.Value.ToString("d") : null)</time>
+                    </span>
+                    <span class="post1_header_by" title="admin">By <a href="#">@Model.CreateBy</a></span>
+                    <span class="post1_header_in" title="bookmark"><a href="#">In @Model.PostCategory.Name</a></span>
+                </div>
+                @Html.Raw(Model.Detail)
+            </div>
+            <ul class="comment-list">
+                <h5 class="post-author_head">Written by <a href="#" title="Posts by admin" rel="author">@Model.CreateBy</a></h5>
+                <li>
+                    <img src="images/avatar.png" class="img-responsive" alt="">
+                    <div class="desc">
+                        <p>View all posts by: <a href="#" title="Posts by admin" rel="author">admin</a></p>
+                    </div>
+                    <div class="clearfix"></div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-4 blog_right">
+            @{
+                Html.RenderAction("PostCategory", "Post");
+                Html.RenderAction("RencentPost", "Post");
+
+            }
+        </div>
+    </div>
+</div>

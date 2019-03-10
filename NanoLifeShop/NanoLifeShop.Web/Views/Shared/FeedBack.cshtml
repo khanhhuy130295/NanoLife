@@ -1,74 +1,17 @@
-﻿
+﻿@model  IEnumerable<NanoLifeShop.Web.Models.SlideViewModel>
+
+
 <div class="index-banner" id="customer">
     <div class="container">
         <div class="wmuSlider example1">
             <div class="wmuSliderWrapper">
 
-                <article data-index="1" style="position: absolute; width: 100%; opacity: 0;">
-                    <div class="banner-wrap">
-                        <div class="col-md-12">
-                            <ul class="grid-1">
-                                <li class="grid-1_left">
-                                    <img src="~/Assets/client/images/pic1.jpg" class="img-responsive" alt="" />
-                                </li>
-                                <li class="grid-1_right">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae labore dignissimos molestias, ullam cumque rem at velit? Cupiditate veniam similique odit voluptates nostrum, itaque, vero. Autem aspernatur iste inventore delectus explicabo corrupti, suscipit aliquid provident alias quaerat molestiae earum asperiores velit! Nobis eligendi iusto quibusdam exercitationem eveniet architecto aperiam, rem cumque vitae rerum consequuntur magnam, recusandae minus ullam est ab, non earum quisquam suscipit officia, aut ducimus libero temporibus ea? Consequatur ipsam reprehenderit quidem iste unde, saepe non id aliquam. Explicabo unde, voluptatem, sequi expedita incidunt eos quae autem numquam asperiores dolores. Quae vero eveniet nemo ad architecto eligendi nobis, dolor eos aspernatur, iste quaerat assumenda modi sequi culpa officia rem
-                                    </p>
-                                    <h4><a href="#">Khách 1</a> | Hồ Chí Minh</h4>
-                                </li>
-                            </ul>
-                            <div class="clearfix"> </div>
-                        </div>
-                        <div class="clearfix"> </div>
-                    </div>
-                </article>
-
-
-                <article data-index="2" style="position: absolute; width: 100%; opacity: 0;">
-                    <div class="banner-wrap">
-                        <div class="col-md-12">
-                            <ul class="grid-1">
-                                <li class="grid-1_left">
-                                    <img src="~/Assets/client/images/pic1.jpg" class="img-responsive" alt="" />
-                                </li>
-                                <li class="grid-1_right">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae labore dignissimos molestias, ullam cumque rem at velit? Cupiditate veniam similique odit voluptates nostrum, itaque, vero. Autem aspernatur iste inventore delectus explicabo corrupti, suscipit aliquid provident alias quaerat molestiae earum asperiores velit! Nobis eligendi iusto quibusdam exercitationem eveniet architecto aperiam, rem cumque vitae rerum consequuntur magnam, recusandae minus ullam est ab, non earum quisquam suscipit officia, aut ducimus libero temporibus ea? Consequatur ipsam reprehenderit quidem iste unde, saepe non id aliquam. Explicabo unde, voluptatem, sequi expedita incidunt eos quae autem numquam asperiores dolores. Quae vero eveniet nemo ad architecto eligendi nobis, dolor eos aspernatur, iste quaerat assumenda modi sequi culpa officia rem
-                                    </p>
-                                    <h4><a href="#">Khách 1</a> | Huế</h4>
-                                </li>
-                            </ul>
-                            <div class="clearfix"> </div>
-                        </div>
-                        <div class="clearfix"> </div>
-                    </div>
-                </article>
-
-
-                <article data-index="3" style="position: absolute; width: 100%; opacity: 0;">
-                    <div class="banner-wrap">
-                        <div class="col-md-12">
-                            <ul class="grid-1">
-                                <li class="grid-1_left">
-                                    <img src="~/Assets/client/images/pic1.jpg" class="img-responsive" alt="" />
-                                </li>
-                                <li class="grid-1_right">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae labore dignissimos molestias, ullam cumque rem at velit? Cupiditate veniam similique odit voluptates nostrum, itaque, vero. Autem aspernatur iste inventore delectus explicabo corrupti, suscipit aliquid provident alias quaerat molestiae earum asperiores velit! Nobis eligendi iusto quibusdam exercitationem eveniet architecto aperiam, rem cumque vitae rerum consequuntur magnam, recusandae minus ullam est ab, non earum quisquam suscipit officia, aut ducimus libero temporibus ea? Consequatur ipsam reprehenderit quidem iste unde, saepe non id aliquam. Explicabo unde, voluptatem, sequi expedita incidunt eos quae autem numquam asperiores dolores. Quae vero eveniet nemo ad architecto eligendi nobis, dolor eos aspernatur, iste quaerat assumenda modi sequi culpa officia rem
-                                    </p>
-                                    <h4><a href="#">Khách 3</a> | Hà Nội</h4>
-                                </li>
-                            </ul>
-                            <div class="clearfix"> </div>
-                        </div>
-                        <div class="clearfix"> </div>
-                    </div>
-                </article>
-
-
-             
-
+                @foreach (var item in Model)
+                {
+                    <article data-index="@item.DisplayOder" style="position: absolute; width: 100%; opacity: 0;">
+                        @Html.Raw(item.Content)
+                    </article>
+                }
 
             </div>
 

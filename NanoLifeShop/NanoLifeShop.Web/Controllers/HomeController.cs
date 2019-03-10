@@ -12,11 +12,14 @@ namespace NanoLifeShop.Web.Controllers
         private IMenuService _menuService;
         private ISupportOnlineService _supportService;
         private IProductService _productService;
-        public HomeController(IMenuService menuService, ISupportOnlineService supportService, IProductService productService)
+        private ISlideService _slideService;
+        public HomeController(IMenuService menuService, ISlideService slideService,
+            ISupportOnlineService supportService, IProductService productService)
         {
             this._menuService = menuService;
             this._supportService = supportService;
             this._productService = productService;
+            this._slideService = slideService;
 
         }
 
@@ -84,7 +87,9 @@ namespace NanoLifeShop.Web.Controllers
         [ChildActionOnly]
         public ActionResult FeedBack()
         {
-            return PartialView("FeedBack");
+            var modelDB = _slideService.ShowHomeData();
+            var modelVM = Mapper.Map<IEnumerable<Slide>, IEnumerable<SlideViewModel>>(modelDB);
+            return PartialView("FeedBack",modelVM);
         }
 
         [OutputCache(Duration = 3600)]

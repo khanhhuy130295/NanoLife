@@ -1,10 +1,10 @@
-﻿(function (app) {
+﻿/// <reference path="../../../assets/admin/lib/angular/angular.js" />
+
+(function (app) {
     app.factory('commonService', commonService);
 
     function commonService() {
-        return {
-            getSeoTitle: getSeoTitle
-        };
+     
 
         function getSeoTitle(input) {
 
@@ -23,6 +23,7 @@
             slug = slug.replace(/đ/gi, 'd');
             //Xóa các ký tự đặt biệt
             slug = slug.replace(/\`|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\:|\;|_/gi, '');
+            slug = slug.replace(/([^0-9a-z-\s])/gi, '');
             //Đổi khoảng trắng thành ký tự gạch ngang
             slug = slug.replace(/ /gi, "-");
             //Đổi nhiều ký tự gạch ngang liên tiếp thành 1 ký tự gạch ngang
@@ -37,6 +38,11 @@
 
             return slug;
         }
+
+
+        return {
+            getSeoTitle: getSeoTitle
+        };
     };
 
 })(angular.module('NanoLife.common'))

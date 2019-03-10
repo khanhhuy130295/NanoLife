@@ -22,8 +22,8 @@ namespace NanoLifeShop.Web
 
             routes.MapRoute(
                 name: "PostDetail",
-                url: "tin-tuc/{alias}-{id}",
-                defaults: new { controller = "Post", action = "Detail", id = UrlParameter.Optional }
+                url: "post/{alias}.p-{idPost}",
+                defaults: new { controller = "Post", action = "Detail", idPost = UrlParameter.Optional }
              );
 
 

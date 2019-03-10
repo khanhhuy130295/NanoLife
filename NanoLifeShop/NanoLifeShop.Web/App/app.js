@@ -10,6 +10,7 @@
             'NanoLife.MenuGroup',
             'NanoLife.Menu',
             'NanoLife.Order',
+            'NanoLife.Slide',
             'NanoLife.FeedBack',
             'NanoLife.common']
     ).config(configRouter).config(configAuthentication);

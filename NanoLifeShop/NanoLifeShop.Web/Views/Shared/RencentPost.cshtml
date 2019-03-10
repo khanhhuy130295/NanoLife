@@ -1,25 +1,14 @@
-﻿<ul class="recent-list">
+﻿@model  List<NanoLifeShop.Web.Models.PostViewModel>
+
+
+<ul class="recent-list">
     <h3>Bài viết mới</h3>
 
-    @foreach (var item in RecentPost.Take(5))
+    @foreach (var item in Model)
     {
-        var link = "/tin-tuc/" + item.MetaTitle + "-" + item.ID;
+        var link = "/post/" + item.Alias + ".p-" + item.ID;
         <li><a href="@link">@item.Name</a><br><span>@item.CreateDate</span></li>
     }
 
 </ul>
 
-<h3>Tags</h3>
-<ul class="blog-list1">
-    <li><a href="#">Web Design</a></li>
-    <li><a href="#">Html5</a></li>
-    <li><a href="#">Wordpress</a></li>
-    <li><a href="#">Logo</a></li>
-    <li><a href="#">Web Design</a></li>
-    <li><a href="#">Web Design</a></li>
-    <li><a href="#">Wordpress</a></li>
-    <li><a href="#">Web Design</a></li>
-    <li><a href="#">Html5</a></li>
-    <li><a href="#">Wordpress</a></li>
-    <li><a href="#">Logo</a></li>
-</ul>

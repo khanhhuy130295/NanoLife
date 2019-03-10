@@ -17,6 +17,8 @@ namespace NanoLifeShop.Models.Entity
         [MaxLength(256)]
         public string Description { get; set; }
 
+        public string Content { get; set; }
+
         [MaxLength(256)]
         public string Url { get; set; }
 

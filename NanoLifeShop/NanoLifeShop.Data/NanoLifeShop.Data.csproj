@@ -105,6 +105,10 @@
     <Compile Include="Migrations\201903070725386_fixPost.Designer.cs">
       <DependentUpon>201903070725386_fixPost.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903090604059_UpdateTbSlide.cs" />
+    <Compile Include="Migrations\201903090604059_UpdateTbSlide.Designer.cs">
+      <DependentUpon>201903090604059_UpdateTbSlide.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NanoLifeShopDBContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -172,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903070725386_fixPost.resx">
       <DependentUpon>201903070725386_fixPost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903090604059_UpdateTbSlide.resx">
+      <DependentUpon>201903090604059_UpdateTbSlide.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

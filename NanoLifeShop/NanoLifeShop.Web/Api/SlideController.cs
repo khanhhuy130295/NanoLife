@@ -14,14 +14,13 @@ using System.Web.Script.Serialization;
 
 namespace NanoLifeShop.Web.Api
 {
-    [RoutePrefix("api/post")]
-    [Authorize]
-    public class PostController : ApiControllerBase
+    [RoutePrefix("api/slide")]
+    public class SlideController : ApiControllerBase
     {
-        private IPostService _postService;
-        public PostController(IErrorService errorService, IPostService postService) : base(errorService)
+        private ISlideService _slideService;
+        public SlideController(IErrorService errorService, ISlideService slideService):base(errorService)
         {
-            this._postService = postService;
+            this._slideService = slideService;
         }
 
 
@@ -35,14 +34,14 @@ namespace NanoLifeShop.Web.Api
                 HttpResponseMessage response = null;
                 int TotalRow = 0;
 
-                var listdb = _postService.GetAll(keyword);
+                var listdb = _slideService.GetAll(keyword);
 
                 TotalRow = listdb.Count();
-                var query = listdb.OrderByDescending(x => x.CreateDate).Skip(page * pageSize).Take(pageSize);
+                var query = listdb.OrderBy(x => x.DisplayOder).Skip(page * pageSize).Take(pageSize);
 
-                var responseData = Mapper.Map<IEnumerable<Post>, IEnumerable<PostViewModel>>(query);
+                var responseData = Mapper.Map<IEnumerable<Slide>, IEnumerable<SlideViewModel>>(query);
 
-                var paginationSet = new PaginationSet<PostViewModel>()
+                var paginationSet = new PaginationSet<SlideViewModel>()
                 {
                     TotalCount = TotalRow,
                     TotalPages = (int)Math.Ceiling((decimal)TotalRow / pageSize),
@@ -65,10 +64,10 @@ namespace NanoLifeShop.Web.Api
             {
                 HttpResponseMessage response = null;
 
-                var ItemDetail = _postService.GetSingleByID(id);
+                var ItemDetail = _slideService.GetSingleByID(id);
                 if (ItemDetail != null)
                 {
-                    var responseData = Mapper.Map<Post, PostViewModel>(ItemDetail);
+                    var responseData = Mapper.Map<Slide, SlideViewModel>(ItemDetail);
                     response = request.CreateResponse(HttpStatusCode.OK, responseData);
                 }
                 else
@@ -79,10 +78,9 @@ namespace NanoLifeShop.Web.Api
             });
         }
 
-
-        [Route("create")]
         [HttpPost]
-        public HttpResponseMessage Create(HttpRequestMessage request, PostViewModel postVM)
+        [Route("create")]
+        public HttpResponseMessage Create(HttpRequestMessage request, SlideViewModel slideVM)
         {
             return CreateResponeBase(request, () =>
             {
@@ -93,15 +91,13 @@ namespace NanoLifeShop.Web.Api
                 }
                 else
                 {
-                    Post postDb = new Post();
-                    postDb.UpdatePost(postVM);
-                    postDb.CreateDate = DateTime.Now;
-                    postDb.CreateBy = User.Identity.Name;
+                    Slide slideDB = new Slide();
+                    slideDB.UpdateSlide(slideVM);
 
-                    var NewItem = _postService.Add(postDb);
-                    _postService.Save();
+                    var NewItem = _slideService.Add(slideDB);
+                    _slideService.Save();
 
-                    var respondeData = Mapper.Map<Post, PostViewModel>(NewItem);
+                    var respondeData = Mapper.Map<Slide, SlideViewModel>(NewItem);
 
                     response = request.CreateResponse(HttpStatusCode.OK, respondeData);
                 }
@@ -110,28 +106,25 @@ namespace NanoLifeShop.Web.Api
             });
         }
 
-        [Route("update")]
         [HttpPut]
-        public HttpResponseMessage Update(HttpRequestMessage request, PostViewModel postVM)
+        [Route("update")]
+        public HttpResponseMessage Update(HttpRequestMessage request, SlideViewModel slideVM)
         {
             return CreateResponeBase(request, () =>
             {
                 HttpResponseMessage response = null;
                 if (!ModelState.IsValid)
                 {
-                    response = request.CreateResponse(HttpStatusCode.OK, ModelState);
+                    response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
                 }
                 else
                 {
-                    var PostDB = _postService.GetSingleByID(postVM.ID);
-                    PostDB.UpdatePost(postVM);
-                    PostDB.UpdateDate = DateTime.Now;
-                    PostDB.UpdateBy = User.Identity.Name;
+                    var slideDB = _slideService.GetSingleByID(slideVM.ID);
+                    slideDB.UpdateSlide(slideVM);
+                    _slideService.Update(slideDB);
+                    _slideService.Save();
 
-                    _postService.Update(PostDB);
-                    _postService.Save();
-
-                    var responseData = Mapper.Map<Post, PostViewModel>(PostDB);
+                    var responseData = Mapper.Map<Slide, SlideViewModel>(slideDB);
 
                     response = request.CreateResponse(HttpStatusCode.OK, responseData);
                 }
@@ -140,8 +133,8 @@ namespace NanoLifeShop.Web.Api
             });
         }
 
-        [Route("delete")]
         [HttpDelete]
+        [Route("delete")]
         public HttpResponseMessage Delete(HttpRequestMessage request, int ID)
         {
             return CreateResponeBase(request, () =>
@@ -153,9 +146,9 @@ namespace NanoLifeShop.Web.Api
                 }
                 else
                 {
-                    var oldItem = _postService.Delete(ID);
-                    _postService.Save();
-                    var responseData = Mapper.Map<Post, PostViewModel>(oldItem);
+                    var oldItem = _slideService.Delete(ID);
+                    _slideService.Save();
+                    var responseData = Mapper.Map<Slide, SlideViewModel>(oldItem);
                     response = request.CreateResponse(HttpStatusCode.OK, responseData);
                 }
 
@@ -180,17 +173,16 @@ namespace NanoLifeShop.Web.Api
 
                     foreach (var item in listParseJson)
                     {
-                        _postService.Delete(item);
+                        _slideService.Delete(item);
                     }
 
-                    _postService.Save();
+                    _slideService.Save();
                     response = request.CreateResponse(HttpStatusCode.OK, listParseJson.Count());
                 }
 
                 return response;
             });
         }
-
 
     }
 }

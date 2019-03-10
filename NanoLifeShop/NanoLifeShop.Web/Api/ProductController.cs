@@ -96,6 +96,7 @@ namespace NanoLifeShop.Web.Api
                     Product ProductDb = new Product();
                     ProductDb.UpdateProduct(ProductVM);
                     ProductDb.CreateDate = DateTime.Now;
+                    ProductDb.CreateBy = User.Identity.Name;
 
                     var NewItem = _productService.Add(ProductDb);
                     _productService.Save();
@@ -125,6 +126,8 @@ namespace NanoLifeShop.Web.Api
                     var ProductDB = _productService.GetSingleByID(ProductVM.ID);
                     ProductDB.UpdateProduct(ProductVM);
                     ProductDB.UpdateDate = DateTime.Now;
+                    ProductDB.UpdateBy = User.Identity.Name;
+
                     _productService.Update(ProductDB);
                     _productService.Save();
 

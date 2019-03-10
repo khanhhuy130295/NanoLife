@@ -14,6 +14,14 @@
             height: '200px'
         };
 
+
+
+        $('#txtSearch').off('keypress').on('keypress', function (e) {
+            if (e.which == 13) {
+                search();
+            }
+        })
+
         $scope.GetSeoTitle = GetSeoTitle;
 
         function GetSeoTitle() {

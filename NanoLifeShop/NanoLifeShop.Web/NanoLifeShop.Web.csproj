@@ -210,6 +210,7 @@
     <Compile Include="Api\PostController.cs" />
     <Compile Include="Api\ProductCategoryController.cs" />
     <Compile Include="Api\ProductController.cs" />
+    <Compile Include="Api\SlideController.cs" />
     <Compile Include="Api\SupportOnlineController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -241,6 +242,7 @@
     <Compile Include="Models\ProductCategoryViewModel.cs" />
     <Compile Include="Models\ProductTagViewModel.cs" />
     <Compile Include="Models\ProductViewModel.cs" />
+    <Compile Include="Models\SlideViewModel.cs" />
     <Compile Include="Models\SupportOnlineViewModel.cs" />
     <Compile Include="Models\TagViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -306,6 +308,13 @@
     <Content Include="App\component\Product\productEditController.js" />
     <Content Include="App\component\Product\productList.html" />
     <Content Include="App\component\Product\productListController.js" />
+    <Content Include="App\component\Slide\Slide.module.js" />
+    <Content Include="App\component\Slide\SlideAdd.html" />
+    <Content Include="App\component\Slide\SlideEdit.html" />
+    <Content Include="App\component\Slide\SlideList.html" />
+    <Content Include="App\component\Slide\SlideAddController.js" />
+    <Content Include="App\component\Slide\SlideEditController.js" />
+    <Content Include="App\component\Slide\SlideListController.js" />
     <Content Include="App\component\SupportOnline\SupportEditController.js" />
     <Content Include="App\component\SupportOnline\SupportAddController.js" />
     <Content Include="App\component\SupportOnline\SupportAdd.html" />
@@ -2520,6 +2529,8 @@
     <Content Include="Views\Shared\MenuForPost.cshtml" />
     <Content Include="Views\Shared\PostCategory.cshtml" />
     <Content Include="Views\Shared\RencentPost.cshtml" />
+    <Content Include="Views\Post\PostGroupByCate.cshtml" />
+    <Content Include="Views\Shared\DetailPost.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

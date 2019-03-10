@@ -1,0 +1,88 @@
+﻿<section class="content-header">
+    <h1>
+        Danh Sách
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="javascripts:void(0);"><i class="fa fa-product-hunt"></i>Slide</a></li>
+        <li><a ui-sref="Slide">Danh sách Slide</a></li>
+        <li class="active">Tạo mới</li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">Thêm mới Slide : {{slide.Name}} </h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form class="form-horizontal" novalidate name="frmAddSlide" role="form" ng-submit="AddItem()">
+            <div class="box-body">
+
+                <div class="form-group">
+                    <label for="nameInput" class="col-sm-2 control-label">Tên Slide</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-maxlength="256" required name="nameInput" ng-model="slide.Name">
+                        <span ng-show="frmAddSlide.nameInput.$error.required" class="has-error">Vui lòng nhập Tên Slide.</span>
+                        <span ng-show="frmAddSlide.nameInput.$error.maxlength" class="has-error">Tên Slide không được lớn hơn 256 ký tự !</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="displayOrderInput" class="col-sm-2 control-label">Thứ tự hiển thị</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" name="displayOrderInput" ng-model="slide.DisplayOder">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="urlInput" class="col-sm-2 control-label">Url</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-maxlength="256" name="urlInput" ng-model="slide.Url">
+                        <span ng-show="frmAddSlide.urlInput.$error.maxlength" class="has-error">Url không được lớn hơn 256 ký tự !</span>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="descipInput" class="col-sm-2 control-label">Mô tả</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-maxlength="256" name="descipInput" ng-model="slide.Description">
+                        <span ng-show="frmAddSlide.descipInput.$error.maxlength" class="has-error">Mô tả không được lớn hơn 256 ký tự !</span>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="descriptionInput" class="col-sm-2 control-label">Nội dung bản tin</label>
+                    <div class="col-sm-10">
+                        <textarea type="text" class="form-control" name="detailInput" ckeditor="ckeditorOptions" ng-model="slide.Content"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="status" ng-model="slide.Status" ng-checked="slide.Status"> Kích hoạt
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+                <div class="row">
+                    <div class="col-md-2 pull-left">
+                        <a ui-sref="Slide" class="btn bg-navy"><i class="fa fa-arrow-left"></i> <b>Quay lại</b></a>
+                    </div>
+                    <div class="col-md-2 pull-right">
+                        <button type="submit" class="btn bg-olive-active btn-block" ng-disabled="frmAddSlide.$invalid"><span class="glyphicon glyphicon-floppy-saved"></span><span><b> Lưu</b></span></button>
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-footer -->
+        </form>
+    </div>
+</section>

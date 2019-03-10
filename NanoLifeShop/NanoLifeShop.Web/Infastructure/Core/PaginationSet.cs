@@ -30,6 +30,9 @@ namespace NanoLifeShop.Web.Infastructure.Core
         /// </summary>
         public int TotalPages { get; set; }
 
+
+        public int MaxPage { set; get; }
+
         /// <summary>
         /// Total record of table
         /// </summary>
