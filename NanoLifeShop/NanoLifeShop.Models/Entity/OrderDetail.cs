@@ -18,6 +18,8 @@ namespace NanoLifeShop.Models.Entity
         [Key]
         [Column(Order = 2)]
         public int ID_Product { get; set; }
+     
+        public decimal Price { get; set; }
 
         public int Quantity { get; set; }
 

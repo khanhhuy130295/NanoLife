@@ -56,7 +56,6 @@ namespace NanoLifeShop.Web.Infastructure.Extension
 
         #endregion PostCate and Post
 
-
         #region ProductCate and Product
 
         public static void UpdateProductCategory(this ProductCategory productCategory, ProductCategoryViewModel productCateVM)
@@ -113,7 +112,6 @@ namespace NanoLifeShop.Web.Infastructure.Extension
 
         #endregion ProductCate and Product
 
-
         #region Menu and MenuGroup
 
         public static void UpdateMenuGroup(this MenuGroup menuGroup, MenuGroupViewModel menuGroupVM)
@@ -121,7 +119,6 @@ namespace NanoLifeShop.Web.Infastructure.Extension
             menuGroup.ID = menuGroupVM.ID;
             menuGroup.Name = menuGroupVM.Name;
             menuGroup.Status = menuGroupVM.Status;
-       
         }
 
         public static void UpdateMenu(this Menu menu, MenuViewModel menuVM)
@@ -133,17 +130,14 @@ namespace NanoLifeShop.Web.Infastructure.Extension
             menu.DisplayOder = menuVM.DisplayOder;
             menu.IDGroup = menuVM.IDGroup;
             menu.Status = menuVM.Status;
-            
         }
 
         #endregion Menu and MenuGroup
-
 
         #region SupportOnline
 
         public static void UpdateSupportOnline(this SupportOnline supportOnline, SupportOnlineViewModel supportOnlineVM)
         {
-
             supportOnline.ID = supportOnlineVM.ID;
             supportOnline.Name = supportOnlineVM.Name;
             supportOnline.Department = supportOnlineVM.Department;
@@ -152,14 +146,15 @@ namespace NanoLifeShop.Web.Infastructure.Extension
             supportOnline.Skype = supportOnlineVM.Skype;
             supportOnline.Facebook = supportOnlineVM.Facebook;
             supportOnline.Mobile = supportOnlineVM.Mobile;
+            supportOnline.Lng = supportOnlineVM.Lng;
+            supportOnline.Lat = supportOnlineVM.Lat;
             supportOnline.DisplayOder = supportOnlineVM.DisplayOder;
             supportOnline.Status = supportOnlineVM.Status;
-
         }
 
-        #endregion
+        #endregion SupportOnline
 
-        #region Order
+        #region Order and OrderDetail
 
         public static void UpdateOrder(this Order order, OrderViewModel orderVM)
         {
@@ -174,11 +169,21 @@ namespace NanoLifeShop.Web.Infastructure.Extension
             order.PaymentMethod = orderVM.PaymentMethod;
             order.PaymentStatus = orderVM.PaymentStatus;
             order.Status = orderVM.Status;
-           
         }
-        #endregion
+
+        public static void UpdateOrderDetail(this OrderDetail orderDetail, OrderDetailViewModel orderDetailViewModel)
+        {
+            orderDetail.ID_Order = orderDetailViewModel.ID_Order;
+            orderDetail.ID_Product = orderDetailViewModel.ID_Product;
+            orderDetail.Price = orderDetailViewModel.ID_Product;
+            orderDetail.Quantity = orderDetailViewModel.Quantity;
+            orderDetail.TotalPrice = orderDetailViewModel.TotalPrice;
+        }
+
+        #endregion Order and OrderDetail
 
         #region FeedBack
+
         public static void UpdateFeedBack(this FeedBack feedBack, FeedBackViewModel feedBackVM)
         {
             feedBack.ID = feedBackVM.ID;
@@ -190,10 +195,10 @@ namespace NanoLifeShop.Web.Infastructure.Extension
             feedBack.Status = feedBackVM.Status;
         }
 
-        #endregion
-
+        #endregion FeedBack
 
         #region Slide
+
         public static void UpdateSlide(this Slide slide, SlideViewModel slideVM)
         {
             slide.ID = slideVM.ID;
@@ -203,8 +208,8 @@ namespace NanoLifeShop.Web.Infastructure.Extension
             slide.Content = slideVM.Content;
             slide.Description = slideVM.Description;
             slide.DisplayOder = slideVM.DisplayOder;
-
         }
-        #endregion
+
+        #endregion Slide
     }
 }

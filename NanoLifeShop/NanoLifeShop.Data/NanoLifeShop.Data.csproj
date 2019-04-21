@@ -109,6 +109,18 @@
     <Compile Include="Migrations\201903090604059_UpdateTbSlide.Designer.cs">
       <DependentUpon>201903090604059_UpdateTbSlide.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903171205185_fixSupport.cs" />
+    <Compile Include="Migrations\201903171205185_fixSupport.Designer.cs">
+      <DependentUpon>201903171205185_fixSupport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904131020598_updateOrderDt.cs" />
+    <Compile Include="Migrations\201904131020598_updateOrderDt.Designer.cs">
+      <DependentUpon>201904131020598_updateOrderDt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904211338289_RevenuesStatistic.cs" />
+    <Compile Include="Migrations\201904211338289_RevenuesStatistic.Designer.cs">
+      <DependentUpon>201904211338289_RevenuesStatistic.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NanoLifeShopDBContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -179,6 +191,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903090604059_UpdateTbSlide.resx">
       <DependentUpon>201903090604059_UpdateTbSlide.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903171205185_fixSupport.resx">
+      <DependentUpon>201903171205185_fixSupport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904131020598_updateOrderDt.resx">
+      <DependentUpon>201904131020598_updateOrderDt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904211338289_RevenuesStatistic.resx">
+      <DependentUpon>201904211338289_RevenuesStatistic.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

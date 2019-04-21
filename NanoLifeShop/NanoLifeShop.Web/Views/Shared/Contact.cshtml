@@ -20,9 +20,14 @@
         <div class="grid_4">
             <h4></h4>
         </div>
-        <div class="grid_5">
+        <div class="grid_5" id=" ">
+            <input type="hidden" id="hiName" value="@Model.Name" />
+            <input type="hidden" id="hiAddress" value="@Model.Address" />
+            <input type="hidden" id="hiLat" value="@Model.Lat" />
+            <input type="hidden" id="hiLng" value="@Model.Lng" />
+
             <!--Show google Map-->
-            <div class="map-canvas" id="map">
+            <div class="map-canvas" id="map" >
 
             </div>
         </div>

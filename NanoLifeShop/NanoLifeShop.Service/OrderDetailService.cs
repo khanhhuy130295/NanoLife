@@ -1,11 +1,7 @@
 ﻿using NanoLifeShop.Data.Infastructures;
 using NanoLifeShop.Data.Repositories;
 using NanoLifeShop.Models.Entity;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NanoLifeShop.Service
 {
@@ -19,21 +15,23 @@ namespace NanoLifeShop.Service
 
         IEnumerable<OrderDetail> GetAll();
 
-        IEnumerable<OrderDetail> GetAll(string keyword);
+        IEnumerable<OrderDetail> GetAll(int idOrder);
 
         IEnumerable<OrderDetail> GetParent();
 
-        IEnumerable<OrderDetail> GetMultiPaging(int pageIndex, int pageSize, out int total);
+        IEnumerable<OrderDetail> GetMultiPaging(int pageIndex, int pageSize, out int total, int idOrder);
 
         OrderDetail GetSingleByID(int ID);
 
         void Save();
     }
+
     public class OrderDetailDetailService : IOrderDetailService
     {
-        IOrderDetailRepository _orderDetailDetailRepository;
-        IUnitOfWork _unitOfWork;
-        public OrderDetailDetailService(IOrderDetailRepository orderDetailDetailRepository,IUnitOfWork unitOfWork)
+        private IOrderDetailRepository _orderDetailDetailRepository;
+        private IUnitOfWork _unitOfWork;
+
+        public OrderDetailDetailService(IOrderDetailRepository orderDetailDetailRepository, IUnitOfWork unitOfWork)
         {
             this._orderDetailDetailRepository = orderDetailDetailRepository;
             this._unitOfWork = unitOfWork;
@@ -44,21 +42,16 @@ namespace NanoLifeShop.Service
             return _orderDetailDetailRepository.Add(OrderDetail);
         }
 
-        public OrderDetail Delete(int ID)
+        public OrderDetail Delete(int IDOrder)
         {
-            return _orderDetailDetailRepository.Delete(ID);
+            return _orderDetailDetailRepository.Delete(IDOrder);
         }
 
-        public IEnumerable<OrderDetail> GetAll()
+        public IEnumerable<OrderDetail> GetAll(int idOrder)
         {
-            return _orderDetailDetailRepository.GetAll();
-        }
-
-        public IEnumerable<OrderDetail> GetAll(string keyword)
-        {
-            if (!String.IsNullOrEmpty(keyword))
+            if (idOrder > 0)
             {
-                return _orderDetailDetailRepository.GetMulti(x => x.Order.CustomerName.Contains(keyword)||x.Product.Name.Contains(keyword));
+                return _orderDetailDetailRepository.GetMulti(x => x.ID_Order == idOrder);
             }
             else
             {
@@ -66,14 +59,19 @@ namespace NanoLifeShop.Service
             }
         }
 
-        public IEnumerable<OrderDetail> GetMultiPaging(int pageIndex, int pageSize, out int total)
+        public IEnumerable<OrderDetail> GetAll()
         {
-            return _orderDetailDetailRepository.GetMultiPaging(x => x.Order != null, out total, pageIndex, pageSize);
+            return _orderDetailDetailRepository.GetAll();
+        }
+
+        public IEnumerable<OrderDetail> GetMultiPaging(int pageIndex, int pageSize, out int total, int idOrder)
+        {
+            return _orderDetailDetailRepository.GetMultiPaging(x => x.ID_Order == idOrder, out total, pageIndex, pageSize);
         }
 
         public IEnumerable<OrderDetail> GetParent()
         {
-            return _orderDetailDetailRepository.GetMulti(x => x.Order  != null);
+            return _orderDetailDetailRepository.GetMulti(x => x.Order != null);
         }
 
         public OrderDetail GetSingleByID(int ID)
@@ -90,6 +88,5 @@ namespace NanoLifeShop.Service
         {
             _orderDetailDetailRepository.Update(OrderDetail);
         }
-
     }
 }

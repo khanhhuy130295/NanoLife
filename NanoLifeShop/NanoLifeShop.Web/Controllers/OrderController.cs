@@ -37,7 +37,7 @@ namespace NanoLifeShop.Web.Controllers
 
             Order OrderDB = new Order()
             {
-                CreateDate = DateTime.Now,
+                CreateDate = DateTime.Today,
                 CreateBy = "Client",
                 CustomerAddress = "",
                 CustomerEmail = Email,
@@ -61,9 +61,9 @@ namespace NanoLifeShop.Web.Controllers
                     ID_Order = ItemDB.ID,
                     ID_Product = ProductDB.ID,
                     Quantity = quantityConvertInt,
+                    Price = ProductDB.Price,
                     TotalPrice = quantityConvertInt * ProductDB.Price,
                 };
-
 
                 var ItemNew = _orderDetailService.Add(orderDetail);
                 _orderDetailService.Save();

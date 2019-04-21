@@ -23,6 +23,10 @@ namespace NanoLifeShop.Web.Models
 
         public string Mobile { get; set; }
 
+        public double? Lng { get; set; }
+
+        public double? Lat { get; set; }
+
         public int DisplayOder { get; set; }
 
         public bool Status { get; set; }

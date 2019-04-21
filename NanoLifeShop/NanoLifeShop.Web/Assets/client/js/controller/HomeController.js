@@ -134,6 +134,8 @@
             }
         });
 
+
+     
     },
 
     resetForm: function () {
@@ -258,9 +260,31 @@
             e.preventDefault();
         });
 
+    },
+
+    initMap: function () {
+        var uluru = { lat: parseFloat($('#hiLat').val()), lng: parseFloat($('#hiLng').val()) };
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 10,
+            center: uluru
+        });
+
+        var contentString = $('#hiAddress').val();
+
+
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+
+        var marker = new google.maps.Marker({
+            position: uluru,
+            map: map,
+            title: "GoogleMAP" 
+        });
+
+        infowindow.open(map, marker);
     }
-
-
 }
 
 HomeControl.init();

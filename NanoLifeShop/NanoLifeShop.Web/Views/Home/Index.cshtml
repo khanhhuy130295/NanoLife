@@ -13,18 +13,49 @@
                 <img src="/UploadFile/images/logo.png" alt="logo" style="padding-bottom: 1%;">
             </a>
         </div>
-            @{
-                Html.RenderAction("Menu", "Home");
-                Html.RenderAction("OrderBox", "Home");
-            }
-        
+        @{
+            Html.RenderAction("Menu", "Home");
+            Html.RenderAction("OrderBox", "Home");
+        }
+
     </div>
 }
-
+    
 @section jsFooter
 {
     <script src="~/Assets/client/js/plugin/bootbox.min.js"></script>
+
+    <script  async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe1Z1vDQiOn2pO-KB6NmMiQGBt87AmfeI&callback=initMap"
+            type="text/javascript"></script>
+    <script>
+        function initMap() {
+            var uluru = { lat: parseFloat($('#hiLat').val()), lng: parseFloat($('#hiLng').val()) };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 10,
+                center: uluru
+            });
+
+            var contentString = $('#hiAddress').val();
+
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map,
+                title: $('#hiName'),val()
+            }) ;
+
+            marker.addListener('click', function () {
+                infowindow.open(map, marker);
+            });
+        }
+
+    </script>
+
     <script src="~/Assets/client/js/controller/HomeController.js"></script>
+
 }
 
 @{ Html.RenderAction("About", "Home");

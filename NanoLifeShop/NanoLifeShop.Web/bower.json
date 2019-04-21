@@ -16,6 +16,8 @@
     "ng-ckeditor": "0.2.1",
     "angular-local-storage": "0.7.1",
     "angular-loading-bar": "0.9.0",
-    "jvectormap": "2.0.4"
+    "jvectormap": "2.0.4",
+    "lodash": "4.17.11",
+    "angular-i18n": "1.7.8" 
   }
 }

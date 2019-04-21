@@ -2,13 +2,17 @@
     function (app) {
         app.controller("OrderEditController", OrderEditController);
 
-        OrderEditController.$inject = ['$scope', 'notificationService', 'apiService', '$state','$stateParams'];
+        OrderEditController.$inject = ['$scope', 'notificationService', 'apiService', '$state', '$stateParams'];
 
         function OrderEditController($scope, notificationService, apiService, $state, $stateParams) {
 
             $scope.order = {
                 Status: true
             }
+
+            $scope.orderDetail = {
+                dataOrderDetail: [],            
+            };
 
 
             //Edit 
@@ -31,7 +35,32 @@
                     notificationService.DisplayError("Không lấy được chi tiết bản tin vui lòng thử lại sau !");
                 });
             }
-            
+
+
+
+            var config = {
+                params: {
+                    idOrder: $stateParams.id,
+                    page: 1,
+                    pageSize: 50,
+                }
+            };
+
+            $scope.getOrderDetailList = function () {
+                apiService.get("/api/orderDetail/getall", config, function (response) {
+
+                    if (response.data.TotalCount == 0) {
+                        notificationService.DisplayWarning("Không có dữ liệu !");
+                    }
+
+                    console.log(response.data);
+                    $scope.orderDetail.dataOrderDetail = response.data.Items;
+                 
+                }, function (error) {
+                    console.log(error);
+                });
+            }
+
 
             GetDetail();
 

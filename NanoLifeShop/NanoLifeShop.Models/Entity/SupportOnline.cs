@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NanoLifeShop.Models.Entity
@@ -18,7 +19,7 @@ namespace NanoLifeShop.Models.Entity
 
         public string Address { get; set; }
 
-        [MaxLength(50)]
+        [MaxLength(250)]
         public string Email { get; set; }
 
         [MaxLength(50)]
@@ -29,6 +30,12 @@ namespace NanoLifeShop.Models.Entity
 
         [MaxLength(50)]
         public string Mobile { get; set; }
+
+        [DefaultValue(0)]
+        public double? Lng { get; set; }
+
+        [DefaultValue(0)]
+        public double? Lat { get; set; }
 
         public int DisplayOder { get; set; }
 
