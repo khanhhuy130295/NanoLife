@@ -27,6 +27,8 @@ namespace NanoLifeShop.Web.Models
 
         public decimal Price { get; set; }
 
+        public decimal OriginalPrice { get; set; }
+
         public decimal? PromotionPrice { get; set; }
 
         public int? Warrnary { get; set; }

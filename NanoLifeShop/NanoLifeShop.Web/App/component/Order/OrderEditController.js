@@ -62,7 +62,17 @@
             }
 
 
+            function GetPaymentMethod() {
+                apiService.get('/api/paymentMethod/getparent', null, function (response) {
+                    $scope.paymentMethodList = response.data;
+                }, function () {
+                    notificationService.DisplayError("Không lấy được phương thức thanh toán !");
+                });
+            }
+
+
             GetDetail();
+            GetPaymentMethod();
 
         }
     }

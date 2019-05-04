@@ -51,6 +51,7 @@
     <Compile Include="Entity\Order.cs" />
     <Compile Include="Entity\OrderDetail.cs" />
     <Compile Include="Entity\Page.cs" />
+    <Compile Include="Entity\PaymentMethod.cs" />
     <Compile Include="Entity\Post.cs" />
     <Compile Include="Entity\PostCategory.cs" />
     <Compile Include="Entity\PostTag.cs" />

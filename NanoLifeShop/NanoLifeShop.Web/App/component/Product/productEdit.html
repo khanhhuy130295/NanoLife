@@ -38,25 +38,31 @@
                     </div>
                 </div>
 
-
-
                 <div class="form-group">
-                    <label for="parentDDL" class="col-sm-2 control-label">Danh mục tin tức</label>
+                    <label for="parentDDL" class="col-sm-2 control-label">Danh mục sản phẩm</label>
                     <div class="col-sm-10">
                         <select name="parentDDL" class="form-control select2 select2-hidden-accessible" ng-model="product.IDCategory" ng-options="option.ID as option.Name for option in parentCategories">
-                            <option value="">Loại tin tức</option>
+                            <option value="">Loại sản phẩm</option>
                         </select>
                         <input type="text" required name="CateChoice" class="hidden select2 select2-container select2-container--default select2-container--below select2-container--focus" ng-model="product.IDCategory" />
-                        <span ng-show="frmEditProduct.CateChoice.$error.required" class="has-error">Vui lòng chọn loại tin tức !</span>
+                        <span ng-show="frmEditProduct.CateChoice.$error.required" class="has-error">Vui lòng chọn loại sản phẩm !</span>
 
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="priceInput" class="col-sm-2 control-label">Giá</label>
+                    <label for="originalPriceInput" class="col-sm-2 control-label">Giá nhập</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" required name="originalPriceInput" ng-model="product.OriginalPrice">
+                        <span ng-show="frmAddProduct.originalPriceInput.$error.required" class="has-error">Vui lòng nhập Giá nhập kho!</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="priceInput" class="col-sm-2 control-label">Giá  bán</label>
                     <div class="col-sm-10">
                         <input type="number" class="form-control" required name="priceInput" ng-model="product.Price">
-                        <span ng-show="frmEditProduct.priceInput.$error.required" class="has-error">Vui lòng nhập Giá !</span>
+                        <span ng-show="frmEditProduct.priceInput.$error.required" class="has-error">Vui lòng nhập Giá bán!</span>
                     </div>
                 </div>
 

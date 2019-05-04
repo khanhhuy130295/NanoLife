@@ -19,7 +19,7 @@ namespace NanoLifeShop.Web.Models
 
         public string CustomerMessages { get; set; }
 
-        public string PaymentMethod { get; set; }
+        public string ID_PaymentMethod { get; set; }
 
         public string CreateBy { get; set; }
 
@@ -30,5 +30,7 @@ namespace NanoLifeShop.Web.Models
         public bool Status { get; set; }
 
         public virtual IEnumerable<OrderDetailViewModel> OrderDetailsVM { get; set; }
+
+        public virtual PaymentMethodViewModel PaymentMethodViewModel { get; set; }
     }
 }

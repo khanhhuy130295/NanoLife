@@ -41,7 +41,7 @@
 
 
                 <div class="form-group">
-                    <label for="parentDDL" class="col-sm-2 control-label">Danh mục tin tức</label>
+                    <label for="parentDDL" class="col-sm-2 control-label">Danh mục sản phẩm</label>
                     <div class="col-sm-10">
                         <select name="parentDDL" class="form-control select2 select2-hidden-accessible" ng-model="product.IDCategory" ng-options="option.ID as option.Name for option in parentCategories">
                             <option value="">Loại tin tức</option>
@@ -53,10 +53,18 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="priceInput" class="col-sm-2 control-label">Giá</label>
+                    <label for="originalPriceInput" class="col-sm-2 control-label">Giá nhập</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" required name="originalPriceInput" ng-model="product.OriginalPrice">
+                        <span ng-show="frmAddProduct.originalPriceInput.$error.required" class="has-error">Vui lòng nhập Giá nhập kho!</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="priceInput" class="col-sm-2 control-label">Giá bán</label>
                     <div class="col-sm-10">
                         <input type="number" class="form-control" required name="priceInput" ng-model="product.Price">
-                        <span ng-show="frmAddProduct.priceInput.$error.required" class="has-error">Vui lòng nhập Giá !</span>
+                        <span ng-show="frmAddProduct.priceInput.$error.required" class="has-error">Vui lòng nhập Giá bán!</span>
                     </div>
                 </div>
 
@@ -89,7 +97,7 @@
                     <label for="ImgListInput" class="col-sm-2 control-label">Danh sách hình ảnh</label>
                     <div class="col-sm-10">
                         <ul class="list-inline" name="ImgListInput">
-                            <li ng-repeat="img in moreImg track by $index" ><div><img height="100" ng-src="{{img}}">  <span class="badge bg-red" ng-click="RemoveIndexImg(img)">X</span></div> </li>
+                            <li ng-repeat="img in moreImg track by $index"><div><img height="100" ng-src="{{img}}">  <span class="badge bg-red" ng-click="RemoveIndexImg(img)">X</span></div> </li>
                         </ul>
 
                         <div class="input-group-btn">
@@ -140,7 +148,7 @@
                 <div class="form-group">
                     <label for="descriptionInput" class="col-sm-2 control-label">Chi tiết sản phẩm</label>
                     <div class="col-sm-10">
-                        <textarea  class="form-control" name="detailInput" ckeditor="ckeditorOptions"  ng-model="product.Detail" ></textarea>
+                        <textarea class="form-control" name="detailInput" ckeditor="ckeditorOptions" ng-model="product.Detail"></textarea>
                     </div>
                 </div>
 

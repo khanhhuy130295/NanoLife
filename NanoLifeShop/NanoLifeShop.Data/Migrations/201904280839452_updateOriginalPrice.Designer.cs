@@ -7,13 +7,13 @@ namespace NanoLifeShop.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class RevenuesStatistic : IMigrationMetadata
+    public sealed partial class updateOriginalPrice : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(RevenuesStatistic));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(updateOriginalPrice));
         
         string IMigrationMetadata.Id
         {
-            get { return "201904211338289_RevenuesStatistic"; }
+            get { return "201904280839452_updateOriginalPrice"; }
         }
         
         string IMigrationMetadata.Source

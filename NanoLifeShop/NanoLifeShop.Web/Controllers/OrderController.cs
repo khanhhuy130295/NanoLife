@@ -39,13 +39,13 @@ namespace NanoLifeShop.Web.Controllers
             {
                 CreateDate = DateTime.Today,
                 CreateBy = "Client",
-                CustomerAddress = "",
+                CustomerAddress = "Chưa xác định (Cập nhật sau !)",
                 CustomerEmail = Email,
                 CustomerMessages = "",
                 CustomerName = Name,
                 CustomerPhone = Phone,
                 Status = true,
-                PaymentMethod = "Đặt hàng Online",
+                ID_PaymentMethod = "COD",
                 PaymentStatus = "Chưa xác nhận"
             };
 

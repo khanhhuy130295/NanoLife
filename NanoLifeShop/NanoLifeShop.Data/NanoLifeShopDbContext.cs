@@ -36,6 +36,7 @@ namespace NanoLifeShop.Data
         public DbSet<SystemConfig> SystemConfigs { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<VisitorStatistic> VisitorStatistics { get; set; }
+        public DbSet<PaymentMethod> PaymentMethods { get; set; }
 
         public static NanoLifeShopDBContext Create()
         {

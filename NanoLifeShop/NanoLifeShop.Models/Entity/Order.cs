@@ -33,8 +33,8 @@ namespace NanoLifeShop.Models.Entity
         [MaxLength(500)]
         public string CustomerMessages { get; set; }
 
-        [MaxLength(256)]
-        public string PaymentMethod { get; set; }
+        [Column(TypeName = "varchar")]
+        public string ID_PaymentMethod { get; set; }
 
         public string CreateBy { get; set; }
 
@@ -45,5 +45,8 @@ namespace NanoLifeShop.Models.Entity
         public bool Status { get; set; }
 
         public virtual IEnumerable<OrderDetail> OrderDetails { get; set; }
+
+        [ForeignKey("ID_PaymentMethod")]
+        public virtual PaymentMethod PaymentMethod { get; set; }
     }
 }

@@ -207,6 +207,7 @@
     <Compile Include="Api\MenuGroupController.cs" />
     <Compile Include="Api\OrderController.cs" />
     <Compile Include="Api\OrderDetailController.cs" />
+    <Compile Include="Api\PaymentMethodController.cs" />
     <Compile Include="Api\PostCategoryController.cs" />
     <Compile Include="Api\PostController.cs" />
     <Compile Include="Api\ProductCategoryController.cs" />
@@ -237,6 +238,7 @@
     <Compile Include="Models\MenuViewModel.cs" />
     <Compile Include="Models\OrderDetailViewModel.cs" />
     <Compile Include="Models\OrderViewModel.cs" />
+    <Compile Include="Models\PaymentMethodViewModel.cs" />
     <Compile Include="Models\PostCategoryViewModel.cs" />
     <Compile Include="Models\PostTagViewModel.cs" />
     <Compile Include="Models\PostViewModel.cs" />

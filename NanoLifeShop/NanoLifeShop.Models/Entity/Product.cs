@@ -36,8 +36,9 @@ namespace NanoLifeShop.Models.Entity
 
         public string MoreImage { get; set; }
 
-
         public decimal Price { get; set; }
+
+        public decimal OriginalPrice { get; set; }
 
         public decimal? PromotionPrice { get; set; }
 

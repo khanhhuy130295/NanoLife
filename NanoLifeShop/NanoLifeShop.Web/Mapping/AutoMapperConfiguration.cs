@@ -29,6 +29,7 @@ namespace NanoLifeShop.Web.Mapping
                 cfg.CreateMap<Order, OrderViewModel>();
                 cfg.CreateMap<OrderDetail, OrderDetailViewModel>();
                 cfg.CreateMap<Slide, SlideViewModel>();
+                cfg.CreateMap<PaymentMethod, PaymentMethodViewModel>();
             });
         }
     }

@@ -64,17 +64,22 @@
                 <div class="form-group">
                     <label for="customerMessagesInput" class="col-sm-2 control-label">Ghi chú</label>
                     <div class="col-sm-10">
-                        <textarea class="form-control" ng-maxlength="500" required name="customerMessagesInput" ng-model="order.CustomerMessages"></textarea>
+                        <textarea class="form-control" ng-maxlength="500" name="customerMessagesInput" ng-model="order.CustomerMessages"></textarea>
                         <span ng-show="frmEditOrder.customerMessagesInput.$error.maxlength" class="has-error">Ghi chú không lớn hơn 500 ký tự!</span>
 
                     </div>
                 </div>
 
+
                 <div class="form-group">
-                    <label for="paymentMethodInput" class="col-sm-2 control-label">Phương thức thanh toán</label>
+                    <label for="parentDDL" class="col-sm-2 control-label">Phương thức thanh toán</label>
                     <div class="col-sm-10">
-                        <input class="form-control" ng-maxlength="256" name="paymentMethodInput" ng-model="order.PaymentMethod" />
-                        <span ng-show="frmEditOrder.paymentMethodInput.$error.maxlength" class="has-error">Phương thức không lớn hơn 256 ký tự!</span>
+                        <select name="parentDDL" class="form-control select2 select2-hidden-accessible" ng-model="order.ID_PaymentMethod" ng-options="option.ID_PaymentMethod as option.DisplayName for option in paymentMethodList">
+                            <option value="">Loại hình thanh toán</option>
+                        </select>
+                        <input type="text" required name="methodChoice" class="hidden select2 select2-container select2-container--default select2-container--below select2-container--focus" ng-model="order.ID_PaymentMethod" />
+                        <span ng-show="frmEditOrder.methodChoice.$error.required" class="has-error">Vui lòng chọn hình thức thanh toán !</span>
+
                     </div>
                 </div>
 

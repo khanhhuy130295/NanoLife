@@ -66,19 +66,31 @@
 
             }
 
-            if(context.SupportOnlines.Count() == 0)
+            if (context.SupportOnlines.Count() == 0)
             {
                 SupportOnline support = new SupportOnline()
                 {
                     Address = "118/127C/3 Phan Huy Ích, P.15, Tân Bình, HCM.",
                     Mobile = "(028) 6684 0202",
                     Email = "support@gmail.com",
-                    Facebook= "https://www.facebook.com/khanhhuy1302",
+                    Facebook = "https://www.facebook.com/khanhhuy1302",
                     Department = "Kinh doanh",
                     Name = "CÔNG TY TNHH NGHIÊN CỨU SX & TM NANO LIFE"
                 };
 
                 context.SupportOnlines.Add(support);
+                context.SaveChanges();
+            }
+
+
+            if (context.PaymentMethods.Count() == 0)
+            {
+                List<PaymentMethod> listPayMentMethod = new List<PaymentMethod>()
+                {
+                    new PaymentMethod(){ID_PaymentMethod = "COD",DisplayName="Đặt hàng Online"},
+                    new PaymentMethod(){ID_PaymentMethod = "bank",DisplayName="Ngân Hàng"}
+                };
+                context.PaymentMethods.AddRange(listPayMentMethod);
                 context.SaveChanges();
             }
         }

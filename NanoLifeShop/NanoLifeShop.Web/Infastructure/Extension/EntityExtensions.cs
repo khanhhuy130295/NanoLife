@@ -90,6 +90,7 @@ namespace NanoLifeShop.Web.Infastructure.Extension
             product.MoreImage = productVM.MoreImage;
             product.IncludeTaxes = productVM.IncludeTaxes;
             product.Price = productVM.Price;
+            product.OriginalPrice = productVM.OriginalPrice;        
             product.PromotionPrice = productVM.PromotionPrice;
             product.Description = productVM.Description;
             product.Warrnary = productVM.Warrnary;
@@ -154,7 +155,7 @@ namespace NanoLifeShop.Web.Infastructure.Extension
 
         #endregion SupportOnline
 
-        #region Order and OrderDetail
+        #region Order and OrderDetail and PaymentMethod
 
         public static void UpdateOrder(this Order order, OrderViewModel orderVM)
         {
@@ -166,7 +167,7 @@ namespace NanoLifeShop.Web.Infastructure.Extension
             order.CustomerMessages = orderVM.CustomerMessages;
             order.CustomerName = orderVM.CustomerName;
             order.CustomerPhone = orderVM.CustomerPhone;
-            order.PaymentMethod = orderVM.PaymentMethod;
+            order.ID_PaymentMethod = orderVM.ID_PaymentMethod;
             order.PaymentStatus = orderVM.PaymentStatus;
             order.Status = orderVM.Status;
         }
@@ -178,6 +179,13 @@ namespace NanoLifeShop.Web.Infastructure.Extension
             orderDetail.Price = orderDetailViewModel.ID_Product;
             orderDetail.Quantity = orderDetailViewModel.Quantity;
             orderDetail.TotalPrice = orderDetailViewModel.TotalPrice;
+        }
+
+        public static void UpdatePaymentMethod(this PaymentMethod paymentMethod, PaymentMethodViewModel paymentMethodVM)
+        {
+            paymentMethod.ID_PaymentMethod = paymentMethodVM.ID_PaymentMethod;
+            paymentMethod.DisplayName = paymentMethodVM.DisplayName;
+            paymentMethod.Status = paymentMethodVM.Status;     
         }
 
         #endregion Order and OrderDetail
@@ -198,7 +206,6 @@ namespace NanoLifeShop.Web.Infastructure.Extension
         #endregion FeedBack
 
         #region Slide
-
         public static void UpdateSlide(this Slide slide, SlideViewModel slideVM)
         {
             slide.ID = slideVM.ID;

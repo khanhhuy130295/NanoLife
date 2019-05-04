@@ -7,8 +7,10 @@ namespace NanoLifeShop.Web.Models
 {
     public class PaymentMethodViewModel
     {
-        public string PayMentMethodViewModel;
+        public string ID_PaymentMethod;
 
         public string DisplayName;
+
+        public bool Status;
     }
 }
