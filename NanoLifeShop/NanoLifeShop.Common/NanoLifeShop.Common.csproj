@@ -45,6 +45,7 @@
     <Compile Include="ConfigHelper.cs" />
     <Compile Include="ConstTag.cs" />
     <Compile Include="MailHelper.cs" />
+    <Compile Include="Models\Revenues.cs" />
     <Compile Include="StringHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

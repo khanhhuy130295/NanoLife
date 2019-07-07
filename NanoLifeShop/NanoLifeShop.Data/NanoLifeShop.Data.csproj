@@ -129,6 +129,14 @@
     <Compile Include="Migrations\201904300730136_updatePaymentMethod.Designer.cs">
       <DependentUpon>201904300730136_updatePaymentMethod.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906300529274_updateOD.cs" />
+    <Compile Include="Migrations\201906300529274_updateOD.Designer.cs">
+      <DependentUpon>201906300529274_updateOD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906301242011_CreateRevenues.cs" />
+    <Compile Include="Migrations\201906301242011_CreateRevenues.Designer.cs">
+      <DependentUpon>201906301242011_CreateRevenues.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NanoLifeShopDBContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -147,6 +155,7 @@
     <Compile Include="Repositories\ProductCategoryRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
     <Compile Include="Repositories\ProductTagRepository.cs" />
+    <Compile Include="Repositories\RevenuesRepository.cs" />
     <Compile Include="Repositories\SlideRepository.cs" />
     <Compile Include="Repositories\SupportOnlineRepository.cs" />
     <Compile Include="Repositories\SystemConfigRepository.cs" />
@@ -159,6 +168,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NanoLifeShop.Common\NanoLifeShop.Common.csproj">
+      <Project>{a996775b-857f-4206-a391-d8e5bc0488f4}</Project>
+      <Name>NanoLifeShop.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NanoLifeShop.Models\NanoLifeShop.Models.csproj">
       <Project>{f42d7bfd-adc4-43ba-808e-2da6476e147d}</Project>
       <Name>NanoLifeShop.Models</Name>
@@ -215,6 +228,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904300730136_updatePaymentMethod.resx">
       <DependentUpon>201904300730136_updatePaymentMethod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906300529274_updateOD.resx">
+      <DependentUpon>201906300529274_updateOD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906301242011_CreateRevenues.resx">
+      <DependentUpon>201906301242011_CreateRevenues.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

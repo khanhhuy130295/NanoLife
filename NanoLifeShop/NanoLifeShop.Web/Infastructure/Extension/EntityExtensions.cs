@@ -179,6 +179,7 @@ namespace NanoLifeShop.Web.Infastructure.Extension
             orderDetail.Price = orderDetailViewModel.ID_Product;
             orderDetail.Quantity = orderDetailViewModel.Quantity;
             orderDetail.TotalPrice = orderDetailViewModel.TotalPrice;
+            orderDetail.OriginalPrice = orderDetailViewModel.OriginalPrice;
         }
 
         public static void UpdatePaymentMethod(this PaymentMethod paymentMethod, PaymentMethodViewModel paymentMethodVM)

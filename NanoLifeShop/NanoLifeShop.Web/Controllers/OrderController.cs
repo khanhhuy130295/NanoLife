@@ -63,6 +63,7 @@ namespace NanoLifeShop.Web.Controllers
                     Quantity = quantityConvertInt,
                     Price = ProductDB.Price,
                     TotalPrice = quantityConvertInt * ProductDB.Price,
+                    OriginalPrice = ProductDB.OriginalPrice
                 };
 
                 var ItemNew = _orderDetailService.Add(orderDetail);

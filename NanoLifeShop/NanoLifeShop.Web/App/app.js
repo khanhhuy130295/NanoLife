@@ -12,6 +12,7 @@
             'NanoLife.Order',
             'NanoLife.Slide',
             'NanoLife.FeedBack',
+            "NanoLife.Statistic",
             'NanoLife.common']
     ).config(configRouter).config(configAuthentication);
 

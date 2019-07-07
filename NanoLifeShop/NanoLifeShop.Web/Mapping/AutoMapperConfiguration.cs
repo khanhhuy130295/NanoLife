@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using AutoMapper.EntityFramework;
 using AutoMapper.EquivalencyExpression;
+using NanoLifeShop.Common.Models;
 using NanoLifeShop.Data;
 using NanoLifeShop.Models.Entity;
 using NanoLifeShop.Web.Models;
@@ -30,6 +31,7 @@ namespace NanoLifeShop.Web.Mapping
                 cfg.CreateMap<OrderDetail, OrderDetailViewModel>();
                 cfg.CreateMap<Slide, SlideViewModel>();
                 cfg.CreateMap<PaymentMethod, PaymentMethodViewModel>();
+                cfg.CreateMap<Revenues, RevenuesViewModel>().ReverseMap();
             });
         }
     }

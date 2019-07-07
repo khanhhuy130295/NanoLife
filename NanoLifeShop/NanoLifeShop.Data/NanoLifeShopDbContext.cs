@@ -15,6 +15,7 @@ namespace NanoLifeShop.Data
         {
             //Dont load child table 
             this.Configuration.LazyLoadingEnabled = false;
+             this.Configuration.ProxyCreationEnabled = false;
         }
 
         public DbSet<FeedBack> FeedBacks { get; set; }
@@ -48,6 +49,8 @@ namespace NanoLifeShop.Data
 
             builder.Entity<IdentityUserRole>().HasKey(x => new { x.RoleId, x.UserId });
             builder.Entity<IdentityUserLogin>().HasKey(x => x.UserId);
+
+         
         }
     }
 }

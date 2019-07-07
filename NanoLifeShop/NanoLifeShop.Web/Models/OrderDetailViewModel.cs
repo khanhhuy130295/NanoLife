@@ -5,6 +5,7 @@
         public int ID_Order { get; set; }
         public int ID_Product { get; set; }
         public decimal Price { get; set; }
+        public decimal OriginalPrice { get; set; }
         public int Quantity { get; set; }
         public decimal TotalPrice { get; set; }
         public virtual ProductViewModel ProductVM { get; set; }
